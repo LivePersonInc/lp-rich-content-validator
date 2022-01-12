@@ -1,6 +1,6 @@
 {
   "name": "@liveperson/rich-content-validator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A json-schema based validator for LivePerson rich content.",
   "files": [
     "/dist"
