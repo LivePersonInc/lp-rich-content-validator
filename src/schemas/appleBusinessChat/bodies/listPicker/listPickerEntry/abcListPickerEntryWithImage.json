@@ -1,0 +1,14 @@
+{
+  "title": "abcListPickerEntryWithImage",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "minItems": 2,
+  "type": "array",
+  "items": [
+    {
+      "$ref": "abcImage.json"
+    }
+  ],
+  "additionalItems": {
+    "$ref": "abcListPickerEntryDefinition.json"
+  }
+}

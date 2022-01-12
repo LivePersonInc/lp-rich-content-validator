@@ -1,0 +1,40 @@
+{
+    "title": "whatsappCard",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["type", "elements", "tag"],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["vertical"],
+        "default": "vertical",
+        "readonly": true
+      },
+      "alt": {
+        "minLength": 1,
+        "maxLength": 2000,
+        "type": "string"
+      },
+      "tag": {
+        "type": "string",
+        "enum": ["generic"],
+        "default": "generic",
+        "readonly": true
+      },
+      "elements": {
+        "anyOf": [
+          { "$ref": "whatsappCardElementOrder1.json" },
+          { "$ref": "whatsappCardElementOrder2.json" },
+          { "$ref": "whatsappCardElementOrder3.json" },
+          { "$ref": "whatsappCardElementOrder4.json" },
+          { "$ref": "whatsappCardElementOrder5.json" },
+          { "$ref": "whatsappCardElementOrder6.json" },
+          { "$ref": "whatsappCardElementOrder7.json" },
+          { "$ref": "whatsappCardElementOrder8.json" },
+          { "$ref": "whatsappCardElementOrder9.json" }
+        ]
+      }
+    }
+  }
+  

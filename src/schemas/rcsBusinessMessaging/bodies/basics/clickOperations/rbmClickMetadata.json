@@ -1,0 +1,7 @@
+{
+  "title": "rbmClickMetadata",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "maxItems": 32,
+  "items": {}
+}

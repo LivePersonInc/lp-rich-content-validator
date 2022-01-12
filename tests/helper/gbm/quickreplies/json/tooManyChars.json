@@ -1,0 +1,12 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "no way",
+      "title": "asdafjsdfksafjsdfhsjdfsah1",
+      "click": { "actions": [{ "type": "publishText", "text": "nope" }] }
+    }
+  ]
+}

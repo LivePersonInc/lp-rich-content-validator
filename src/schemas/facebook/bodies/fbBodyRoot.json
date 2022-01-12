@@ -1,0 +1,15 @@
+{
+  "title": "fbBodyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "fbCardGenericStandalone.json"
+    },
+    {
+      "$ref": "fbCardButton.json"
+    },
+    {
+      "$ref": "fbCarousel.json"
+    }
+  ]
+}

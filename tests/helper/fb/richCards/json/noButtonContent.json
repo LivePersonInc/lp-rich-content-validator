@@ -1,0 +1,17 @@
+{
+  "type": "vertical",
+  "elements": [
+    {
+      "type": "vertical",
+      "elements": [
+        {
+          "type": "text",
+          "tooltip": "Button example",
+          "tag": "title",
+          "text": "Button example"
+        }
+      ]
+    }
+  ],
+  "tag": "button"
+}

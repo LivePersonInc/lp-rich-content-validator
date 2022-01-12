@@ -1,0 +1,73 @@
+# Additional information can be found in the internal documentation (see README.md)
+name: Publish release
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      versionBump:
+        type: choice
+        description: Choose Version Bump     
+        required: true
+        options:
+          - patch
+          - minor
+          - major
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    name: Lint and Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: ['10', '16']
+        os: [macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: npm install, lint and test
+      run: |
+        npm install
+        npm test
+
+  buildAndRelease:
+    needs: test
+    name: Build and release ${{ github.event.inputs.versionBump }} version
+    runs-on: macos-latest
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: use Node.js 16
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+
+    - name: npm install and build
+      run: |
+        npm install
+        npm run-script build
+
+    - name: ${{ github.event.inputs.versionBump }} version bump
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git stash
+        npm version ${{ github.event.inputs.versionBump }}
+
+    - name: push bump commit
+      run: git push --tags && git push
+
+    - name: publish to npm
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm publish

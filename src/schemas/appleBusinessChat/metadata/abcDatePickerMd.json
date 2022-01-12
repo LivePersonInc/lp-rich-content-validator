@@ -1,0 +1,63 @@
+{
+  "title": "abcDatePicker",
+  "description": "Event that happen sometime, somewhere and has business meaning, like appoitment, meeting etc...",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["BusinessEvent"],
+      "default": "BusinessEvent",
+      "type": "string"
+    },
+    "title": {
+      "description": "event's title",
+      "type": "string",
+      "maxLength": 256
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "startTime": {
+          "description": "UTC date string. ISO-8601 GTM+0000 date, for example: 2018-02-19T08:27:55Z",
+          "type": "string",
+          "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$"
+        },
+        "presentedTimezoneOffset": {
+          "type": "integer",
+          "description": "Minutes from GMT. Present the time in this timezone instead of customer defaults."
+        },
+        "duration": {
+          "type": "integer",
+          "description": "in seconds from startTime",
+          "minimum": 0
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "location's title",
+          "type": "string",
+          "maxLength": 256
+        },
+        "lo": {
+          "type": "number",
+          "description": "longitude"
+        },
+        "la": {
+          "type": "number",
+          "description": "latitude"
+        },
+        "radius": {
+          "type": "number",
+          "description": "in meters from center",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "required": ["type"]
+}

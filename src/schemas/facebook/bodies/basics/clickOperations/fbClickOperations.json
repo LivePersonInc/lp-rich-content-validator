@@ -1,0 +1,26 @@
+{
+  "title": "fbClickOperations",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "fbClickMetadata.json" },
+    "actions": {
+      "maxItems": 4,
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "fbClickActionPublishText.json"
+          },
+          {
+            "$ref": "fbClickActionLink.json"
+          },
+          {
+            "$ref": "fbClickActionNavigate.json"
+          }
+        ]
+      }
+    }
+  }
+}

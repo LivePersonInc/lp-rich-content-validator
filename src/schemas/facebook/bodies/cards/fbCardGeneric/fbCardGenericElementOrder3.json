@@ -1,0 +1,13 @@
+{
+  "title": "fbCardGenericElementOrder3",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "minItems": 2,
+  "maxItems": 4,
+  "type": "array",
+  "items": [
+    {
+      "$ref": "fbTextGenericCard.json"
+    }
+  ],
+  "additionalItems": { "$ref": "fbButton.json" }
+}

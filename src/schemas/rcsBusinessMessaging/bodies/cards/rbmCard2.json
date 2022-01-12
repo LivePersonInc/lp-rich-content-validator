@@ -1,0 +1,43 @@
+{
+  "title": "rbmCard2",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "elements", "tag"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "alt": {
+      "type": "string",
+      "description": "This property has no effect in RBM, but is included in the schema to ensure the compatibility of Line Cards."
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["generic"],
+      "default": "generic",
+      "readonly": true
+    },
+    "elements": {
+      "oneOf": [
+        {
+          "$ref": "rbmCardElementOrder1.json"
+        },
+        {
+          "$ref": "rbmCardElementOrder2.json"
+        },
+        {
+          "$ref": "rbmCardElementOrder3.json"
+        },
+        {
+          "$ref": "rbmCardElementOrder4.json"
+        },
+        {
+          "$ref": "rbmCardElementOrder5.json"
+        }
+      ]
+    }
+  }
+}

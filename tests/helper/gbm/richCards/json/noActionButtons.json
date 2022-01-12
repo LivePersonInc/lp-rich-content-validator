@@ -1,0 +1,37 @@
+{
+  "type": "vertical",
+  "tag": "generic",
+  "elements": [
+    {
+      "type": "image",
+      "url": "https://www.google.com/images/errors/robot.png"
+    },
+    {
+      "type": "text",
+      "tag": "title",
+      "text": "IPhone 8",
+      "tooltip": "brand new iphone 8"
+    },
+    {
+      "type": "text",
+      "text": "$155.99",
+      "tooltip": "155.99"
+    },
+    {
+      "type": "button",
+      "title": "btn1"
+    },
+    {
+      "type": "button",
+      "title": "btn2"
+    },
+    {
+      "type": "button",
+      "title": "btn3"
+    },
+    {
+      "type": "button",
+      "title": "btn4"
+    }
+  ]
+}

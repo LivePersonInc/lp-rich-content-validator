@@ -1,0 +1,16 @@
+{
+  "title": "fbCardButtonElementOrder1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "minItems": 2,
+  "maxItems": 4,
+  "type": "array",
+  "items": [
+    {
+      "$ref": "fbTextButtonCard.json"
+    },
+    {
+      "$ref": "fbButton.json"
+    }
+  ],
+  "additionalItems": { "$ref": "fbButton.json" }
+}

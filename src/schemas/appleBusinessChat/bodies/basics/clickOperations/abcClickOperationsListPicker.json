@@ -1,0 +1,23 @@
+{
+  "title": "abcClickOperationsListPicker",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "abcClickMetadata.json" },
+    "actions": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "abcClickActionLink.json"
+          },
+          {
+            "$ref": "abcClickActionPublishText.json"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "type": "vertical",
+    "tag": "generic",
+    "elements": [
+      {
+        "type": "image",
+        "url": "https://www.google.com/images/errors/robot.png"
+      }
+    ]
+  }
+  

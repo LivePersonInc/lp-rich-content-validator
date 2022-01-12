@@ -1,0 +1,13 @@
+{
+    "type": "vertical",
+    "tag": "generic",
+    "elements": [
+      {
+        "type": "text",
+        "tag": "title",
+        "text": "IPhone 8",
+        "tooltip": "brand new iphone 8"
+      }
+    ]
+  }
+  

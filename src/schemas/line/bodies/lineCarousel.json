@@ -1,0 +1,43 @@
+{
+  "title": "lineCarousel",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["carousel"],
+      "default": "carousel",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["generic"],
+      "default": "generic",
+      "readonly": true
+    },
+    "padding": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "elements": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 10,
+      "items": {
+        "$ref": "lineCardInCarousel.json"
+      }
+    },
+    "alt": {
+      "minLength": 1,
+      "maxLength": 1500,
+      "type": "string"
+    },
+    "display": {
+      "$ref": "lineDisplaySettings.json"
+    }
+  },
+  "required": ["type", "alt", "elements"]
+}

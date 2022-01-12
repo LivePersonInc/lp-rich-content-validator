@@ -1,0 +1,58 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "Not likely at all",
+      "title": "Not likely at all",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "Not likely",
+      "title": "Not likely",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "nope"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "likely",
+      "title": "likely",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "nope"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "Very likely",
+      "title": "Very likely",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "nope"
+          }
+        ]
+      }
+    }
+  ]
+}

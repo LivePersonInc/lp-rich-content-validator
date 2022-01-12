@@ -1,0 +1,26 @@
+{
+  "title": "abcClickMetadataBusinessEvent",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "timing"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["BusinessEvent"],
+      "default": "BusinessEvent",
+      "readonly": true
+    },
+    "timing": {
+      "type": "object",
+      "required": ["duration", "startTime"],
+      "properties": {
+        "duration": {
+          "type": "number"
+        },
+        "startTime": {
+          "$ref": "abcFuturePatternIso8601.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "abcClickActionPublishText",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "text"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["publishText"],
+      "default": "publishText",
+      "readonly": true
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 256
+    }
+  }
+}

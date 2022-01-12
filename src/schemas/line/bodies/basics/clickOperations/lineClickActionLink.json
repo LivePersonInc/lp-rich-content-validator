@@ -1,0 +1,28 @@
+{
+  "title": "lineClickActionLink",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "uri"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["link"],
+      "default": "link",
+      "readonly": true
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "maxLength": 1024
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "target": {
+      "type": "string",
+      "enum": ["self", "blank", "slideout"],
+      "default": "self"
+    }
+  }
+}

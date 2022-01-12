@@ -1,0 +1,23 @@
+{
+  "title": "lineClickOperations",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "lineClickMetadata.json" },
+    "actions": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "lineClickActionPublishText.json"
+          },
+          {
+            "$ref": "lineClickActionLink.json"
+          }
+        ]
+      }
+    }
+  }
+}

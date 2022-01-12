@@ -1,0 +1,88 @@
+{
+  "title": "abcCustomMessageMd",
+  "description": "Apple Business Chat Custom Interactive Message",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["BusinessChatCustomMessage"],
+      "default": "BusinessChatCustomMessage",
+      "type": "string"
+    },
+    "appId": {
+      "type": "number"
+    },
+    "appName": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "appIcon": {
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "bid": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "URL": {
+      "maxLength": 4096,
+      "type": "string"
+    },
+    "sessionIdentifier": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "useLiveLayout": {
+      "type": "boolean"
+    },
+    "receivedMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageURL": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "style": {
+          "enum": ["icon", "small", "large"],
+          "default": "icon",
+          "type": "string"
+        },
+        "subtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageTitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageSubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "secondarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "tertiarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "required": ["title"]
+    },
+    "attachments": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "maxLength": 2048
+      }
+    }
+  },
+  "required": ["type", "bid", "receivedMessage", "URL"]
+}

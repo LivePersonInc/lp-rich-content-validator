@@ -1,0 +1,24 @@
+{
+  "title": "fbQuickReplyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": ["type", "replies", "itemsPerRow"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["quickReplies"],
+      "default": "quickReplies",
+      "readonly": true
+    },
+    "itemsPerRow": {
+      "type": "integer",
+      "min": 1,
+      "max": 8
+    },
+    "replies": {
+      "minItems": 1,
+      "maxItems": 13,
+      "items": { "$ref": "fbQuickReplyButton.json" }
+    }
+  },
+  "additionalProperties": false
+}

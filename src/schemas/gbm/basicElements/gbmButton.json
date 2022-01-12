@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "gbmButton",
+  "required": ["type", "title", "click"],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["button"],
+      "default": "button",
+      "readonly": true
+    },
+    "tooltip": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 25
+    },
+    "click": { "$ref": "gbmClickActions.json" },
+    "style": {}
+  }
+}

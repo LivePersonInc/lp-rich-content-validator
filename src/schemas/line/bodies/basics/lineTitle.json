@@ -1,0 +1,28 @@
+{
+  "title": "lineTitle",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "tag", "text"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["text"],
+      "default": "text",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["title"],
+      "default": "title",
+      "readonly": true
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "tooltip": {
+      "type": "string",
+      "maxLength": 256
+    }
+  }
+}

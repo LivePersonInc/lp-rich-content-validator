@@ -1,0 +1,38 @@
+{
+  "title": "gbmCarousel",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["carousel"],
+      "default": "carousel",
+      "readonly": true
+    },
+    "alt": {
+      "minLength": 1,
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "elements": {
+      "oneOf": [{
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 10,
+        "items": { "$ref": "gbmCarouselCardRegular.json" }
+      },{
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 13,
+        "items": { "$ref": "gbmCarouselCardCompact.json" }
+      },{
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 13,
+        "items": { "$ref": "gbmCarouselCardTall.json" }
+      }]
+    }
+  }
+}

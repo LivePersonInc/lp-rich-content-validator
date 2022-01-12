@@ -1,0 +1,9 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    { "type": "button", "tooltip": "go to google", "title": "Google", "click": { "actions": [{ "type": "link", "uri": "https://www.google.com/" }] } },
+    { "type": "button", "tooltip": "publish", "title": "text", "click": { "actions": [{ "type": "publishText", "text": "done" }] } },
+    { "type": "button", "tooltip": "navigate to LivePerson", "title": "LivePerson", "click": { "actions": [{ "type": "navigate", "la": 32.123, "lo": 34.567 }] } }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes  ",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    }
+  ]
+}

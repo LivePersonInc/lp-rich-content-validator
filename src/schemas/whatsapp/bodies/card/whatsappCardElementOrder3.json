@@ -1,0 +1,17 @@
+{
+    "title": "whatsappCardElementOrder3Action",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "minItems": 2,
+    "maxItems": 6,
+    "items": [
+      {
+        "$ref": "whatsappImage.json"
+      },
+      {
+        "$ref": "whatsappTitle.json"
+      }
+    ],
+    "additionalItems": { "$ref": "whatsappButton.json" }
+  }
+  

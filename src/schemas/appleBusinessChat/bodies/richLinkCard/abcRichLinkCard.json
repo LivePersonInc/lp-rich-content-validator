@@ -1,0 +1,30 @@
+{
+  "title": "abcRichLinkCard",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "required": ["type", "tag", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["richLink"],
+      "default": "richLink",
+      "readonly": true
+    },
+    "elements": {
+      "oneOf": [
+        {
+          "$ref": "abcRichLinkCardElementOrder1.json"
+        },
+        {
+          "$ref": "abcRichLinkCardElementOrder2.json"
+        }
+      ]
+    }
+  }
+}

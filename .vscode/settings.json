@@ -1,0 +1,93 @@
+{
+    /* LP-DEV_CONTAINER-HINT: settings you define here will overwrite the settings from .devcontainer/devcontainer.json */
+    // Jest config
+    "jest.autoRun": {
+        "watch": false,
+        "onSave": "test-file",
+        "onStartup": [
+            "all-tests"
+        ]
+    },
+    // Linting config
+    "[javascript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+    },
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+    },
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        }
+    },
+    "markdownlint.config": {
+        "MD026": false,
+        "MD028": false,
+        "MD033": false
+    },
+    "[json]": {
+        "editor.formatOnSave": true
+    },
+    // Spell Checker config
+    "cSpell.words": [
+        "devcontainer",
+        "liveperson",
+        "quickreplies"
+    ],
+    // Todo-Tree Extension config
+    "todo-tree.filtering.includeHiddenFiles": true,
+    "todo-tree.tree.autoRefresh": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "LP-DEV_CONTAINER-HINT",
+        "Linting config",
+        "Todo-Tree Extension config",
+        "Spell Checker config",
+        "Jest config",
+    ],
+    "todo-tree.general.statusBar": "current file",
+    "todo-tree.highlights.customHighlight": {
+        "LP-DEV_CONTAINER-HINT": {
+            "foreground": "white",
+            "background": "#F46D25",
+            "hideFromTree": true,
+            "hideFromStatusBar": true,
+            "rulerLane": "none"
+        },
+        "Linting config": {
+            "foreground": "black",
+            "background": "#E7A8B8",
+            "hideFromTree": true,
+            "hideFromStatusBar": true,
+            "rulerLane": "none"
+        },
+        "Todo-Tree Extension config": {
+            "foreground": "black",
+            "background": "#E7A8B8",
+            "hideFromTree": true,
+            "hideFromStatusBar": true,
+            "rulerLane": "none"
+        },
+        "Spell Checker config": {
+            "foreground": "black",
+            "background": "#E7A8B8",
+            "hideFromTree": true,
+            "hideFromStatusBar": true,
+            "rulerLane": "none"
+        },
+        "Jest config": {
+            "foreground": "black",
+            "background": "#E7A8B8",
+            "hideFromTree": true,
+            "hideFromStatusBar": true,
+            "rulerLane": "none"
+        },
+    },
+}

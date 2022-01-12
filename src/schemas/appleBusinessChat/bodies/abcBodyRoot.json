@@ -1,0 +1,30 @@
+{
+  "title": "abcBodyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Schema checks if the JSON is a 'richLink', 'list' or 'datePicker'. If yes the according ABC-schemas will be used for validation. If not the validation will be based on the web-schemas.",
+  "if": {
+    "required": ["tag"],
+    "properties": {
+      "tag": {
+        "enum": ["richLink", "list", "datePicker"]
+      }
+    }
+  },
+  "then": {
+    "oneOf": [
+      {
+        "$ref": "abcRichLinkCard.json"
+      },
+      {
+        "$ref": "abcListPicker.json"
+      },
+      {
+        "$ref": "abcDatePicker.json"
+      }
+    ]
+  },
+  "else": {
+    "description": "Reference to the root web-schema.",
+    "$ref": "abcWebPlaceholder.json"
+  }
+}

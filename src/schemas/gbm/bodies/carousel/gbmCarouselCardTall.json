@@ -1,0 +1,40 @@
+{
+  "title": "gbmStandaloneCard",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "elements", "tag", "display"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "alt": {
+      "minLength": 1,
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["generic"],
+      "default": "generic",
+      "readonly": true
+    },
+    "display": {
+      "$$ref": "gbmDisplaySettingsTall.json"
+    },
+    "elements": {
+      "anyOf": [
+        { "$ref": "gbmCardElementOrder1.json" },
+        { "$ref": "gbmCardElementOrder2.json" },
+        { "$ref": "gbmCardElementOrder3.json" },
+        { "$ref": "gbmCardElementOrder4.json" },
+        { "$ref": "gbmCardElementOrder5.json" },
+        { "$ref": "gbmCardElementOrder6.json" },
+        { "$ref": "gbmCardElementOrder7.json" }
+      ]
+    }
+  }
+}

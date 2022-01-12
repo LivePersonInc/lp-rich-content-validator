@@ -1,0 +1,41 @@
+{
+  "title": "fbCarousel",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["carousel"],
+      "default": "carousel",
+      "readonly": true
+    },
+    "padding": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "alt": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "This property has no effect in Facebook, but is included in the schema to ensure the compatibility of Line Carousels."
+    },
+    "elements": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 10,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "fbCardGenericCarousel.json"
+          },
+          {
+            "$ref": "fbCardButton.json"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["type", "elements"]
+}

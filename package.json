@@ -1,0 +1,54 @@
+{
+  "name": "@liveperson/rich-content-validator",
+  "version": "0.0.0",
+  "description": "A json-schema based validator for LivePerson rich content.",
+  "files": [
+    "/dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "export::ABC": "tsc && node ./scripts/export.js ABC",
+    "export::FB": "tsc && node ./scripts/export.js FB",
+    "export::GBM": "tsc && node ./scripts/export.js GBM",
+    "export::LINE": "tsc && node ./scripts/export.js LINE",
+    "export::RBM": "tsc && node ./scripts/export.js RBM",
+    "export::WEB": "tsc && node ./scripts/export.js WEB",
+    "prepublishOnly": "rm -rf dist && npm run-script build",
+    "pretest": "eslint src/ tests/ --ext .ts --config .eslintrc.js",
+    "test": "jest --coverage --verbose --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LivePersonInc/rich-content-validator"
+  },
+  "author": "Martin Orth",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^6.12.0",
+    "tslib": "2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-unicorn": "^17.2.0",
+    "jest": "^25.1.0",
+    "jest-cucumber": "^2.0.11",
+    "prettier": "1.19.1",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "title": "lineCardStandAlone",
+
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "elements", "alt", "tag"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "alt": {
+      "minLength": 1,
+      "maxLength": 1500,
+      "type": "string"
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["generic"],
+      "default": "generic",
+      "readonly": true
+    },
+    "display": {
+      "$ref": "lineDisplaySettings.json"
+    },
+    "elements": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "elements"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["vertical", "horizontal"],
+            "default": "vertical",
+            "readonly": true
+          },
+          "elements": {
+            "oneOf": [
+              {
+                "$ref": "lineButtonTemplateElementOrder1.json"
+              },
+              {
+                "$ref": "lineButtonTemplateElementOrder2.json"
+              },
+              {
+                "$ref": "lineButtonTemplateElementOrder3.json"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

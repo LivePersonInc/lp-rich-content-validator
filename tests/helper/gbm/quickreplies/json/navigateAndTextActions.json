@@ -1,0 +1,36 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "both",
+      "click": {
+        "actions": [
+          { "type": "navigate", "la": 32.123, "lo": 34.567 },
+          { "type": "publishText", "text": "yep" }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "no way",
+      "title": "also both",
+      "click": {
+        "actions": [
+          { "type": "publishText", "text": "nope" },
+          { "type": "navigate", "la": 32.222, "lo": 34.567 }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "no way",
+      "title": "nav only",
+      "click": {
+        "actions": [{ "type": "navigate", "la": 32.123, "lo": 34.567 }]
+      }
+    }
+  ]
+}

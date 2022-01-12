@@ -1,0 +1,21 @@
+{
+  "title": "rbmClickActionNavigate",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "lo", "la"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["navigate"],
+      "default": "navigate",
+      "readonly": true
+    },
+    "lo": { "type": "number" },
+    "la": { "type": "number" },
+    "name": {
+      "type": "string",
+      "maxLength": 256
+    }
+  },
+  "additionalProperties": false
+}

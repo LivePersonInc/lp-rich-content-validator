@@ -1,0 +1,28 @@
+{
+  "type": "vertical",
+  "elements": [
+    {
+      "type": "vertical",
+      "elements": [
+        {
+          "type": "image",
+          "tooltip": "iPhone X",
+          "url": "https://cdn.macrumors.com/article-new/2017/09/iphonexfrontback-800x573.jpg"
+        },
+        {
+          "type": "text",
+          "tooltip": "Title",
+          "tag": "title",
+          "text": "PH"
+        },
+        {
+          "type": "text",
+          "tooltip": "subtitle",
+          "tag": "subtitle",
+          "text": "asdasdasdasdasdasdklasdasdasdasdasdasdklasdasdasdasdasdasdklasdasdasdasdasdasdkl"
+        }
+      ]
+    }
+  ],
+  "tag": "generic"
+}

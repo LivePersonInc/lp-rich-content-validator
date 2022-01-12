@@ -1,0 +1,8 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    { "type": "button", "tooltip": "go to Google", "title": "Google", "click": { "actions": [{ "type": "link", "uri": "https://www.google.com/" }] } },
+    { "type": "button", "tooltip": "go to LivePerson", "title": "LivePerson", "click": { "actions": [{ "type": "link", "uri": "https://www.liveperson.com/" }] } }
+  ]
+}

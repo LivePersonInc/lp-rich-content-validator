@@ -1,0 +1,7 @@
+{
+  "title": "abcFuturePatternIso8601",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Depending on how the rich content validator is configured, the 'pattern'-property of this schema will be adjusted to a RegEx which only accepts ISO8601 dates in the future. Else it accepts any string value.",
+  "pattern": "."
+}

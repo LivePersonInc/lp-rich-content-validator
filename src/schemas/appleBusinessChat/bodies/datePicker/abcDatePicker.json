@@ -1,0 +1,50 @@
+{
+  "title": "abcDatePicker",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "required": ["type", "tag", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["datePicker"],
+      "default": "datePicker",
+      "readonly": true
+    },
+    "elements": {
+      "maxItems": 256,
+      "type": "array",
+      "contains": {
+        "oneOf": [
+          {
+            "$ref": "abcButtonDatePicker.json"
+          },
+          {
+            "$ref": "abcDatePickerButtonContainer.json"
+          }
+        ]
+      },
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "abcButtonDatePicker.json"
+          },
+          {
+            "$ref": "abcDatePickerButtonContainer.json"
+          },
+          {
+            "$ref": "abcText.json"
+          },
+          {
+            "$ref": "abcTitle.json"
+          }
+        ]
+      }
+    }
+  }
+}

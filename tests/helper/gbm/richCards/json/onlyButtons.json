@@ -1,0 +1,42 @@
+{
+  "type": "vertical",
+  "tag": "generic",
+  "elements": [
+    {
+      "type": "button",
+      "title": "btn1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "btn01"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "title": "btn2",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "btn02"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "title": "btn3",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "btn03"
+          }
+        ]
+      }
+    }
+  ]
+}

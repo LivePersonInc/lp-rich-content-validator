@@ -1,0 +1,41 @@
+{
+  "type": "carousel",
+  "elements": [
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "button",
+          "title": "btn1",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn01"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "button",
+          "title": "btn1",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn01"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

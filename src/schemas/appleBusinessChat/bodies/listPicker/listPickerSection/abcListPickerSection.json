@@ -1,0 +1,24 @@
+{
+  "title": "abcListPickerSection",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": ["type", "elements"],
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["horizontal", "vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "elements": {
+      "oneOf": [
+        {
+          "$ref": "abcListPickerSectionWithText.json"
+        },
+        {
+          "$ref": "abcListPickerSectionWithoutText.json"
+        }
+      ]
+    }
+  }
+}

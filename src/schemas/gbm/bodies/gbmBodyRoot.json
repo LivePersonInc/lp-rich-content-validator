@@ -1,0 +1,12 @@
+{
+  "title": "gbmBodyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "gbmStandaloneCard.json"
+    },
+    {
+      "$ref": "gbmCarousel.json"
+    }
+  ]
+}

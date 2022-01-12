@@ -1,0 +1,21 @@
+{
+  "title": "abcDatePickerButtonContainer",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "required": ["type", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "horizontal",
+      "readonly": true
+    },
+    "elements": {
+      "maxItems": 256,
+      "type": "array",
+      "contains": {
+        "$ref": "abcButtonDatePicker.json"
+      }
+    }
+  }
+}

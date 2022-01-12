@@ -1,0 +1,8 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    { "type": "button", "tooltip": "yes i do", "title": "!@#$%", "click": { "actions": [{ "type": "publishText", "text": "yep" }] } },
+    { "type": "button", "tooltip": "no way", "title": "!@#$%^", "click": { "actions": [{ "type": "publishText", "text": "nope" }] } }
+  ]
+}

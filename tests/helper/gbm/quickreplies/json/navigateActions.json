@@ -1,0 +1,8 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    { "type": "button", "tooltip": "yes i do", "title": "go here", "click": { "actions": [{ "type": "navigate", "la": 32.123, "lo": 34.567 }] } },
+    { "type": "button", "tooltip": "no way", "title": "go there", "click": { "actions": [{ "type": "navigate", "la": 32.323, "lo": 34.543 }] } }
+  ]
+}

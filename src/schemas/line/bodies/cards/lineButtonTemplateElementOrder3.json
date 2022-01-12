@@ -1,0 +1,17 @@
+{
+  "title": "lineButtonTemplateElementOrder3",
+
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "minItems": 2,
+  "maxItems": 5,
+  "items": [
+    {
+      "$ref": "lineSubtitleLong.json"
+    },
+    {
+      "$ref": "lineButton.json"
+    }
+  ],
+  "additionalItems": { "$ref": "lineButton.json" }
+}

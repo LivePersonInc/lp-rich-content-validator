@@ -1,0 +1,26 @@
+{
+  "type": "vertical",
+  "tag": "generic",
+  "elements": [
+    {
+      "type": "image",
+      "url": "https://www.google.com/images/errors/robot.png"
+    },
+    {
+      "type": "image",
+      "url": "https://www.google.com/images/errors/robot.png"
+    },
+    {
+      "type": "button",
+      "title": "btn1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "btn01"
+          }
+        ]
+      }
+    }
+  ]
+}

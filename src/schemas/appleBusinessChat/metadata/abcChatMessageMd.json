@@ -1,0 +1,109 @@
+{
+  "title": "abcChatMessageMd",
+  "description": "Apple Business Chat Interactive Message",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["BusinessChatMessage"],
+      "default": "BusinessChatMessage",
+      "type": "string"
+    },
+    "multipleSelection": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          },
+          "maxItems": 256,
+          "minItems": 1
+        }
+      ],
+      "default": false
+    },
+    "receivedMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageURL": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "style": {
+          "enum": ["icon", "small", "large"],
+          "default": "icon",
+          "type": "string"
+        },
+        "subtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageTitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageSubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "secondarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "tertiarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "required": ["title"]
+    },
+    "replyMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imageURL": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "style": {
+          "maxLength": 64,
+          "type": "string"
+        },
+        "subtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageTitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "imageSubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "secondarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "tertiarySubtitle": {
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "required": ["title"]
+    }
+  },
+  "required": ["type", "receivedMessage"]
+}

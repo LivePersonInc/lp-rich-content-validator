@@ -1,0 +1,67 @@
+{
+  "type": "vertical",
+  "tag": "generic",
+  "elements": [
+    {
+      "type": "vertical",
+      "elements": [
+        {
+          "type": "image",
+          "url": "https://cdn.macrumors.com/article-new/2017/09/iphonexfrontback-800x573.jpg",
+          "tooltip": "iPhone X"
+        },
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "Title",
+          "tooltip": "Title"
+        },
+        {
+          "type": "text",
+          "tag": "subtitle",
+          "text": "subtitle",
+          "tooltip": "subtitle"
+        },
+        {
+          "type": "button",
+          "tooltip": "Add to cart",
+          "title": "Add to cart",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "Add to cart pressed"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "iPhone X"
+              }
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "tooltip": "Add to cart",
+          "title": "Add to cart",
+          "click": {
+            "actions": [
+              {
+                "type": "link",
+                "name": "iPhone 8 Added",
+                "uri": "https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone8/gold/iphone8-gold-select-2017?wid=470&hei=556&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1504041012369"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "iPhone X"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "title": "abcListPicker",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": ["tag", "type", "elements"],
+  "properties": {
+    "tag": {
+      "type": "string",
+      "enum": ["list"],
+      "default": "list",
+      "readonly": true
+    },
+    "type": {
+      "type": "string",
+      "enum": ["horizontal", "vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "elements": {
+      "maxItems": 256,
+      "type": "array",
+      "items": {
+        "$ref": "abcListPickerSection.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "gbmCardElementOrder1Action",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "minItems": 3,
+  "maxItems": 7,
+  "items": [
+    {
+      "$ref": "gbmImage.json"
+    },
+    {
+      "$ref": "gbmTitle.json"
+    },
+    {
+      "$ref": "gbmDescription.json"
+    }
+  ],
+  "additionalItems": { "$ref": "gbmButton.json" }
+}

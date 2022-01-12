@@ -1,0 +1,245 @@
+{
+  "type": "carousel",
+  "elements": [
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn1",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn01"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn2",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn02"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn3",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn03"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn4",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn04"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn5",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn05"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn6",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn06"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn7",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn07"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn8",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn08"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn9",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn09"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vertical",
+      "tag": "generic",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "IPhone 8",
+          "tooltip": "brand new iphone 8"
+        },
+        {
+          "type": "button",
+          "title": "btn10",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "btn10"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

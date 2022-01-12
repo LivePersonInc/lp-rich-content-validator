@@ -1,0 +1,62 @@
+{
+  "title": "ConnectorAuthenticationRequestMd",
+  "description": "Authentication request message initiated by Connectors (ABC, etc)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": ["ConnectorAuthenticationRequest"],
+      "default": "ConnectorAuthenticationRequest",
+      "type": "string"
+    },
+    "requestIdentifier": {
+      "type": "string",
+      "description": "An identifier for the authenticate request",
+      "maxLength": 64
+    },
+    "apple": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "An object which will have fields required for any type of authentication",
+      "properties": {
+        "oauth2": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "A dictionary of OAuth parameters",
+          "properties": {
+            "responseType": {
+              "type": "string",
+              "description": "A string indicating the type of authentication request",
+              "maxLength": 256
+            },
+            "scope": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "description": "An array of scope items that specifies the scope of the request",
+              "maxItems": 16
+            },
+            "state": {
+              "type": "string",
+              "description": "A string indicating the state of the authentication request",
+              "maxLength": 64
+            },
+            "clientSecret": {
+              "type": "string",
+              "description": "A string indicating the secret provisioned by the authorization server",
+              "maxLength": 256
+            },
+            "responseEncryptionKey": {
+              "type": "string",
+              "description": "A string indicating the Base64-encoded public key that encrypts the access token returned in the response.",
+              "maxLength": 1024
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type"]
+}

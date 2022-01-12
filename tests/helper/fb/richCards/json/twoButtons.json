@@ -1,0 +1,55 @@
+{
+  "type": "vertical",
+  "tag": "button",
+  "elements": [
+    {
+      "type": "vertical",
+      "elements": [
+        {
+          "type": "text",
+          "tag": "title",
+          "text": "Button example",
+          "tooltip": "Button example"
+        },
+        {
+          "type": "button",
+          "tooltip": "button one",
+          "title": "button one",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "iPhone X Added"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "iPhone X"
+              }
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "tooltip": "button two",
+          "title": "button two",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "button two pressed"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "iPhone X"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

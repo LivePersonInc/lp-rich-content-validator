@@ -1,0 +1,22 @@
+{
+  "title": "fbImage",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["type", "url"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["image"],
+      "default": "image",
+      "readonly": true
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "tooltip": {
+      "type": "string",
+      "maxLength": 256
+    }
+  }
+}

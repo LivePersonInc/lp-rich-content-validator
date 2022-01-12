@@ -1,0 +1,14 @@
+{
+  "title": "abcListPickerSectionWithText",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "minItems": 2,
+  "type": "array",
+  "items": [
+    {
+      "$ref": "abcText.json"
+    }
+  ],
+  "additionalItems": {
+    "$ref": "abcListPickerEntry.json"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": " Button 2",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 3",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 4",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 5",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 6",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 7",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 8",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 9",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "Button 10",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "no way",
+      "title": "Button 11",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "nope"
+          }
+        ]
+      }
+    }
+  ]
+}

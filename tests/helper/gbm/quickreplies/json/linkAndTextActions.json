@@ -1,0 +1,9 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    { "type": "button", "tooltip": "yes i do", "title": "both 1", "click": { "actions": [{ "type": "link", "uri": "https://www.google.com/" },{ "type": "publishText", "text": "yep" }] } },
+    { "type": "button", "tooltip": "yes i do", "title": "both 2", "click": { "actions": [{ "type": "publishText", "text": "yep" },{ "type": "link", "uri": "https://www.google.com/" }] } },
+    { "type": "button", "tooltip": "no way", "title": "linkOnly", "click": { "actions": [{ "type": "link", "uri": "https://www.google.com/" }] } }
+  ]
+}

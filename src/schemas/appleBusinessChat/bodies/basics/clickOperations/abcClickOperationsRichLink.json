@@ -1,0 +1,16 @@
+{
+  "title": "abcClickOperationsRichLink",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "abcClickMetadata.json" },
+    "actions": {
+      "maxItems": 4,
+      "type": "array",
+      "items": {
+        "$ref": "abcClickActionLink.json"
+      }
+    }
+  }
+}

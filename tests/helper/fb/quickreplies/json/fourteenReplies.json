@@ -1,0 +1,188 @@
+{
+  "type": "quickReplies",
+  "itemsPerRow": 8,
+  "replies": [
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "button 1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "button 1 is clicked"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "button 1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "button 1 is clicked"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "button 1",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "button 1 is clicked"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "hi 2",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "button 2"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "** 3",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "button 3"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "4",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "5",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "6",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "7",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "8",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "9",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "10",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "yes i do",
+      "title": "11",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "yep"
+          }
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "tooltip": "no way",
+      "title": "12",
+      "click": {
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "nope"
+          }
+        ]
+      }
+    }
+  ]
+}

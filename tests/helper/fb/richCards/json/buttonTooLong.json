@@ -1,0 +1,74 @@
+{
+  "type": "vertical",
+  "elements": [
+    {
+      "type": "vertical",
+      "elements": [
+        {
+          "type": "text",
+          "tooltip": "Button example",
+          "tag": "title",
+          "text": "asdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjakdshgfskgsjdkghjkasasdasdasdasdasdasdklsafjlafhsjkfhsjkdshgfskgs1"
+        },
+        {
+          "type": "button",
+          "tooltip": "button one",
+          "title": "button one",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "Button one pressed"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "Button 1"
+              }
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "tooltip": "button two",
+          "title": "button two",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "Button two pressed"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "Button 2"
+              }
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "tooltip": "button three",
+          "title": "button three",
+          "click": {
+            "actions": [
+              {
+                "type": "publishText",
+                "text": "Button three pressed"
+              }
+            ],
+            "metadata": [
+              {
+                "type": "ExternalId",
+                "id": "Button 3"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tag": "button"
+}

@@ -1,0 +1,277 @@
+{
+  "title": "abcConnectorPaymentRequestMd",
+  "description": "Payment request message",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": ["ConnectorPaymentRequest"],
+      "default": "ConnectorPaymentRequest",
+      "type": "string"
+    },
+    "signature": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "apple": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "version": {
+              "type": "string",
+              "maxLength": 64
+            },
+            "payment": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "paymentRequest": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "applePay": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "merchantIdentifier": {
+                          "type": "string",
+                          "maxLength": 512
+                        },
+                        "merchantCapabilities": {
+                          "type": "array",
+                          "maxItems": 15,
+                          "items": {
+                            "type": "string",
+                            "maxLength": 64
+                          }
+                        },
+                        "supportedNetworks": {
+                          "type": "array",
+                          "maxItems": 15,
+                          "items": {
+                            "type": "string",
+                            "maxLength": 64
+                          }
+                        }
+                      },
+                      "required": ["merchantIdentifier", "merchantCapabilities", "supportedNetworks"]
+                    },
+                    "lineItems": {
+                      "type": "array",
+                      "maxItems": 100,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "label": {
+                            "type": "string",
+                            "maxLength": 64
+                          },
+                          "amount": {
+                            "type": "string",
+                            "maxLength": 64
+                          },
+                          "type": {
+                            "type": "string",
+                            "maxLength": 64
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "maxLength": 64
+                        },
+                        "amount": {
+                          "type": "string",
+                          "maxLength": 64
+                        },
+                        "type": {
+                          "type": "string",
+                          "maxLength": 64
+                        }
+                      }
+                    },
+                    "countryCode": {
+                      "type": "string",
+                      "maxLength": 2
+                    },
+                    "currencyCode": {
+                      "type": "string",
+                      "maxLength": 3
+                    },
+                    "supportedCountries": {
+                      "type": "array",
+                      "maxItems": 200,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 2
+                      }
+                    },
+                    "requiredBillingContactFields": {
+                      "type": "array",
+                      "maxItems": 6,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "requiredShippingContactFields": {
+                      "type": "array",
+                      "maxItems": 6,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "shippingMethods": {
+                      "type": "array",
+                      "maxItems": 32,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "label": {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          "amount": {
+                            "type": "string",
+                            "maxLength": 64
+                          },
+                          "identifier": {
+                            "type": "string",
+                            "maxLength": 64
+                          },
+                          "detail": {
+                            "type": "string",
+                            "maxLength": 512
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["applePay", "total", "countryCode", "currencyCode"]
+                },
+                "endpoints": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "paymentGatewayUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "paymentMethodUpdateUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "shippingContactUpdateUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "shippingMethodUpdateUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "orderTrackingUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "fallbackUrl": {
+                      "type": "string",
+                      "maxLength": 2048
+                    }
+                  },
+                  "required": ["paymentGatewayUrl"]
+                },
+                "merchantSession": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "epochTimestamp": {
+                      "type": "number"
+                    },
+                    "expiresAt": {
+                      "type": "number"
+                    },
+                    "merchantSessionIdentifier": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "nonce": {
+                      "type": "string",
+                      "maxLength": 32
+                    },
+                    "merchantIdentifier": {
+                      "type": "string",
+                      "maxLength": 128
+                    },
+                    "displayName": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "signature": {
+                      "type": "string",
+                      "maxLength": 5120
+                    },
+                    "initiative": {
+                      "type": "string",
+                      "maxLength": 16
+                    },
+                    "initiativeContext": {
+                      "type": "string",
+                      "maxLength": 2048
+                    },
+                    "signedFields": {
+                      "type": "array",
+                      "maxItems": 16,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 64
+                      }
+                    }
+                  }
+                }
+              },
+              "required": ["paymentRequest", "endpoints", "merchantSession"]
+            },
+            "images": {
+              "type": "array",
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "maxLength": 2048
+                  },
+                  "data": {
+                    "type": "string",
+                    "maxLength": 2048
+                  }
+                },
+                "required": ["identifier", "data"]
+              }
+            },
+            "requestIdentifier": {
+              "type": "string",
+              "maxLength": 64
+            }
+          },
+          "required": ["version", "payment", "requestIdentifier"]
+        }
+      },
+      "required": ["data"]
+    }
+  },
+  "required": ["type"]
+}

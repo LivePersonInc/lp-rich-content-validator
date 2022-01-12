@@ -1,0 +1,16 @@
+{
+  "title": "rbmCardElementOrder3",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "minItems": 2,
+  "maxItems": 6,
+  "items": [
+    {
+      "$ref": "rbmImage.json"
+    },
+    {
+      "$ref": "rbmTitle.json"
+    }
+  ],
+  "additionalItems": { "$ref": "rbmButton.json" }
+}
