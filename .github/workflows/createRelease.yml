@@ -63,9 +63,10 @@ jobs:
         npm version ${{ github.event.inputs.versionBump }}
 
     - name: build and publish to npm
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm publish --access public --registry https://registry.npmjs.org/
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        access: "public"
 
     - name: push bump commit and tag
       run: git push --tags && git push
