@@ -51,11 +51,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16
+        registry-url: https://registry.npmjs.org/
 
-    - name: npm install and build
-      run: |
-        npm install
-        npm run-script build
+    - name: npm install
+      run: npm install
 
     - name: ${{ github.event.inputs.versionBump }} version bump
       run: |
@@ -64,10 +63,10 @@ jobs:
         git stash
         npm version ${{ github.event.inputs.versionBump }}
 
-    - name: push bump commit
-      run: git push --tags && git push
-
-    - name: publish to npm
+    - name: build and publish to npm
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: npm publish --access public
+
+    - name: push bump commit and tag
+      run: git push --tags && git push
