@@ -1,15 +1,12 @@
 {
-  "name": "@liveperson/rich-content-validator",
-  "version": "0.0.0",
+  "name": "@livepersoninc/rich-content-validator",
+  "version": "0.0.1",
   "description": "A json-schema based validator for LivePerson rich content.",
   "files": [
     "/dist"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "scripts": {
     "build": "tsc",
     "export::ABC": "tsc && node ./scripts/export.js ABC",

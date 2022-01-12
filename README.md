@@ -1,4 +1,4 @@
-# lp-rich-content-validator
+# @livepersoninc/rich-content-validator
 
 [![Supports VSC-DevContainers](https://img.shields.io/badge/Supports-VSC--DevContainers-informational?logo=visual-studio-code)](#about-the-vsc-devcontainer-setup)
 
@@ -19,7 +19,7 @@ This package aims to support our customers in creating [LivePerson rich content]
 
 ## Downward compatibility
 
-The ``lp-rich-content-validator`` rejects certain JSONs, which can be sent with the Conversational Cloud, but are misrepresented to the recipient. This is to ensure that only rich content is sent that can actually be fully displayed. These cases are listed below, sorted by channel:
+The ``@livepersoninc/rich-content-validator`` rejects certain JSONs, which can be sent with the Conversational Cloud, but are misrepresented to the recipient. This is to ensure that only rich content is sent that can actually be fully displayed. These cases are listed below, sorted by channel:
 
 1. Facebook:
    - JSONs that contain a map element are rejected because the channel does not display them.
@@ -34,7 +34,7 @@ The ``lp-rich-content-validator`` rejects certain JSONs, which can be sent with 
 First add the validator to your project:
 
 ```shell
-npm install lp-rich-content-validator --save
+npm install @livepersoninc/rich-content-validator --save
 ```
 
 The following parameters can be defined during instantiation:
@@ -45,7 +45,7 @@ The following parameters can be defined during instantiation:
 | declinePastDates |     N     |     false    |Defines whether the validator should reject dates that lie in the past for DatePickers. Currently this is only relevant for the AppleBusinessChat channel.<br> :exclamation:**ATTENTION**:exclamation:<br> This feature is experimental and its reliability is explicitly not guaranteed. Therefore it is disabled by default.| true          |
 
 ```ts
-const { RichContentValidator, Channels } = require("lp-rich-content-validator");
+const { RichContentValidator, Channels } = require("@livepersoninc/rich-content-validator");
 
 const config = {
     channel: Channels.FB,
@@ -119,7 +119,7 @@ const result = validator.validateQuickReply(quickReply);
 Creates and returns a JSON-schema object for a specific rich content type/channel depending on the passed parameters. Be aware that the exported schema will only provide correct validation results if the rich content object that should be validated is sorted before. If you are unsure whether this is the case, it is better to use the validation methods 'validateBody', 'validateMetadata' or 'validateQuickReply' instead of exporting.  The ``declinePastDates`` parameter defines whether the schema should reject dates that lie in the past for DatePickers. Currently this is only relevant for the AppleBusinessChat channel and makes only sense if the exported schema is used instantly. The date check is a experimental feature and therefore the parameter is set to ``false`` by default.
 
 ```ts
-const { Types, Channels } = require("lp-rich-content-validator");
+const { Types, Channels } = require("@livepersoninc/rich-content-validator");
 
 const config = { type: Types.BDY, channel: Channels.WEB };
 const webBodySchema = validator.exportSchema(config);

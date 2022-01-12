@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.166.1/containers/javascript-node
 {
-	"name": "lp-rich-content-validator",
+	"name": "@livepersoninc/rich-content-validator",
 	"build": {
 		"dockerfile": "Dockerfile",
 		/* LP-DEV_CONTAINER-HINT: The following 'args' will be available in the Dockerfile during the build 
