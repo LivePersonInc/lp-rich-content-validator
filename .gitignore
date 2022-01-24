@@ -3,3 +3,5 @@ dist
 coverage
 scripts/tmp
 .scannerwork
+/.idea/
+/.vscode/

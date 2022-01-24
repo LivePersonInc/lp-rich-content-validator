@@ -144,6 +144,8 @@ import { gbmSchemasBody, gbmSchemasQuickReply, gbmSchemasMetadata } from './gbm'
 
 import { whatsappSchemasBody, whatsappSchemasQuickReply, whatsappSchemasMetadata } from './whatsapp';
 
+import { viberSchemasBody } from './viber';
+
 interface IChannelSchemas {
   [Types.BDY]: { BodyRoot: object; [additionalKeys: string]: object };
   [Types.MTD]: { MetadataRoot: object; [additionalKeys: string]: object };
@@ -158,6 +160,7 @@ interface IAllSchemas {
   [Channels.WEB]: IChannelSchemas;
   [Channels.GBM]: IChannelSchemas;
   [Channels.WA]: IChannelSchemas;
+  [Channels.VIBER]: IChannelSchemas;
 }
 
 const fbSchemas: IChannelSchemas = {
@@ -290,8 +293,8 @@ const abcSchemas: IChannelSchemas = {
     abcRichLinkCardElementOrder1,
     abcRichLinkCardElementOrder2,
 
-    /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as 
-    a web-body. (Because then the body is only used to display something to the agent in the 
+    /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as
+    a web-body. (Because then the body is only used to display something to the agent in the
     Conversational Cloud and not in ABC) Therefore an ABC validator also needs the web-schemas. */
     // eslint-disable-next-line @typescript-eslint/camelcase
     abcWebPlaceholder: webBodyRoot,
@@ -376,6 +379,13 @@ const whatsappSchemas: IChannelSchemas = {
   [Types.QUR]: whatsappSchemasQuickReply,
 };
 
+const viberSchemas: IChannelSchemas = {
+  [Types.BDY]: viberSchemasBody,
+  [Types.MTD]: {
+    MetadataRoot: {},
+  },
+};
+
 const allSchemas: IAllSchemas = {
   [Channels.ABC]: abcSchemas,
   [Channels.FB]: fbSchemas,
@@ -384,6 +394,7 @@ const allSchemas: IAllSchemas = {
   [Channels.WEB]: webSchemas,
   [Channels.GBM]: gbmSchemas,
   [Channels.WA]: whatsappSchemas,
+  [Channels.VIBER]: viberSchemas,
 };
 
 export default allSchemas;

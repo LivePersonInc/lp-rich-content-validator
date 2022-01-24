@@ -6,6 +6,7 @@ export const Channels = {
   WEB: 'web',
   GBM: 'gbm',
   WA: 'whatsapp',
+  VIBER: 'viber',
 } as const;
 
 type IChannels = typeof Channels;
