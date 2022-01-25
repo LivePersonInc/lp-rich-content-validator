@@ -120,6 +120,25 @@ import {
   expectedSchemaMetadataRbm,
   expectedSchemaQuickrepliesRbm,
 } from './rbmHelper';
+
+import {
+  qrQuickRepliesSpecialCharactersViber,
+  qrQuickReplies11ButtonsViber,
+  qrQuickReplies12ButtonsViber,
+  qrQuickReply26CharsViber,
+  qrQuickReply25CharsViber,
+  bdyVerticalCardViber,
+  bdyVerticalCardTooLongButtonViber,
+  bdyVerticalCardWithoutImageViber,
+  bdyVerticalCardWithoutTitleOrSubtitleViber,
+  bdyVerticalCardTooManyButtonsViber,
+  bdyCarousel10CardsViber,
+  bdyCarousel11CardsViber,
+  expectedSchemaBodyViber,
+  expectedSchemaMetadataViber,
+  expectedSchemaQuickrepliesViber,
+} from './viberHelper';
+
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
 import { Channels } from '../../src';
