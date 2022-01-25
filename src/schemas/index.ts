@@ -126,6 +126,8 @@ import viberImage from './viber/bodies/basics/viberImage.json';
 import viberTitle from './viber/bodies/basics/viberTitle.json';
 import viberSubtitle from './viber/bodies/basics/viberSubtitle.json';
 import viberCard from './viber/bodies/cards/viberCard.json';
+import viberCard1 from './viber/bodies/cards/viberCard1.json';
+import viberCard2 from './viber/bodies/cards/viberCard2.json';
 import viberCarousel from './viber/bodies/viberCarousel.json';
 import viberCardElementOrder1 from './viber/bodies/cards/viberCardElementOrder1.json';
 import viberCardElementOrder2 from './viber/bodies/cards/viberCardElementOrder2.json';
@@ -409,6 +411,8 @@ const viberSchemas: IChannelSchemas = {
     viberSubtitle,
     viberTitle,
     viberCard,
+    viberCard1,
+    viberCard2,
     viberCardElementOrder1,
     viberCardElementOrder2,
     viberCardElementOrder3,

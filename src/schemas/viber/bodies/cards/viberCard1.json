@@ -1,0 +1,60 @@
+{
+  "title": "viberCard1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "elements", "tag"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["generic"],
+      "default": "generic",
+      "readonly": true
+    },
+    "alt": {
+      "type": "string",
+      "description": "This property has no effect in Viber, but is included in the schema to ensure the compatibility of Line Cards."
+    },
+    "elements": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "elements"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["vertical"],
+            "default": "vertical",
+            "readonly": true
+          },
+          "elements": {
+            "oneOf": [
+              {
+                "$ref": "viberCardElementOrder1.json"
+              },
+              {
+                "$ref": "viberCardElementOrder2.json"
+              },
+              {
+                "$ref": "viberCardElementOrder3.json"
+              },
+              {
+                "$ref": "viberCardElementOrder4.json"
+              },
+              {
+                "$ref": "viberCardElementOrder5.json"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
