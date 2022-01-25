@@ -251,6 +251,19 @@ export const testJsonContainers = [
   mdAuthenticationWithResponseEncryptionKeyAbc,
   bdyApplePayAbc,
   mdApplePayAbc,
+
+  qrQuickRepliesSpecialCharactersViber,
+  qrQuickReplies11ButtonsViber,
+  qrQuickReplies12ButtonsViber,
+  qrQuickReply26CharsViber,
+  qrQuickReply25CharsViber,
+  bdyVerticalCardViber,
+  bdyVerticalCardTooLongButtonViber,
+  bdyVerticalCardWithoutImageViber,
+  bdyVerticalCardWithoutTitleOrSubtitleViber,
+  bdyVerticalCardTooManyButtonsViber,
+  bdyCarousel10CardsViber,
+  bdyCarousel11CardsViber,
 ];
 
 export const expectedSchemas = {
@@ -283,4 +296,9 @@ export const expectedSchemas = {
     [Types.MTD]: expectedSchemaMetadataGbm,
     [Types.QUR]: expectedSchemaQuickrepliesGbm,
   },
+  [Channels.VIBER]: {
+    [Types.BDY]: expectedSchemaBodyViber,
+    [Types.MTD]: expectedSchemaMetadataViber,
+    [Types.QUR]: expectedSchemaQuickrepliesViber,
+  }
 };
