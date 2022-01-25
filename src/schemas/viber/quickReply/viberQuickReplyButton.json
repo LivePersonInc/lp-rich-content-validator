@@ -1,8 +1,7 @@
 {
-  "title": "viberButton",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "required": ["click", "title", "type"],
+  "title": "viberQuickReplyButton",
+  "required": ["type", "title", "click"],
   "properties": {
     "type": {
       "type": "string",
@@ -18,6 +17,6 @@
       "type": "string",
       "maxLength": 25
     },
-    "click": { "$ref": "viberClickOperations.json" }
+    "click": { "$ref": "viberQuickReplyActions.json" }
   }
 }

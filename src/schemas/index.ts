@@ -116,6 +116,26 @@ import abcCustomMessageMd from './appleBusinessChat/metadata/abcCustomMessageMd.
 import abcDatePickerMd from './appleBusinessChat/metadata/abcDatePickerMd.json';
 import abcMetadataRoot from './appleBusinessChat/metadata/abcMetadataRoot.json';
 
+import viberBodyRoot from './viber/bodies/viberBodyRoot.json';
+import viberClickMetadata from './viber/bodies/basics/clickOperations/viberClickMetadata.json';
+import viberClickOperations from './viber/bodies/basics/clickOperations/viberClickOperations.json';
+import viberClickActionPublishText from './viber/bodies/basics/clickOperations/viberClickActionPublishText.json';
+import viberClickActionLink from './viber/bodies/basics/clickOperations/viberClickActionLink.json';
+import viberButton from './viber/bodies/basics/viberButton.json';
+import viberImage from './viber/bodies/basics/viberImage.json';
+import viberTitle from './viber/bodies/basics/viberTitle.json';
+import viberSubtitle from './viber/bodies/basics/viberSubtitle.json';
+import viberCard from './viber/bodies/cards/viberCard.json';
+import viberCarousel from './viber/bodies/viberCarousel.json';
+import viberCardElementOrder1 from './viber/bodies/cards/viberCardElementOrder1.json';
+import viberCardElementOrder2 from './viber/bodies/cards/viberCardElementOrder2.json';
+import viberCardElementOrder3 from './viber/bodies/cards/viberCardElementOrder3.json';
+import viberCardElementOrder4 from './viber/bodies/cards/viberCardElementOrder4.json';
+import viberCardElementOrder5 from './viber/bodies/cards/viberCardElementOrder5.json';
+import viberQuickReplyRoot from './viber/quickReply/viberQuickReplyRoot.json';
+import viberQuickReplyActions from './viber/quickReply/viberQuickReplyActions.json';
+import viberQuickReplyButton from './viber/quickReply/viberQuickReplyButton.json';
+
 import action from './web/action.json';
 import basic from './web/basic.json';
 import button from './web/button.json';
@@ -143,8 +163,6 @@ import quickReplies from './web/quickReplies.json';
 import { gbmSchemasBody, gbmSchemasQuickReply, gbmSchemasMetadata } from './gbm';
 
 import { whatsappSchemasBody, whatsappSchemasQuickReply, whatsappSchemasMetadata } from './whatsapp';
-
-import { viberSchemasBody } from './viber';
 
 interface IChannelSchemas {
   [Types.BDY]: { BodyRoot: object; [additionalKeys: string]: object };
@@ -380,9 +398,31 @@ const whatsappSchemas: IChannelSchemas = {
 };
 
 const viberSchemas: IChannelSchemas = {
-  [Types.BDY]: viberSchemasBody,
+  [Types.BDY]: {
+    BodyRoot: viberBodyRoot,
+    viberClickActionLink,
+    viberClickActionPublishText,
+    viberClickMetadata,
+    viberClickOperations,
+    viberButton,
+    viberImage,
+    viberSubtitle,
+    viberTitle,
+    viberCard,
+    viberCardElementOrder1,
+    viberCardElementOrder2,
+    viberCardElementOrder3,
+    viberCardElementOrder4,
+    viberCardElementOrder5,
+    viberCarousel,
+  },
   [Types.MTD]: {
     MetadataRoot: {},
+  },
+  [Types.QUR]: {
+    QuickReplyRoot: viberQuickReplyRoot,
+    viberQuickReplyActions,
+    viberQuickReplyButton,
   },
 };
 

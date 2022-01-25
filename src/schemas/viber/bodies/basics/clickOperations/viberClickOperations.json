@@ -4,9 +4,10 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "metadata": { "$ref": "viberClickMetadata.json" },
     "actions": {
-      "type": "array",
       "maxItems": 4,
+      "type": "array",
       "items": {
         "oneOf": [
           {

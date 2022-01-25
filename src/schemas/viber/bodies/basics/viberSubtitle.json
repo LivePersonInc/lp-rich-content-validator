@@ -18,7 +18,7 @@
     },
     "text": {
       "type": "string",
-      "maxLength": 120
+      "maxLength": 640
     },
     "tooltip": {
       "type": "string",

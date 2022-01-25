@@ -18,6 +18,11 @@
     "name": {
       "type": "string",
       "maxLength": 256
+    },
+    "target": {
+      "type": "string",
+      "enum": ["self", "blank", "slideout"],
+      "default": "self"
     }
   }
 }

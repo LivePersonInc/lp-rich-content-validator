@@ -1,0 +1,16 @@
+{
+  "title": "viberCardElementOrder3",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "minItems": 2,
+  "maxItems": 6,
+  "items": [
+    {
+      "$ref": "viberImage.json"
+    },
+    {
+      "$ref": "viberTitle.json"
+    }
+  ],
+  "additionalItems": { "$ref": "viberButton.json" }
+}
