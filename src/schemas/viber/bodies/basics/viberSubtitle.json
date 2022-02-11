@@ -23,6 +23,7 @@
     "tooltip": {
       "type": "string",
       "maxLength": 256
-    }
+    },
+    "style": { "$ref": "viberElementStyle.json" }
   }
 }

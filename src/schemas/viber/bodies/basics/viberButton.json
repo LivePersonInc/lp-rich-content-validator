@@ -18,6 +18,7 @@
       "type": "string",
       "maxLength": 25
     },
+    "style": { "$ref": "viberElementStyle.json" },
     "click": { "$ref": "viberClickOperations.json" }
   }
 }

@@ -4,9 +4,6 @@
   "oneOf": [
     {
       "$ref": "viberCard1.json"
-    },
-    {
-      "$ref": "viberCard2.json"
     }
   ]
 }

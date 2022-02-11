@@ -23,7 +23,7 @@
     },
     "elements": {
       "type": "array",
-      "maxItems": 1,
+      "maxItems": 7,
       "items": {
         "type": "object",
         "required": ["type", "elements"],
@@ -35,21 +35,18 @@
             "readonly": true
           },
           "elements": {
-            "oneOf": [
+            "anyOf": [
               {
-                "$ref": "viberCardElementOrder1.json"
+                "$ref": "viberImage.json"
               },
               {
-                "$ref": "viberCardElementOrder2.json"
+                "$ref": "viberTitle.json"
               },
               {
-                "$ref": "viberCardElementOrder3.json"
+                "$ref": "viberSubtitle.json"
               },
               {
-                "$ref": "viberCardElementOrder4.json"
-              },
-              {
-                "$ref": "viberCardElementOrder5.json"
+                "$ref": "viberButton.json"
               }
             ]
           }
