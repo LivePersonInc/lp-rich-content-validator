@@ -127,6 +127,7 @@ import {
   bdyVerticalCarouselViber,
   bdyVerticalCarouselViber11Cards,
   bdyVerticalCarouselViberNoCards,
+  bdyVerticalCardViberWithButtonStyling,
   expectedSchemaBodyViber,
   expectedSchemaMetadataViber,
   expectedSchemaQuickrepliesViber,
@@ -250,6 +251,7 @@ export const testJsonContainers = [
   bdyVerticalCarouselViber,
   bdyVerticalCarouselViberNoCards,
   bdyVerticalCarouselViber11Cards,
+  bdyVerticalCardViberWithButtonStyling,
 ];
 
 export const expectedSchemas = {

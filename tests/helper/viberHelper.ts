@@ -36,6 +36,47 @@ const bdyVerticalCardViber = (): ITestJson => ({
   },
 });
 
+const bdyVerticalCardViberWithButtonStyling = (): ITestJson => ({
+  richContentType: Types.BDY,
+  description: 'This is a vertical card, valid for Viber containing all the usable elements of the channel with custom button style',
+  channel: Channels.VIBER,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: undefined,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+    [Channels.VIBER]: true,
+  },
+  json: {
+    type: 'vertical',
+    tag: 'button',
+    elements: [
+      {
+        type: 'vertical',
+        elements: [
+          { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            style: {
+              type: 'object',
+              'background-color': '#000000',
+              color: '#FFFFFF',
+            },
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+        ],
+      },
+    ],
+  },
+});
+
 const bdyVerticalCardViberOver7Elements = (): ITestJson => ({
   richContentType: Types.BDY,
   description: 'This card contains over 7 elements hitting Vibers MAX Element count. Will FAIL',
@@ -1309,6 +1350,7 @@ export {
   bdyVerticalCarouselViber,
   bdyVerticalCarouselViberNoCards,
   bdyVerticalCarouselViber11Cards,
+  bdyVerticalCardViberWithButtonStyling,
   expectedSchemaBodyViber,
   expectedSchemaMetadataViber,
   expectedSchemaQuickrepliesViber,
