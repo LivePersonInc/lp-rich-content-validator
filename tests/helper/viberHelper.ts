@@ -49,7 +49,7 @@ const expectedSchemaBodyViber = {
           $schema: 'http://json-schema.org/draft-07/schema#',
           type: 'object',
           additionalProperties: false,
-          required: ['type', 'elements', 'tag'],
+          required: ['type', 'elements'],
           properties: {
             type: {
               type: 'string',
@@ -81,219 +81,222 @@ const expectedSchemaBodyViber = {
                     readonly: true,
                   },
                   elements: {
-                    anyOf: [
-                      {
-                        title: 'viberImage',
-                        $schema: 'http://json-schema.org/draft-07/schema#',
-                        type: 'object',
-                        required: ['type', 'url'],
-                        properties: {
-                          type: {
-                            type: 'string',
-                            enum: ['image'],
-                            default: 'image',
-                            readonly: true,
-                          },
-                          url: {
-                            type: 'string',
-                            maxLength: 2048,
-                          },
-                          tooltip: {
-                            type: 'string',
-                            maxLength: 256,
-                          },
-                        },
-                      },
-                      {
-                        title: 'viberTitle',
-                        $schema: 'http://json-schema.org/draft-07/schema#',
-                        type: 'object',
-                        required: ['type', 'tag', 'text'],
-                        properties: {
-                          type: {
-                            type: 'string',
-                            enum: ['text'],
-                            default: 'text',
-                            readonly: true,
-                          },
-                          tag: {
-                            type: 'string',
-                            enum: ['title'],
-                            default: 'title',
-                            readonly: true,
-                          },
-                          text: {
-                            type: 'string',
-                            maxLength: 640,
-                          },
-                          tooltip: {
-                            type: 'string',
-                            maxLength: 256,
-                          },
-                          style: {
-                            title: 'viberElementStyle',
-                            $schema: 'http://json-schema.org/draft-07/schema#',
-                            type: 'object',
-                            required: ['type'],
-                            properties: {
-                              'background-color': {
-                                type: 'string',
-                              },
-                              color: {
-                                type: 'string',
-                              },
+                    type: 'array',
+                    items: {
+                      anyOf: [
+                        {
+                          title: 'viberImage',
+                          $schema: 'http://json-schema.org/draft-07/schema#',
+                          type: 'object',
+                          required: ['type', 'url'],
+                          properties: {
+                            type: {
+                              type: 'string',
+                              enum: ['image'],
+                              default: 'image',
+                              readonly: true,
+                            },
+                            url: {
+                              type: 'string',
+                              maxLength: 2048,
+                            },
+                            tooltip: {
+                              type: 'string',
+                              maxLength: 256,
                             },
                           },
                         },
-                      },
-                      {
-                        title: 'viberSubtitle',
-                        $schema: 'http://json-schema.org/draft-07/schema#',
-                        type: 'object',
-                        required: ['type', 'tag', 'text'],
-                        properties: {
-                          type: {
-                            type: 'string',
-                            enum: ['text'],
-                            default: 'text',
-                            readonly: true,
-                          },
-                          tag: {
-                            type: 'string',
-                            enum: ['subtitle'],
-                            default: 'subtitle',
-                            readonly: true,
-                          },
-                          text: {
-                            type: 'string',
-                            maxLength: 640,
-                          },
-                          tooltip: {
-                            type: 'string',
-                            maxLength: 256,
-                          },
-                          style: {
-                            title: 'viberElementStyle',
-                            $schema: 'http://json-schema.org/draft-07/schema#',
-                            type: 'object',
-                            required: ['type'],
-                            properties: {
-                              'background-color': {
-                                type: 'string',
-                              },
-                              color: {
-                                type: 'string',
-                              },
+                        {
+                          title: 'viberTitle',
+                          $schema: 'http://json-schema.org/draft-07/schema#',
+                          type: 'object',
+                          required: ['type', 'text'],
+                          properties: {
+                            type: {
+                              type: 'string',
+                              enum: ['text'],
+                              default: 'text',
+                              readonly: true,
                             },
-                          },
-                        },
-                      },
-                      {
-                        title: 'viberButton',
-                        $schema: 'http://json-schema.org/draft-07/schema#',
-                        type: 'object',
-                        required: ['click', 'title', 'type'],
-                        properties: {
-                          type: {
-                            type: 'string',
-                            enum: ['button'],
-                            default: 'button',
-                            readonly: true,
-                          },
-                          tooltip: {
-                            type: 'string',
-                            maxLength: 256,
-                          },
-                          title: {
-                            type: 'string',
-                            maxLength: 25,
-                          },
-                          style: {
-                            title: 'viberElementStyle',
-                            $schema: 'http://json-schema.org/draft-07/schema#',
-                            type: 'object',
-                            required: ['type'],
-                            properties: {
-                              'background-color': {
-                                type: 'string',
-                              },
-                              color: {
-                                type: 'string',
-                              },
+                            tag: {
+                              type: 'string',
+                              enum: ['title'],
+                              default: 'title',
+                              readonly: true,
                             },
-                          },
-                          click: {
-                            title: 'viberClickOperations',
-                            $schema: 'http://json-schema.org/draft-07/schema#',
-                            type: 'object',
-                            additionalProperties: false,
-                            properties: {
-                              metadata: {
-                                title: 'viberClickMetadata',
-                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                type: 'array',
-                                maxItems: 32,
-                                items: {},
-                              },
-                              actions: {
-                                maxItems: 4,
-                                type: 'array',
-                                items: {
-                                  oneOf: [
-                                    {
-                                      title: 'viberClickActionPublishText',
-                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                      type: 'object',
-                                      required: ['type', 'text'],
-                                      properties: {
-                                        type: {
-                                          type: 'string',
-                                          enum: ['publishText'],
-                                          default: 'publishText',
-                                          readonly: true,
-                                        },
-                                        text: {
-                                          type: 'string',
-                                          maxLength: 256,
-                                        },
-                                      },
-                                    },
-                                    {
-                                      title: 'viberClickActionLink',
-                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                      type: 'object',
-                                      required: ['type', 'uri'],
-                                      properties: {
-                                        type: {
-                                          type: 'string',
-                                          enum: ['link'],
-                                          default: 'link',
-                                          readonly: true,
-                                        },
-                                        uri: {
-                                          type: 'string',
-                                          format: 'uri',
-                                          maxLength: 1024,
-                                        },
-                                        name: {
-                                          type: 'string',
-                                          maxLength: 256,
-                                        },
-                                        target: {
-                                          type: 'string',
-                                          enum: ['self', 'blank', 'slideout'],
-                                          default: 'self',
-                                        },
-                                      },
-                                    },
-                                  ],
+                            text: {
+                              type: 'string',
+                              maxLength: 640,
+                            },
+                            tooltip: {
+                              type: 'string',
+                              maxLength: 256,
+                            },
+                            style: {
+                              title: 'viberElementStyle',
+                              $schema: 'http://json-schema.org/draft-07/schema#',
+                              type: 'object',
+                              required: ['type'],
+                              properties: {
+                                'background-color': {
+                                  type: 'string',
+                                },
+                                color: {
+                                  type: 'string',
                                 },
                               },
                             },
                           },
                         },
-                      },
-                    ],
+                        {
+                          title: 'viberSubtitle',
+                          $schema: 'http://json-schema.org/draft-07/schema#',
+                          type: 'object',
+                          required: ['type', 'text'],
+                          properties: {
+                            type: {
+                              type: 'string',
+                              enum: ['text'],
+                              default: 'text',
+                              readonly: true,
+                            },
+                            tag: {
+                              type: 'string',
+                              enum: ['subtitle'],
+                              default: 'subtitle',
+                              readonly: true,
+                            },
+                            text: {
+                              type: 'string',
+                              maxLength: 640,
+                            },
+                            tooltip: {
+                              type: 'string',
+                              maxLength: 256,
+                            },
+                            style: {
+                              title: 'viberElementStyle',
+                              $schema: 'http://json-schema.org/draft-07/schema#',
+                              type: 'object',
+                              required: ['type'],
+                              properties: {
+                                'background-color': {
+                                  type: 'string',
+                                },
+                                color: {
+                                  type: 'string',
+                                },
+                              },
+                            },
+                          },
+                        },
+                        {
+                          title: 'viberButton',
+                          $schema: 'http://json-schema.org/draft-07/schema#',
+                          type: 'object',
+                          required: ['click', 'title', 'type'],
+                          properties: {
+                            type: {
+                              type: 'string',
+                              enum: ['button'],
+                              default: 'button',
+                              readonly: true,
+                            },
+                            tooltip: {
+                              type: 'string',
+                              maxLength: 256,
+                            },
+                            title: {
+                              type: 'string',
+                              maxLength: 25,
+                            },
+                            style: {
+                              title: 'viberElementStyle',
+                              $schema: 'http://json-schema.org/draft-07/schema#',
+                              type: 'object',
+                              required: ['type'],
+                              properties: {
+                                'background-color': {
+                                  type: 'string',
+                                },
+                                color: {
+                                  type: 'string',
+                                },
+                              },
+                            },
+                            click: {
+                              title: 'viberClickOperations',
+                              $schema: 'http://json-schema.org/draft-07/schema#',
+                              type: 'object',
+                              additionalProperties: false,
+                              properties: {
+                                metadata: {
+                                  title: 'viberClickMetadata',
+                                  $schema: 'http://json-schema.org/draft-07/schema#',
+                                  type: 'array',
+                                  maxItems: 32,
+                                  items: {},
+                                },
+                                actions: {
+                                  maxItems: 1,
+                                  type: 'array',
+                                  items: {
+                                    oneOf: [
+                                      {
+                                        title: 'viberClickActionPublishText',
+                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                        type: 'object',
+                                        required: ['type', 'text'],
+                                        properties: {
+                                          type: {
+                                            type: 'string',
+                                            enum: ['publishText'],
+                                            default: 'publishText',
+                                            readonly: true,
+                                          },
+                                          text: {
+                                            type: 'string',
+                                            maxLength: 256,
+                                          },
+                                        },
+                                      },
+                                      {
+                                        title: 'viberClickActionLink',
+                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                        type: 'object',
+                                        required: ['type', 'uri'],
+                                        properties: {
+                                          type: {
+                                            type: 'string',
+                                            enum: ['link'],
+                                            default: 'link',
+                                            readonly: true,
+                                          },
+                                          uri: {
+                                            type: 'string',
+                                            format: 'uri',
+                                            maxLength: 1024,
+                                          },
+                                          name: {
+                                            type: 'string',
+                                            maxLength: 256,
+                                          },
+                                          target: {
+                                            type: 'string',
+                                            enum: ['self', 'blank', 'slideout'],
+                                            default: 'self',
+                                          },
+                                        },
+                                      },
+                                    ],
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      ],
+                    },
                   },
                 },
               },
@@ -339,7 +342,7 @@ const expectedSchemaBodyViber = {
                 $schema: 'http://json-schema.org/draft-07/schema#',
                 type: 'object',
                 additionalProperties: false,
-                required: ['type', 'elements', 'tag'],
+                required: ['type', 'elements'],
                 properties: {
                   type: {
                     type: 'string',
@@ -372,219 +375,222 @@ const expectedSchemaBodyViber = {
                           readonly: true,
                         },
                         elements: {
-                          anyOf: [
-                            {
-                              title: 'viberImage',
-                              $schema: 'http://json-schema.org/draft-07/schema#',
-                              type: 'object',
-                              required: ['type', 'url'],
-                              properties: {
-                                type: {
-                                  type: 'string',
-                                  enum: ['image'],
-                                  default: 'image',
-                                  readonly: true,
-                                },
-                                url: {
-                                  type: 'string',
-                                  maxLength: 2048,
-                                },
-                                tooltip: {
-                                  type: 'string',
-                                  maxLength: 256,
-                                },
-                              },
-                            },
-                            {
-                              title: 'viberTitle',
-                              $schema: 'http://json-schema.org/draft-07/schema#',
-                              type: 'object',
-                              required: ['type', 'tag', 'text'],
-                              properties: {
-                                type: {
-                                  type: 'string',
-                                  enum: ['text'],
-                                  default: 'text',
-                                  readonly: true,
-                                },
-                                tag: {
-                                  type: 'string',
-                                  enum: ['title'],
-                                  default: 'title',
-                                  readonly: true,
-                                },
-                                text: {
-                                  type: 'string',
-                                  maxLength: 640,
-                                },
-                                tooltip: {
-                                  type: 'string',
-                                  maxLength: 256,
-                                },
-                                style: {
-                                  title: 'viberElementStyle',
-                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                  type: 'object',
-                                  required: ['type'],
-                                  properties: {
-                                    'background-color': {
-                                      type: 'string',
-                                    },
-                                    color: {
-                                      type: 'string',
-                                    },
+                          type: 'array',
+                          items: {
+                            anyOf: [
+                              {
+                                title: 'viberImage',
+                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                type: 'object',
+                                required: ['type', 'url'],
+                                properties: {
+                                  type: {
+                                    type: 'string',
+                                    enum: ['image'],
+                                    default: 'image',
+                                    readonly: true,
+                                  },
+                                  url: {
+                                    type: 'string',
+                                    maxLength: 2048,
+                                  },
+                                  tooltip: {
+                                    type: 'string',
+                                    maxLength: 256,
                                   },
                                 },
                               },
-                            },
-                            {
-                              title: 'viberSubtitle',
-                              $schema: 'http://json-schema.org/draft-07/schema#',
-                              type: 'object',
-                              required: ['type', 'tag', 'text'],
-                              properties: {
-                                type: {
-                                  type: 'string',
-                                  enum: ['text'],
-                                  default: 'text',
-                                  readonly: true,
-                                },
-                                tag: {
-                                  type: 'string',
-                                  enum: ['subtitle'],
-                                  default: 'subtitle',
-                                  readonly: true,
-                                },
-                                text: {
-                                  type: 'string',
-                                  maxLength: 640,
-                                },
-                                tooltip: {
-                                  type: 'string',
-                                  maxLength: 256,
-                                },
-                                style: {
-                                  title: 'viberElementStyle',
-                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                  type: 'object',
-                                  required: ['type'],
-                                  properties: {
-                                    'background-color': {
-                                      type: 'string',
-                                    },
-                                    color: {
-                                      type: 'string',
-                                    },
+                              {
+                                title: 'viberTitle',
+                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                type: 'object',
+                                required: ['type', 'text'],
+                                properties: {
+                                  type: {
+                                    type: 'string',
+                                    enum: ['text'],
+                                    default: 'text',
+                                    readonly: true,
                                   },
-                                },
-                              },
-                            },
-                            {
-                              title: 'viberButton',
-                              $schema: 'http://json-schema.org/draft-07/schema#',
-                              type: 'object',
-                              required: ['click', 'title', 'type'],
-                              properties: {
-                                type: {
-                                  type: 'string',
-                                  enum: ['button'],
-                                  default: 'button',
-                                  readonly: true,
-                                },
-                                tooltip: {
-                                  type: 'string',
-                                  maxLength: 256,
-                                },
-                                title: {
-                                  type: 'string',
-                                  maxLength: 25,
-                                },
-                                style: {
-                                  title: 'viberElementStyle',
-                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                  type: 'object',
-                                  required: ['type'],
-                                  properties: {
-                                    'background-color': {
-                                      type: 'string',
-                                    },
-                                    color: {
-                                      type: 'string',
-                                    },
+                                  tag: {
+                                    type: 'string',
+                                    enum: ['title'],
+                                    default: 'title',
+                                    readonly: true,
                                   },
-                                },
-                                click: {
-                                  title: 'viberClickOperations',
-                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                  type: 'object',
-                                  additionalProperties: false,
-                                  properties: {
-                                    metadata: {
-                                      title: 'viberClickMetadata',
-                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                      type: 'array',
-                                      maxItems: 32,
-                                      items: {},
-                                    },
-                                    actions: {
-                                      maxItems: 4,
-                                      type: 'array',
-                                      items: {
-                                        oneOf: [
-                                          {
-                                            title: 'viberClickActionPublishText',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'object',
-                                            required: ['type', 'text'],
-                                            properties: {
-                                              type: {
-                                                type: 'string',
-                                                enum: ['publishText'],
-                                                default: 'publishText',
-                                                readonly: true,
-                                              },
-                                              text: {
-                                                type: 'string',
-                                                maxLength: 256,
-                                              },
-                                            },
-                                          },
-                                          {
-                                            title: 'viberClickActionLink',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'object',
-                                            required: ['type', 'uri'],
-                                            properties: {
-                                              type: {
-                                                type: 'string',
-                                                enum: ['link'],
-                                                default: 'link',
-                                                readonly: true,
-                                              },
-                                              uri: {
-                                                type: 'string',
-                                                format: 'uri',
-                                                maxLength: 1024,
-                                              },
-                                              name: {
-                                                type: 'string',
-                                                maxLength: 256,
-                                              },
-                                              target: {
-                                                type: 'string',
-                                                enum: ['self', 'blank', 'slideout'],
-                                                default: 'self',
-                                              },
-                                            },
-                                          },
-                                        ],
+                                  text: {
+                                    type: 'string',
+                                    maxLength: 640,
+                                  },
+                                  tooltip: {
+                                    type: 'string',
+                                    maxLength: 256,
+                                  },
+                                  style: {
+                                    title: 'viberElementStyle',
+                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                    type: 'object',
+                                    required: ['type'],
+                                    properties: {
+                                      'background-color': {
+                                        type: 'string',
+                                      },
+                                      color: {
+                                        type: 'string',
                                       },
                                     },
                                   },
                                 },
                               },
-                            },
-                          ],
+                              {
+                                title: 'viberSubtitle',
+                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                type: 'object',
+                                required: ['type', 'text'],
+                                properties: {
+                                  type: {
+                                    type: 'string',
+                                    enum: ['text'],
+                                    default: 'text',
+                                    readonly: true,
+                                  },
+                                  tag: {
+                                    type: 'string',
+                                    enum: ['subtitle'],
+                                    default: 'subtitle',
+                                    readonly: true,
+                                  },
+                                  text: {
+                                    type: 'string',
+                                    maxLength: 640,
+                                  },
+                                  tooltip: {
+                                    type: 'string',
+                                    maxLength: 256,
+                                  },
+                                  style: {
+                                    title: 'viberElementStyle',
+                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                    type: 'object',
+                                    required: ['type'],
+                                    properties: {
+                                      'background-color': {
+                                        type: 'string',
+                                      },
+                                      color: {
+                                        type: 'string',
+                                      },
+                                    },
+                                  },
+                                },
+                              },
+                              {
+                                title: 'viberButton',
+                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                type: 'object',
+                                required: ['click', 'title', 'type'],
+                                properties: {
+                                  type: {
+                                    type: 'string',
+                                    enum: ['button'],
+                                    default: 'button',
+                                    readonly: true,
+                                  },
+                                  tooltip: {
+                                    type: 'string',
+                                    maxLength: 256,
+                                  },
+                                  title: {
+                                    type: 'string',
+                                    maxLength: 25,
+                                  },
+                                  style: {
+                                    title: 'viberElementStyle',
+                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                    type: 'object',
+                                    required: ['type'],
+                                    properties: {
+                                      'background-color': {
+                                        type: 'string',
+                                      },
+                                      color: {
+                                        type: 'string',
+                                      },
+                                    },
+                                  },
+                                  click: {
+                                    title: 'viberClickOperations',
+                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                    type: 'object',
+                                    additionalProperties: false,
+                                    properties: {
+                                      metadata: {
+                                        title: 'viberClickMetadata',
+                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                        type: 'array',
+                                        maxItems: 32,
+                                        items: {},
+                                      },
+                                      actions: {
+                                        maxItems: 1,
+                                        type: 'array',
+                                        items: {
+                                          oneOf: [
+                                            {
+                                              title: 'viberClickActionPublishText',
+                                              $schema: 'http://json-schema.org/draft-07/schema#',
+                                              type: 'object',
+                                              required: ['type', 'text'],
+                                              properties: {
+                                                type: {
+                                                  type: 'string',
+                                                  enum: ['publishText'],
+                                                  default: 'publishText',
+                                                  readonly: true,
+                                                },
+                                                text: {
+                                                  type: 'string',
+                                                  maxLength: 256,
+                                                },
+                                              },
+                                            },
+                                            {
+                                              title: 'viberClickActionLink',
+                                              $schema: 'http://json-schema.org/draft-07/schema#',
+                                              type: 'object',
+                                              required: ['type', 'uri'],
+                                              properties: {
+                                                type: {
+                                                  type: 'string',
+                                                  enum: ['link'],
+                                                  default: 'link',
+                                                  readonly: true,
+                                                },
+                                                uri: {
+                                                  type: 'string',
+                                                  format: 'uri',
+                                                  maxLength: 1024,
+                                                },
+                                                name: {
+                                                  type: 'string',
+                                                  maxLength: 256,
+                                                },
+                                                target: {
+                                                  type: 'string',
+                                                  enum: ['self', 'blank', 'slideout'],
+                                                  default: 'self',
+                                                },
+                                              },
+                                            },
+                                          ],
+                                        },
+                                      },
+                                    },
+                                  },
+                                },
+                              },
+                            ],
+                          },
                         },
                       },
                     },

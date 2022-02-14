@@ -2,7 +2,7 @@
   "title": "viberTitle",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["type", "tag", "text"],
+  "required": ["type", "text"],
   "properties": {
     "type": {
       "type": "string",

@@ -3,7 +3,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
-  "required": ["type", "elements", "tag"],
+  "required": ["type", "elements"],
   "properties": {
     "type": {
       "type": "string",
@@ -35,20 +35,23 @@
             "readonly": true
           },
           "elements": {
-            "anyOf": [
-              {
-                "$ref": "viberImage.json"
-              },
-              {
-                "$ref": "viberTitle.json"
-              },
-              {
-                "$ref": "viberSubtitle.json"
-              },
-              {
-                "$ref": "viberButton.json"
-              }
-            ]
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "viberImage.json"
+                },
+                {
+                  "$ref": "viberTitle.json"
+                },
+                {
+                  "$ref": "viberSubtitle.json"
+                },
+                {
+                  "$ref": "viberButton.json"
+                }
+              ]
+            }
           }
         }
       }

@@ -6,7 +6,7 @@
   "properties": {
     "metadata": { "$ref": "viberClickMetadata.json" },
     "actions": {
-      "maxItems": 4,
+      "maxItems": 1,
       "type": "array",
       "items": {
         "oneOf": [
