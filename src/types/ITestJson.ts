@@ -65,6 +65,12 @@ export interface ITestJson {
      * undefined = behavior on channel is not known
      */
     gbm?: boolean;
+    /**
+     * true = should work on channel,
+     * false = should not work on channel,
+     * undefined = behavior on channel is not known
+     */
+    viber?: boolean;
   };
   json: object;
 }

@@ -1,0 +1,59 @@
+{
+  "title": "viberCard",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "default": "generic",
+      "readonly": true
+    },
+    "alt": {
+      "type": "string",
+      "description": "This property has no effect in Viber, but is included in the schema to ensure the compatibility of Line Cards."
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "elements"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["vertical"],
+            "default": "vertical",
+            "readonly": true
+          },
+          "elements": {
+            "type": "array",
+            "maxItems": 7,
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "viberImage.json"
+                },
+                {
+                  "$ref": "viberTitle.json"
+                },
+                {
+                  "$ref": "viberSubtitle.json"
+                },
+                {
+                  "$ref": "viberButton.json"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

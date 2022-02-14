@@ -1,0 +1,24 @@
+{
+  "title": "viberButton",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["click", "title", "type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["button"],
+      "default": "button",
+      "readonly": true
+    },
+    "tooltip": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 25
+    },
+    "style": { "$ref": "viberElementStyle.json" },
+    "click": { "$ref": "viberClickOperations.json" }
+  }
+}

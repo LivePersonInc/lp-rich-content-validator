@@ -1,0 +1,12 @@
+{
+  "title": "viberBodyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "viberCard.json"
+    },
+    {
+      "$ref": "viberCarousel.json"
+    }
+  ]
+}

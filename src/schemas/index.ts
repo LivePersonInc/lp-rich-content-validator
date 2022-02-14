@@ -116,6 +116,22 @@ import abcCustomMessageMd from './appleBusinessChat/metadata/abcCustomMessageMd.
 import abcDatePickerMd from './appleBusinessChat/metadata/abcDatePickerMd.json';
 import abcMetadataRoot from './appleBusinessChat/metadata/abcMetadataRoot.json';
 
+import viberBodyRoot from './viber/bodies/viberBodyRoot.json';
+import viberClickMetadata from './viber/bodies/basics/clickOperations/viberClickMetadata.json';
+import viberClickOperations from './viber/bodies/basics/clickOperations/viberClickOperations.json';
+import viberClickActionPublishText from './viber/bodies/basics/clickOperations/viberClickActionPublishText.json';
+import viberClickActionLink from './viber/bodies/basics/clickOperations/viberClickActionLink.json';
+import viberButton from './viber/bodies/basics/viberButton.json';
+import viberImage from './viber/bodies/basics/viberImage.json';
+import viberTitle from './viber/bodies/basics/viberTitle.json';
+import viberSubtitle from './viber/bodies/basics/viberSubtitle.json';
+import viberCard from './viber/bodies/cards/viberCard.json';
+import viberCarousel from './viber/bodies/viberCarousel.json';
+import viberQuickReplyRoot from './viber/quickReply/viberQuickReplyRoot.json';
+import viberQuickReplyActions from './viber/quickReply/viberQuickReplyActions.json';
+import viberQuickReplyButton from './viber/quickReply/viberQuickReplyButton.json';
+import viberElementStyle from './viber/bodies/basics/viberElementStyle.json';
+
 import action from './web/action.json';
 import basic from './web/basic.json';
 import button from './web/button.json';
@@ -158,6 +174,7 @@ interface IAllSchemas {
   [Channels.WEB]: IChannelSchemas;
   [Channels.GBM]: IChannelSchemas;
   [Channels.WA]: IChannelSchemas;
+  [Channels.VIBER]: IChannelSchemas;
 }
 
 const fbSchemas: IChannelSchemas = {
@@ -290,8 +307,8 @@ const abcSchemas: IChannelSchemas = {
     abcRichLinkCardElementOrder1,
     abcRichLinkCardElementOrder2,
 
-    /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as 
-    a web-body. (Because then the body is only used to display something to the agent in the 
+    /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as
+    a web-body. (Because then the body is only used to display something to the agent in the
     Conversational Cloud and not in ABC) Therefore an ABC validator also needs the web-schemas. */
     // eslint-disable-next-line @typescript-eslint/camelcase
     abcWebPlaceholder: webBodyRoot,
@@ -376,6 +393,31 @@ const whatsappSchemas: IChannelSchemas = {
   [Types.QUR]: whatsappSchemasQuickReply,
 };
 
+const viberSchemas: IChannelSchemas = {
+  [Types.BDY]: {
+    BodyRoot: viberBodyRoot,
+    viberClickActionLink,
+    viberClickActionPublishText,
+    viberClickMetadata,
+    viberClickOperations,
+    viberButton,
+    viberImage,
+    viberSubtitle,
+    viberTitle,
+    viberCard,
+    viberCarousel,
+    viberElementStyle,
+  },
+  [Types.MTD]: {
+    MetadataRoot: {},
+  },
+  [Types.QUR]: {
+    QuickReplyRoot: viberQuickReplyRoot,
+    viberQuickReplyActions,
+    viberQuickReplyButton,
+  },
+};
+
 const allSchemas: IAllSchemas = {
   [Channels.ABC]: abcSchemas,
   [Channels.FB]: fbSchemas,
@@ -384,6 +426,7 @@ const allSchemas: IAllSchemas = {
   [Channels.WEB]: webSchemas,
   [Channels.GBM]: gbmSchemas,
   [Channels.WA]: whatsappSchemas,
+  [Channels.VIBER]: viberSchemas,
 };
 
 export default allSchemas;

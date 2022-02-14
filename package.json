@@ -15,6 +15,7 @@
     "export::LINE": "tsc && node ./scripts/export.js LINE",
     "export::RBM": "tsc && node ./scripts/export.js RBM",
     "export::WEB": "tsc && node ./scripts/export.js WEB",
+    "export::VIBER": "tsc && node ./scripts/export.js VIBER",
     "prepublishOnly": "rm -rf dist && npm run-script build",
     "pretest": "eslint src/ tests/ --ext .ts --config .eslintrc.js",
     "test": "jest --coverage --verbose --runInBand"

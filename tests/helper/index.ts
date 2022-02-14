@@ -120,6 +120,19 @@ import {
   expectedSchemaMetadataRbm,
   expectedSchemaQuickrepliesRbm,
 } from './rbmHelper';
+
+import {
+  bdyVerticalCardViber,
+  bdyVerticalCardViberOver7Elements,
+  bdyVerticalCarouselViber,
+  bdyVerticalCarouselViber11Cards,
+  bdyVerticalCarouselViberNoCards,
+  bdyVerticalCardViberWithButtonStyling,
+  expectedSchemaBodyViber,
+  expectedSchemaMetadataViber,
+  expectedSchemaQuickrepliesViber,
+} from './viberHelper';
+
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
 import { Channels } from '../../src';
@@ -232,6 +245,13 @@ export const testJsonContainers = [
   mdAuthenticationWithResponseEncryptionKeyAbc,
   bdyApplePayAbc,
   mdApplePayAbc,
+
+  bdyVerticalCardViber,
+  bdyVerticalCardViberOver7Elements,
+  bdyVerticalCarouselViber,
+  bdyVerticalCarouselViberNoCards,
+  bdyVerticalCarouselViber11Cards,
+  bdyVerticalCardViberWithButtonStyling,
 ];
 
 export const expectedSchemas = {
@@ -263,5 +283,10 @@ export const expectedSchemas = {
     [Types.BDY]: expectedSchemaBodyGbm,
     [Types.MTD]: expectedSchemaMetadataGbm,
     [Types.QUR]: expectedSchemaQuickrepliesGbm,
+  },
+  [Channels.VIBER]: {
+    [Types.BDY]: expectedSchemaBodyViber,
+    [Types.MTD]: expectedSchemaMetadataViber,
+    [Types.QUR]: expectedSchemaQuickrepliesViber,
   },
 };

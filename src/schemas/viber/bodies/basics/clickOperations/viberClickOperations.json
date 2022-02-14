@@ -1,0 +1,23 @@
+{
+  "title": "viberClickOperations",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "viberClickMetadata.json" },
+    "actions": {
+      "maxItems": 1,
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "viberClickActionPublishText.json"
+          },
+          {
+            "$ref": "viberClickActionLink.json"
+          }
+        ]
+      }
+    }
+  }
+}
