@@ -34,3 +34,8 @@ Feature: Exporting the Schemas as one file
     Given I have a Rich Content validator for GBM
     When I try to export the schemas for rich content-bodies, -metadata and -quickreplies
     Then I receive one correct schema file for each of the rich content-types I requested
+
+  Scenario: Exporting All Viber schemas
+    Given I have a Rich Content validator for Viber
+    When I try to export the schemas for rich content-bodies, -metadata and -quickreplies
+    Then I receive one correct schema file for each of the rich content-types I requested

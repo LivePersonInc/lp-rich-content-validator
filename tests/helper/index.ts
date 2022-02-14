@@ -122,18 +122,11 @@ import {
 } from './rbmHelper';
 
 import {
-  qrQuickRepliesSpecialCharactersViber,
-  qrQuickReplies11ButtonsViber,
-  qrQuickReplies12ButtonsViber,
-  qrQuickReply26CharsViber,
-  qrQuickReply25CharsViber,
   bdyVerticalCardViber,
-  bdyVerticalCardTooLongButtonViber,
-  bdyVerticalCardWithoutImageViber,
-  bdyVerticalCardWithoutTitleOrSubtitleViber,
   bdyVerticalCardTooManyButtonsViber,
   bdyCarousel10CardsViber,
   bdyCarousel11CardsViber,
+  bdyHorizontalCardNotSupportedViber,
   expectedSchemaBodyViber,
   expectedSchemaMetadataViber,
   expectedSchemaQuickrepliesViber,
@@ -252,18 +245,11 @@ export const testJsonContainers = [
   bdyApplePayAbc,
   mdApplePayAbc,
 
-  qrQuickRepliesSpecialCharactersViber,
-  qrQuickReplies11ButtonsViber,
-  qrQuickReplies12ButtonsViber,
-  qrQuickReply26CharsViber,
-  qrQuickReply25CharsViber,
   bdyVerticalCardViber,
-  bdyVerticalCardTooLongButtonViber,
-  bdyVerticalCardWithoutImageViber,
-  bdyVerticalCardWithoutTitleOrSubtitleViber,
-  bdyVerticalCardTooManyButtonsViber,
-  bdyCarousel10CardsViber,
-  bdyCarousel11CardsViber,
+  // bdyVerticalCardTooManyButtonsViber,
+  // bdyCarousel10CardsViber,
+  // bdyCarousel11CardsViber,
+  // bdyHorizontalCardNotSupportedViber,
 ];
 
 export const expectedSchemas = {

@@ -179,4 +179,31 @@ defineFeature(feature, (test) => {
       expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
     });
   });
+
+  test('Exporting All Viber schemas', ({ given, when, then }) => {
+    let validator: RichContentValidator;
+    let bodySchema: object;
+    let metadataSchema: object;
+    let quickrepliesSchema: object;
+
+    given('I have a Rich Content validator for Viber', () => {
+      validator = new RichContentValidator({ channel: Channels.VIBER });
+    });
+
+    when('I try to export the schemas for rich content-bodies, -metadata and -quickreplies', () => {
+      bodySchema = validator.exportSchema({ type: Types.BDY, channel: Channels.VIBER });
+      metadataSchema = validator.exportSchema({ type: Types.MTD, channel: Channels.VIBER });
+      quickrepliesSchema = validator.exportSchema({ type: Types.QUR, channel: Channels.VIBER });
+    });
+
+    then('I receive one correct schema file for each of the rich content-types I requested', () => {
+      const expectedBodySchema = expectedSchemas[Channels.VIBER][Types.BDY];
+      const expectedMetadataSchema = expectedSchemas[Channels.VIBER][Types.MTD];
+      const expectedQuickrepliesSchema = expectedSchemas[Channels.VIBER][Types.QUR];
+
+      expect(bodySchema).toEqual(expectedBodySchema);
+      expect(metadataSchema).toEqual(expectedMetadataSchema);
+      expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
+    });
+  });
 });
