@@ -300,5 +300,5 @@ export const expectedSchemas = {
     [Types.BDY]: expectedSchemaBodyViber,
     [Types.MTD]: expectedSchemaMetadataViber,
     [Types.QUR]: expectedSchemaQuickrepliesViber,
-  }
+  },
 };
