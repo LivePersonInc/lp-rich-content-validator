@@ -13,7 +13,6 @@
     },
     "tag": {
       "type": "string",
-      "enum": ["generic"],
       "default": "generic",
       "readonly": true
     },
@@ -23,7 +22,6 @@
     },
     "elements": {
       "type": "array",
-      "maxItems": 7,
       "items": {
         "type": "object",
         "required": ["type", "elements"],
@@ -36,6 +34,7 @@
           },
           "elements": {
             "type": "array",
+            "maxItems": 7,
             "items": {
               "anyOf": [
                 {

@@ -121,7 +121,16 @@ import {
   expectedSchemaQuickrepliesRbm,
 } from './rbmHelper';
 
-import { bdyVerticalCardViber, expectedSchemaBodyViber, expectedSchemaMetadataViber, expectedSchemaQuickrepliesViber } from './viberHelper';
+import {
+  bdyVerticalCardViber,
+  bdyVerticalCardViberOver7Elements,
+  bdyVerticalCarouselViber,
+  bdyVerticalCarouselViber11Cards,
+  bdyVerticalCarouselViberNoCards,
+  expectedSchemaBodyViber,
+  expectedSchemaMetadataViber,
+  expectedSchemaQuickrepliesViber,
+} from './viberHelper';
 
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
@@ -237,6 +246,10 @@ export const testJsonContainers = [
   mdApplePayAbc,
 
   bdyVerticalCardViber,
+  bdyVerticalCardViberOver7Elements,
+  bdyVerticalCarouselViber,
+  bdyVerticalCarouselViberNoCards,
+  bdyVerticalCarouselViber11Cards,
 ];
 
 export const expectedSchemas = {

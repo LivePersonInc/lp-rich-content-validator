@@ -36,6 +36,623 @@ const bdyVerticalCardViber = (): ITestJson => ({
   },
 });
 
+const bdyVerticalCardViberOver7Elements = (): ITestJson => ({
+  richContentType: Types.BDY,
+  description: 'This card contains over 7 elements hitting Vibers MAX Element count. Will FAIL',
+  channel: Channels.VIBER,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: undefined,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+    [Channels.VIBER]: false,
+  },
+  json: {
+    type: 'vertical',
+    tag: 'button',
+    elements: [
+      {
+        type: 'vertical',
+        elements: [
+          { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+          {
+            type: 'button',
+            tooltip: 'button one',
+            title: 'button one',
+            click: {
+              actions: [{ type: 'publishText', text: 'iPhone X Added' }],
+              metadata: [{ type: 'ExternalId', id: 'iPhone X' }],
+            },
+          },
+        ],
+      },
+    ],
+  },
+});
+
+const bdyVerticalCarouselViber = (): ITestJson => ({
+  richContentType: Types.BDY,
+  description: 'This is a carousel for Viber with 4 cards',
+  channel: Channels.VIBER,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: undefined,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+    [Channels.VIBER]: true,
+  },
+  json: {
+    type: 'carousel',
+    padding: 10,
+    elements: [
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+});
+
+const bdyVerticalCarouselViberNoCards = (): ITestJson => ({
+  richContentType: Types.BDY,
+  description: 'This is a carousel for Viber with 0 cards and should FAIL',
+  channel: Channels.VIBER,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: undefined,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+    [Channels.VIBER]: false,
+  },
+  json: {
+    type: 'carousel',
+    padding: 10,
+    elements: [],
+  },
+});
+
+const bdyVerticalCarouselViber11Cards = (): ITestJson => ({
+  richContentType: Types.BDY,
+  description: 'This is a carousel for Viber with 11 cards and should FAIL.',
+  channel: Channels.VIBER,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: undefined,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+    [Channels.VIBER]: false,
+  },
+  json: {
+    type: 'carousel',
+    padding: 10,
+    elements: [
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'vertical',
+        tag: 'button',
+        elements: [
+          {
+            type: 'vertical',
+            elements: [
+              {
+                type: 'image',
+                tag: 'image',
+                url:
+                  'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000',
+                tooltip: 'image',
+              },
+              { type: 'text', tag: 'title', text: 'Button example', tooltip: 'Button example' },
+              {
+                type: 'button',
+                tooltip: 'button one',
+                title: 'button one',
+                click: { actions: [{ type: 'publishText', text: 'iPhone X Added' }] },
+              },
+              {
+                type: 'button',
+                tooltip: 'button two',
+                title: 'button two',
+                click: { actions: [{ type: 'publishText', text: 'button two pressed' }] },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+});
+
 const expectedSchemaBodyViber = {
   $schema: 'http://json-schema.org/draft-07/schema',
   $ref: '#/definitions/root',
@@ -59,7 +676,6 @@ const expectedSchemaBodyViber = {
             },
             tag: {
               type: 'string',
-              enum: ['generic'],
               default: 'generic',
               readonly: true,
             },
@@ -69,7 +685,6 @@ const expectedSchemaBodyViber = {
             },
             elements: {
               type: 'array',
-              maxItems: 7,
               items: {
                 type: 'object',
                 required: ['type', 'elements'],
@@ -82,6 +697,7 @@ const expectedSchemaBodyViber = {
                   },
                   elements: {
                     type: 'array',
+                    maxItems: 7,
                     items: {
                       anyOf: [
                         {
@@ -120,7 +736,6 @@ const expectedSchemaBodyViber = {
                             },
                             tag: {
                               type: 'string',
-                              enum: ['title'],
                               default: 'title',
                               readonly: true,
                             },
@@ -162,7 +777,6 @@ const expectedSchemaBodyViber = {
                             },
                             tag: {
                               type: 'string',
-                              enum: ['subtitle'],
                               default: 'subtitle',
                               readonly: true,
                             },
@@ -317,7 +931,6 @@ const expectedSchemaBodyViber = {
             },
             tag: {
               type: 'string',
-              enum: ['generic'],
               default: 'generic',
               readonly: true,
             },
@@ -352,7 +965,6 @@ const expectedSchemaBodyViber = {
                   },
                   tag: {
                     type: 'string',
-                    enum: ['generic'],
                     default: 'generic',
                     readonly: true,
                   },
@@ -363,7 +975,6 @@ const expectedSchemaBodyViber = {
                   },
                   elements: {
                     type: 'array',
-                    maxItems: 7,
                     items: {
                       type: 'object',
                       required: ['type', 'elements'],
@@ -376,6 +987,7 @@ const expectedSchemaBodyViber = {
                         },
                         elements: {
                           type: 'array',
+                          maxItems: 7,
                           items: {
                             anyOf: [
                               {
@@ -414,7 +1026,6 @@ const expectedSchemaBodyViber = {
                                   },
                                   tag: {
                                     type: 'string',
-                                    enum: ['title'],
                                     default: 'title',
                                     readonly: true,
                                   },
@@ -456,7 +1067,6 @@ const expectedSchemaBodyViber = {
                                   },
                                   tag: {
                                     type: 'string',
-                                    enum: ['subtitle'],
                                     default: 'subtitle',
                                     readonly: true,
                                   },
@@ -693,4 +1303,13 @@ const expectedSchemaQuickrepliesViber = {
   },
 };
 
-export { bdyVerticalCardViber, expectedSchemaBodyViber, expectedSchemaMetadataViber, expectedSchemaQuickrepliesViber };
+export {
+  bdyVerticalCardViber,
+  bdyVerticalCardViberOver7Elements,
+  bdyVerticalCarouselViber,
+  bdyVerticalCarouselViberNoCards,
+  bdyVerticalCarouselViber11Cards,
+  expectedSchemaBodyViber,
+  expectedSchemaMetadataViber,
+  expectedSchemaQuickrepliesViber,
+};

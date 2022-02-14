@@ -12,7 +12,6 @@
     },
     "tag": {
       "type": "string",
-      "enum": ["subtitle"],
       "default": "subtitle",
       "readonly": true
     },
