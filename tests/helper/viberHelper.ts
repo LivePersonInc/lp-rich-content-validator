@@ -1694,7 +1694,6 @@ const expectedSchemaBodyViber = {
                             title: 'viberCard',
                             $schema: 'http://json-schema.org/draft-07/schema#',
                             type: 'object',
-                            additionalProperties: false,
                             required: ['type', 'elements', 'tag'],
                             properties: {
                                 type: {
@@ -1703,1696 +1702,188 @@ const expectedSchemaBodyViber = {
                                     default: 'vertical',
                                     readonly: true,
                                 },
+                                alt: {
+                                    type: 'string',
+                                    description:
+                                        'This property has no effect in RBM, but is included in the schema to ensure the compatibility of Line Cards.',
+                                },
                                 tag: {
                                     type: 'string',
                                     enum: ['generic'],
                                     default: 'generic',
                                     readonly: true,
                                 },
-                                alt: {
-                                    type: 'string',
-                                    description:
-                                        'This property has no effect in RBM, but is included in the schema to ensure the compatibility of Line Cards.',
-                                },
                                 elements: {
-                                    type: 'array',
-                                    maxItems: 1,
-                                    items: {
-                                        type: 'object',
-                                        required: ['type', 'elements'],
-                                        properties: {
-                                            type: {
-                                                type: 'string',
-                                                enum: ['vertical', 'horizontal'],
-                                                default: 'vertical',
-                                                readonly: true,
+                                    anyOf: [
+                                        {
+                                            title: 'viberImage',
+                                            $schema: 'http://json-schema.org/draft-07/schema#',
+                                            type: 'object',
+                                            required: ['type', 'url'],
+                                            properties: {
+                                                type: {
+                                                    type: 'string',
+                                                    enum: ['image'],
+                                                    default: 'image',
+                                                    readonly: true,
+                                                },
+                                                url: {
+                                                    type: 'string',
+                                                    maxLength: 2048,
+                                                },
+                                                tooltip: {
+                                                    type: 'string',
+                                                    maxLength: 256,
+                                                },
                                             },
-                                            elements: {
-                                                oneOf: [
-                                                    {
-                                                        title: 'viberCardElementOrder1',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 3,
-                                                        maxItems: 7,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
+                                        },
+                                        {
+                                            title: 'viberTitle',
+                                            $schema: 'http://json-schema.org/draft-07/schema#',
+                                            type: 'object',
+                                            required: ['type', 'tag', 'text'],
+                                            properties: {
+                                                type: {
+                                                    type: 'string',
+                                                    enum: ['text'],
+                                                    default: 'text',
+                                                    readonly: true,
+                                                },
+                                                tag: {
+                                                    type: 'string',
+                                                    enum: ['title'],
+                                                    default: 'title',
+                                                    readonly: true,
+                                                },
+                                                text: {
+                                                    type: 'string',
+                                                    maxLength: 640,
+                                                },
+                                                tooltip: {
+                                                    type: 'string',
+                                                    maxLength: 256,
+                                                },
+                                            },
+                                        },
+                                        {
+                                            title: 'viberSubtitle',
+                                            $schema: 'http://json-schema.org/draft-07/schema#',
+                                            type: 'object',
+                                            required: ['type', 'tag', 'text'],
+                                            properties: {
+                                                type: {
+                                                    type: 'string',
+                                                    enum: ['text'],
+                                                    default: 'text',
+                                                    readonly: true,
+                                                },
+                                                tag: {
+                                                    type: 'string',
+                                                    enum: ['subtitle'],
+                                                    default: 'subtitle',
+                                                    readonly: true,
+                                                },
+                                                text: {
+                                                    type: 'string',
+                                                    maxLength: 640,
+                                                },
+                                                tooltip: {
+                                                    type: 'string',
+                                                    maxLength: 256,
+                                                },
+                                            },
+                                        },
+                                        {
+                                            title: 'viberButton',
+                                            $schema: 'http://json-schema.org/draft-07/schema#',
+                                            type: 'object',
+                                            required: ['click', 'title', 'type'],
+                                            properties: {
+                                                type: {
+                                                    type: 'string',
+                                                    enum: ['button'],
+                                                    default: 'button',
+                                                    readonly: true,
+                                                },
+                                                tooltip: {
+                                                    type: 'string',
+                                                    maxLength: 256,
+                                                },
+                                                title: {
+                                                    type: 'string',
+                                                    maxLength: 25,
+                                                },
+                                                click: {
+                                                    title: 'viberClickOperations',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    type: 'object',
+                                                    additionalProperties: false,
+                                                    properties: {
+                                                        metadata: {
+                                                            title: 'viberClickMetadata',
                                                             $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
+                                                            type: 'array',
+                                                            maxItems: 32,
+                                                            items: {},
                                                         },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder2',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 1,
-                                                        maxItems: 5,
-                                                        items: [
-                                                            {
+                                                        actions: {
+                                                            maxItems: 4,
+                                                            type: 'array',
+                                                            items: {
                                                                 oneOf: [
                                                                     {
-                                                                        title: 'viberImage',
+                                                                        title: 'viberClickActionPublishText',
                                                                         $schema: 'http://json-schema.org/draft-07/schema#',
                                                                         type: 'object',
-                                                                        required: ['type', 'url'],
+                                                                        required: ['type', 'text'],
                                                                         properties: {
                                                                             type: {
                                                                                 type: 'string',
-                                                                                enum: ['image'],
-                                                                                default: 'image',
+                                                                                enum: ['publishText'],
+                                                                                default: 'publishText',
                                                                                 readonly: true,
                                                                             },
-                                                                            url: {
-                                                                                type: 'string',
-                                                                                maxLength: 2048,
-                                                                            },
-                                                                            tooltip: {
+                                                                            text: {
                                                                                 type: 'string',
                                                                                 maxLength: 256,
                                                                             },
                                                                         },
                                                                     },
                                                                     {
-                                                                        title: 'viberTitle',
+                                                                        title: 'viberClickActionLink',
                                                                         $schema: 'http://json-schema.org/draft-07/schema#',
                                                                         type: 'object',
-                                                                        required: ['type', 'tag', 'text'],
+                                                                        required: ['type', 'uri'],
                                                                         properties: {
                                                                             type: {
                                                                                 type: 'string',
-                                                                                enum: ['text'],
-                                                                                default: 'text',
+                                                                                enum: ['link'],
+                                                                                default: 'link',
                                                                                 readonly: true,
                                                                             },
-                                                                            tag: {
+                                                                            uri: {
                                                                                 type: 'string',
-                                                                                enum: ['title'],
-                                                                                default: 'title',
-                                                                                readonly: true,
+                                                                                format: 'uri',
+                                                                                maxLength: 1024,
                                                                             },
-                                                                            text: {
-                                                                                type: 'string',
-                                                                                maxLength: 640,
-                                                                            },
-                                                                            tooltip: {
+                                                                            name: {
                                                                                 type: 'string',
                                                                                 maxLength: 256,
                                                                             },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        title: 'viberSubtitle',
-                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                        type: 'object',
-                                                                        required: ['type', 'tag', 'text'],
-                                                                        properties: {
-                                                                            type: {
+                                                                            target: {
                                                                                 type: 'string',
-                                                                                enum: ['text'],
-                                                                                default: 'text',
-                                                                                readonly: true,
-                                                                            },
-                                                                            tag: {
-                                                                                type: 'string',
-                                                                                enum: ['subtitle'],
-                                                                                default: 'subtitle',
-                                                                                readonly: true,
-                                                                            },
-                                                                            text: {
-                                                                                type: 'string',
-                                                                                maxLength: 640,
-                                                                            },
-                                                                            tooltip: {
-                                                                                type: 'string',
-                                                                                maxLength: 256,
+                                                                                enum: ['self', 'blank', 'slideout'],
+                                                                                default: 'self',
                                                                             },
                                                                         },
                                                                     },
                                                                 ],
                                                             },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder3',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder4',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder5',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                ],
-                                            },
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                        {
-                            title: 'viberCard',
-                            $schema: 'http://json-schema.org/draft-07/schema#',
-                            type: 'object',
-                            required: ['type', 'elements', 'tag'],
-                            properties: {
-                                type: {
-                                    type: 'string',
-                                    enum: ['vertical', 'horizontal'],
-                                    default: 'vertical',
-                                    readonly: true,
-                                },
-                                alt: {
-                                    type: 'string',
-                                    description:
-                                        'This property has no effect in RBM, but is included in the schema to ensure the compatibility of Line Cards.',
-                                },
-                                tag: {
-                                    type: 'string',
-                                    enum: ['generic'],
-                                    default: 'generic',
-                                    readonly: true,
-                                },
-                                elements: {
-                                    oneOf: [
-                                        {
-                                            title: 'viberCardElementOrder1',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'array',
-                                            minItems: 3,
-                                            maxItems: 7,
-                                            items: [
-                                                {
-                                                    title: 'viberImage',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'url'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['image'],
-                                                            default: 'image',
-                                                            readonly: true,
-                                                        },
-                                                        url: {
-                                                            type: 'string',
-                                                            maxLength: 2048,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    title: 'viberTitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['title'],
-                                                            default: 'title',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    title: 'viberSubtitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['subtitle'],
-                                                            default: 'subtitle',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                            additionalItems: {
-                                                title: 'viberButton',
-                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                type: 'object',
-                                                required: ['click', 'title', 'type'],
-                                                properties: {
-                                                    type: {
-                                                        type: 'string',
-                                                        enum: ['button'],
-                                                        default: 'button',
-                                                        readonly: true,
-                                                    },
-                                                    tooltip: {
-                                                        type: 'string',
-                                                        maxLength: 256,
-                                                    },
-                                                    title: {
-                                                        type: 'string',
-                                                        maxLength: 25,
-                                                    },
-                                                    click: {
-                                                        title: 'viberClickOperations',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'object',
-                                                        additionalProperties: false,
-                                                        properties: {
-                                                            metadata: {
-                                                                title: 'viberClickMetadata',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'array',
-                                                                maxItems: 32,
-                                                                items: {},
-                                                            },
-                                                            actions: {
-                                                                maxItems: 4,
-                                                                type: 'array',
-                                                                items: {
-                                                                    oneOf: [
-                                                                        {
-                                                                            title: 'viberClickActionPublishText',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'text'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['publishText'],
-                                                                                    default: 'publishText',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                text: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        {
-                                                                            title: 'viberClickActionLink',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'uri'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['link'],
-                                                                                    default: 'link',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                uri: {
-                                                                                    type: 'string',
-                                                                                    format: 'uri',
-                                                                                    maxLength: 1024,
-                                                                                },
-                                                                                name: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                                target: {
-                                                                                    type: 'string',
-                                                                                    enum: ['self', 'blank', 'slideout'],
-                                                                                    default: 'self',
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
                                                         },
                                                     },
                                                 },
                                             },
-                                        },
-                                        {
-                                            title: 'viberCardElementOrder2',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'array',
-                                            minItems: 1,
-                                            maxItems: 5,
-                                            items: [
-                                                {
-                                                    oneOf: [
-                                                        {
-                                                            title: 'viberImage',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['type', 'url'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['image'],
-                                                                    default: 'image',
-                                                                    readonly: true,
-                                                                },
-                                                                url: {
-                                                                    type: 'string',
-                                                                    maxLength: 2048,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                            },
-                                                        },
-                                                        {
-                                                            title: 'viberTitle',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['type', 'tag', 'text'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['text'],
-                                                                    default: 'text',
-                                                                    readonly: true,
-                                                                },
-                                                                tag: {
-                                                                    type: 'string',
-                                                                    enum: ['title'],
-                                                                    default: 'title',
-                                                                    readonly: true,
-                                                                },
-                                                                text: {
-                                                                    type: 'string',
-                                                                    maxLength: 640,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                            },
-                                                        },
-                                                        {
-                                                            title: 'viberSubtitle',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['type', 'tag', 'text'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['text'],
-                                                                    default: 'text',
-                                                                    readonly: true,
-                                                                },
-                                                                tag: {
-                                                                    type: 'string',
-                                                                    enum: ['subtitle'],
-                                                                    default: 'subtitle',
-                                                                    readonly: true,
-                                                                },
-                                                                text: {
-                                                                    type: 'string',
-                                                                    maxLength: 640,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                            ],
-                                            additionalItems: {
-                                                title: 'viberButton',
-                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                type: 'object',
-                                                required: ['click', 'title', 'type'],
-                                                properties: {
-                                                    type: {
-                                                        type: 'string',
-                                                        enum: ['button'],
-                                                        default: 'button',
-                                                        readonly: true,
-                                                    },
-                                                    tooltip: {
-                                                        type: 'string',
-                                                        maxLength: 256,
-                                                    },
-                                                    title: {
-                                                        type: 'string',
-                                                        maxLength: 25,
-                                                    },
-                                                    click: {
-                                                        title: 'viberClickOperations',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'object',
-                                                        additionalProperties: false,
-                                                        properties: {
-                                                            metadata: {
-                                                                title: 'viberClickMetadata',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'array',
-                                                                maxItems: 32,
-                                                                items: {},
-                                                            },
-                                                            actions: {
-                                                                maxItems: 4,
-                                                                type: 'array',
-                                                                items: {
-                                                                    oneOf: [
-                                                                        {
-                                                                            title: 'viberClickActionPublishText',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'text'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['publishText'],
-                                                                                    default: 'publishText',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                text: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        {
-                                                                            title: 'viberClickActionLink',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'uri'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['link'],
-                                                                                    default: 'link',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                uri: {
-                                                                                    type: 'string',
-                                                                                    format: 'uri',
-                                                                                    maxLength: 1024,
-                                                                                },
-                                                                                name: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                                target: {
-                                                                                    type: 'string',
-                                                                                    enum: ['self', 'blank', 'slideout'],
-                                                                                    default: 'self',
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        {
-                                            title: 'viberCardElementOrder3',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'array',
-                                            minItems: 2,
-                                            maxItems: 6,
-                                            items: [
-                                                {
-                                                    title: 'viberImage',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'url'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['image'],
-                                                            default: 'image',
-                                                            readonly: true,
-                                                        },
-                                                        url: {
-                                                            type: 'string',
-                                                            maxLength: 2048,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    title: 'viberTitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['title'],
-                                                            default: 'title',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                            additionalItems: {
-                                                title: 'viberButton',
-                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                type: 'object',
-                                                required: ['click', 'title', 'type'],
-                                                properties: {
-                                                    type: {
-                                                        type: 'string',
-                                                        enum: ['button'],
-                                                        default: 'button',
-                                                        readonly: true,
-                                                    },
-                                                    tooltip: {
-                                                        type: 'string',
-                                                        maxLength: 256,
-                                                    },
-                                                    title: {
-                                                        type: 'string',
-                                                        maxLength: 25,
-                                                    },
-                                                    click: {
-                                                        title: 'viberClickOperations',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'object',
-                                                        additionalProperties: false,
-                                                        properties: {
-                                                            metadata: {
-                                                                title: 'viberClickMetadata',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'array',
-                                                                maxItems: 32,
-                                                                items: {},
-                                                            },
-                                                            actions: {
-                                                                maxItems: 4,
-                                                                type: 'array',
-                                                                items: {
-                                                                    oneOf: [
-                                                                        {
-                                                                            title: 'viberClickActionPublishText',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'text'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['publishText'],
-                                                                                    default: 'publishText',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                text: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        {
-                                                                            title: 'viberClickActionLink',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'uri'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['link'],
-                                                                                    default: 'link',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                uri: {
-                                                                                    type: 'string',
-                                                                                    format: 'uri',
-                                                                                    maxLength: 1024,
-                                                                                },
-                                                                                name: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                                target: {
-                                                                                    type: 'string',
-                                                                                    enum: ['self', 'blank', 'slideout'],
-                                                                                    default: 'self',
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        {
-                                            title: 'viberCardElementOrder4',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'array',
-                                            minItems: 2,
-                                            maxItems: 6,
-                                            items: [
-                                                {
-                                                    title: 'viberImage',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'url'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['image'],
-                                                            default: 'image',
-                                                            readonly: true,
-                                                        },
-                                                        url: {
-                                                            type: 'string',
-                                                            maxLength: 2048,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    title: 'viberSubtitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['subtitle'],
-                                                            default: 'subtitle',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                            additionalItems: {
-                                                title: 'viberButton',
-                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                type: 'object',
-                                                required: ['click', 'title', 'type'],
-                                                properties: {
-                                                    type: {
-                                                        type: 'string',
-                                                        enum: ['button'],
-                                                        default: 'button',
-                                                        readonly: true,
-                                                    },
-                                                    tooltip: {
-                                                        type: 'string',
-                                                        maxLength: 256,
-                                                    },
-                                                    title: {
-                                                        type: 'string',
-                                                        maxLength: 25,
-                                                    },
-                                                    click: {
-                                                        title: 'viberClickOperations',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'object',
-                                                        additionalProperties: false,
-                                                        properties: {
-                                                            metadata: {
-                                                                title: 'viberClickMetadata',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'array',
-                                                                maxItems: 32,
-                                                                items: {},
-                                                            },
-                                                            actions: {
-                                                                maxItems: 4,
-                                                                type: 'array',
-                                                                items: {
-                                                                    oneOf: [
-                                                                        {
-                                                                            title: 'viberClickActionPublishText',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'text'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['publishText'],
-                                                                                    default: 'publishText',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                text: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        {
-                                                                            title: 'viberClickActionLink',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'uri'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['link'],
-                                                                                    default: 'link',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                uri: {
-                                                                                    type: 'string',
-                                                                                    format: 'uri',
-                                                                                    maxLength: 1024,
-                                                                                },
-                                                                                name: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                                target: {
-                                                                                    type: 'string',
-                                                                                    enum: ['self', 'blank', 'slideout'],
-                                                                                    default: 'self',
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        {
-                                            title: 'viberCardElementOrder5',
-                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                            type: 'array',
-                                            minItems: 2,
-                                            maxItems: 6,
-                                            items: [
-                                                {
-                                                    title: 'viberTitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['title'],
-                                                            default: 'title',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    title: 'viberSubtitle',
-                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                    type: 'object',
-                                                    required: ['type', 'tag', 'text'],
-                                                    properties: {
-                                                        type: {
-                                                            type: 'string',
-                                                            enum: ['text'],
-                                                            default: 'text',
-                                                            readonly: true,
-                                                        },
-                                                        tag: {
-                                                            type: 'string',
-                                                            enum: ['subtitle'],
-                                                            default: 'subtitle',
-                                                            readonly: true,
-                                                        },
-                                                        text: {
-                                                            type: 'string',
-                                                            maxLength: 640,
-                                                        },
-                                                        tooltip: {
-                                                            type: 'string',
-                                                            maxLength: 256,
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                            additionalItems: {
-                                                title: 'viberButton',
-                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                type: 'object',
-                                                required: ['click', 'title', 'type'],
-                                                properties: {
-                                                    type: {
-                                                        type: 'string',
-                                                        enum: ['button'],
-                                                        default: 'button',
-                                                        readonly: true,
-                                                    },
-                                                    tooltip: {
-                                                        type: 'string',
-                                                        maxLength: 256,
-                                                    },
-                                                    title: {
-                                                        type: 'string',
-                                                        maxLength: 25,
-                                                    },
-                                                    click: {
-                                                        title: 'viberClickOperations',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'object',
-                                                        additionalProperties: false,
-                                                        properties: {
-                                                            metadata: {
-                                                                title: 'viberClickMetadata',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'array',
-                                                                maxItems: 32,
-                                                                items: {},
-                                                            },
-                                                            actions: {
-                                                                maxItems: 4,
-                                                                type: 'array',
-                                                                items: {
-                                                                    oneOf: [
-                                                                        {
-                                                                            title: 'viberClickActionPublishText',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'text'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['publishText'],
-                                                                                    default: 'publishText',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                text: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        {
-                                                                            title: 'viberClickActionLink',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'object',
-                                                                            required: ['type', 'uri'],
-                                                                            properties: {
-                                                                                type: {
-                                                                                    type: 'string',
-                                                                                    enum: ['link'],
-                                                                                    default: 'link',
-                                                                                    readonly: true,
-                                                                                },
-                                                                                uri: {
-                                                                                    type: 'string',
-                                                                                    format: 'uri',
-                                                                                    maxLength: 1024,
-                                                                                },
-                                                                                name: {
-                                                                                    type: 'string',
-                                                                                    maxLength: 256,
-                                                                                },
-                                                                                target: {
-                                                                                    type: 'string',
-                                                                                    enum: ['self', 'blank', 'slideout'],
-                                                                                    default: 'self',
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                        },
+                                        }
                                     ],
                                 },
                             },
@@ -3461,823 +1952,176 @@ const expectedSchemaBodyViber = {
                                                 readonly: true,
                                             },
                                             elements: {
-                                                oneOf: [
+                                                anyOf: [
                                                     {
-                                                        title: 'viberCardElementOrder1',
+                                                        title: 'viberImage',
                                                         $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 3,
-                                                        maxItems: 7,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
+                                                        type: 'object',
+                                                        required: ['type', 'url'],
+                                                        properties: {
+                                                            type: {
+                                                                type: 'string',
+                                                                enum: ['image'],
+                                                                default: 'image',
+                                                                readonly: true,
                                                             },
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
+                                                            url: {
+                                                                type: 'string',
+                                                                maxLength: 2048,
                                                             },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
+                                                            tooltip: {
+                                                                type: 'string',
+                                                                maxLength: 256,
                                                             },
                                                         },
                                                     },
                                                     {
-                                                        title: 'viberCardElementOrder2',
+                                                        title: 'viberTitle',
                                                         $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 1,
-                                                        maxItems: 5,
-                                                        items: [
-                                                            {
-                                                                oneOf: [
-                                                                    {
-                                                                        title: 'viberImage',
+                                                        type: 'object',
+                                                        required: ['type', 'tag', 'text'],
+                                                        properties: {
+                                                            type: {
+                                                                type: 'string',
+                                                                enum: ['text'],
+                                                                default: 'text',
+                                                                readonly: true,
+                                                            },
+                                                            tag: {
+                                                                type: 'string',
+                                                                enum: ['title'],
+                                                                default: 'title',
+                                                                readonly: true,
+                                                            },
+                                                            text: {
+                                                                type: 'string',
+                                                                maxLength: 640,
+                                                            },
+                                                            tooltip: {
+                                                                type: 'string',
+                                                                maxLength: 256,
+                                                            },
+                                                        },
+                                                    },
+                                                    {
+                                                        title: 'viberSubtitle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        required: ['type', 'tag', 'text'],
+                                                        properties: {
+                                                            type: {
+                                                                type: 'string',
+                                                                enum: ['text'],
+                                                                default: 'text',
+                                                                readonly: true,
+                                                            },
+                                                            tag: {
+                                                                type: 'string',
+                                                                enum: ['subtitle'],
+                                                                default: 'subtitle',
+                                                                readonly: true,
+                                                            },
+                                                            text: {
+                                                                type: 'string',
+                                                                maxLength: 640,
+                                                            },
+                                                            tooltip: {
+                                                                type: 'string',
+                                                                maxLength: 256,
+                                                            },
+                                                        },
+                                                    },
+                                                    {
+                                                        title: 'viberButton',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        required: ['click', 'title', 'type'],
+                                                        properties: {
+                                                            type: {
+                                                                type: 'string',
+                                                                enum: ['button'],
+                                                                default: 'button',
+                                                                readonly: true,
+                                                            },
+                                                            tooltip: {
+                                                                type: 'string',
+                                                                maxLength: 256,
+                                                            },
+                                                            title: {
+                                                                type: 'string',
+                                                                maxLength: 25,
+                                                            },
+                                                            click: {
+                                                                title: 'viberClickOperations',
+                                                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                                                type: 'object',
+                                                                additionalProperties: false,
+                                                                properties: {
+                                                                    metadata: {
+                                                                        title: 'viberClickMetadata',
                                                                         $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                        type: 'object',
-                                                                        required: ['type', 'url'],
-                                                                        properties: {
-                                                                            type: {
-                                                                                type: 'string',
-                                                                                enum: ['image'],
-                                                                                default: 'image',
-                                                                                readonly: true,
-                                                                            },
-                                                                            url: {
-                                                                                type: 'string',
-                                                                                maxLength: 2048,
-                                                                            },
-                                                                            tooltip: {
-                                                                                type: 'string',
-                                                                                maxLength: 256,
-                                                                            },
-                                                                        },
+                                                                        type: 'array',
+                                                                        maxItems: 32,
+                                                                        items: {},
                                                                     },
-                                                                    {
-                                                                        title: 'viberTitle',
-                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                        type: 'object',
-                                                                        required: ['type', 'tag', 'text'],
-                                                                        properties: {
-                                                                            type: {
-                                                                                type: 'string',
-                                                                                enum: ['text'],
-                                                                                default: 'text',
-                                                                                readonly: true,
-                                                                            },
-                                                                            tag: {
-                                                                                type: 'string',
-                                                                                enum: ['title'],
-                                                                                default: 'title',
-                                                                                readonly: true,
-                                                                            },
-                                                                            text: {
-                                                                                type: 'string',
-                                                                                maxLength: 640,
-                                                                            },
-                                                                            tooltip: {
-                                                                                type: 'string',
-                                                                                maxLength: 256,
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        title: 'viberSubtitle',
-                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                        type: 'object',
-                                                                        required: ['type', 'tag', 'text'],
-                                                                        properties: {
-                                                                            type: {
-                                                                                type: 'string',
-                                                                                enum: ['text'],
-                                                                                default: 'text',
-                                                                                readonly: true,
-                                                                            },
-                                                                            tag: {
-                                                                                type: 'string',
-                                                                                enum: ['subtitle'],
-                                                                                default: 'subtitle',
-                                                                                readonly: true,
-                                                                            },
-                                                                            text: {
-                                                                                type: 'string',
-                                                                                maxLength: 640,
-                                                                            },
-                                                                            tooltip: {
-                                                                                type: 'string',
-                                                                                maxLength: 256,
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
+                                                                    actions: {
+                                                                        maxItems: 4,
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            oneOf: [
+                                                                                {
+                                                                                    title: 'viberClickActionPublishText',
+                                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                                                    type: 'object',
+                                                                                    required: ['type', 'text'],
+                                                                                    properties: {
+                                                                                        type: {
+                                                                                            type: 'string',
+                                                                                            enum: ['publishText'],
+                                                                                            default: 'publishText',
+                                                                                            readonly: true,
+                                                                                        },
+                                                                                        text: {
+                                                                                            type: 'string',
+                                                                                            maxLength: 256,
                                                                                         },
                                                                                     },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
+                                                                                },
+                                                                                {
+                                                                                    title: 'viberClickActionLink',
+                                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                                                    type: 'object',
+                                                                                    required: ['type', 'uri'],
+                                                                                    properties: {
+                                                                                        type: {
+                                                                                            type: 'string',
+                                                                                            enum: ['link'],
+                                                                                            default: 'link',
+                                                                                            readonly: true,
+                                                                                        },
+                                                                                        uri: {
+                                                                                            type: 'string',
+                                                                                            format: 'uri',
+                                                                                            maxLength: 1024,
+                                                                                        },
+                                                                                        name: {
+                                                                                            type: 'string',
+                                                                                            maxLength: 256,
+                                                                                        },
+                                                                                        target: {
+                                                                                            type: 'string',
+                                                                                            enum: ['self', 'blank', 'slideout'],
+                                                                                            default: 'self',
                                                                                         },
                                                                                     },
-                                                                                ],
-                                                                            },
+                                                                                },
+                                                                            ],
                                                                         },
                                                                     },
                                                                 },
                                                             },
                                                         },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder3',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder4',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberImage',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'url'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['image'],
-                                                                        default: 'image',
-                                                                        readonly: true,
-                                                                    },
-                                                                    url: {
-                                                                        type: 'string',
-                                                                        maxLength: 2048,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                    {
-                                                        title: 'viberCardElementOrder5',
-                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                        type: 'array',
-                                                        minItems: 2,
-                                                        maxItems: 6,
-                                                        items: [
-                                                            {
-                                                                title: 'viberTitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['title'],
-                                                                        default: 'title',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'viberSubtitle',
-                                                                $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                type: 'object',
-                                                                required: ['type', 'tag', 'text'],
-                                                                properties: {
-                                                                    type: {
-                                                                        type: 'string',
-                                                                        enum: ['text'],
-                                                                        default: 'text',
-                                                                        readonly: true,
-                                                                    },
-                                                                    tag: {
-                                                                        type: 'string',
-                                                                        enum: ['subtitle'],
-                                                                        default: 'subtitle',
-                                                                        readonly: true,
-                                                                    },
-                                                                    text: {
-                                                                        type: 'string',
-                                                                        maxLength: 640,
-                                                                    },
-                                                                    tooltip: {
-                                                                        type: 'string',
-                                                                        maxLength: 256,
-                                                                    },
-                                                                },
-                                                            },
-                                                        ],
-                                                        additionalItems: {
-                                                            title: 'viberButton',
-                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                            type: 'object',
-                                                            required: ['click', 'title', 'type'],
-                                                            properties: {
-                                                                type: {
-                                                                    type: 'string',
-                                                                    enum: ['button'],
-                                                                    default: 'button',
-                                                                    readonly: true,
-                                                                },
-                                                                tooltip: {
-                                                                    type: 'string',
-                                                                    maxLength: 256,
-                                                                },
-                                                                title: {
-                                                                    type: 'string',
-                                                                    maxLength: 25,
-                                                                },
-                                                                click: {
-                                                                    title: 'viberClickOperations',
-                                                                    $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                    type: 'object',
-                                                                    additionalProperties: false,
-                                                                    properties: {
-                                                                        metadata: {
-                                                                            title: 'viberClickMetadata',
-                                                                            $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                            type: 'array',
-                                                                            maxItems: 32,
-                                                                            items: {},
-                                                                        },
-                                                                        actions: {
-                                                                            maxItems: 4,
-                                                                            type: 'array',
-                                                                            items: {
-                                                                                oneOf: [
-                                                                                    {
-                                                                                        title: 'viberClickActionPublishText',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'text'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['publishText'],
-                                                                                                default: 'publishText',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            text: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                    {
-                                                                                        title: 'viberClickActionLink',
-                                                                                        $schema: 'http://json-schema.org/draft-07/schema#',
-                                                                                        type: 'object',
-                                                                                        required: ['type', 'uri'],
-                                                                                        properties: {
-                                                                                            type: {
-                                                                                                type: 'string',
-                                                                                                enum: ['link'],
-                                                                                                default: 'link',
-                                                                                                readonly: true,
-                                                                                            },
-                                                                                            uri: {
-                                                                                                type: 'string',
-                                                                                                format: 'uri',
-                                                                                                maxLength: 1024,
-                                                                                            },
-                                                                                            name: {
-                                                                                                type: 'string',
-                                                                                                maxLength: 256,
-                                                                                            },
-                                                                                            target: {
-                                                                                                type: 'string',
-                                                                                                enum: ['self', 'blank', 'slideout'],
-                                                                                                default: 'self',
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
+                                                    }
                                                 ],
                                             },
                                         },
