@@ -2431,6 +2431,37 @@ const mdApplePayAbc = (): ITestJson => ({
   ],
 });
 
+const bdyQuickReplyAbc = (): ITestJson => ({
+  richContentType: Types.QUR,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: false,
+    [Channels.ABC]: true,
+    [Channels.LINE]: false,
+    [Channels.RBM]: false,
+    [Channels.WEB]: true,
+    [Channels.GBM]: undefined,
+  },
+  json: {
+    type: 'quickReplies',
+    itemsPerRow: 8,
+    replies: [
+      {
+        title: 'Option 1',
+        type: 'button',
+      },
+      {
+        title: 'Option 2',
+        type: 'button',
+      },
+      {
+        title: 'Option 3',
+        type: 'button',
+      },
+    ],
+  },
+});
+
 const expectedSchemaBodyAbc = {
   $schema: 'http://json-schema.org/draft-07/schema',
   $ref: '#/definitions/root',
@@ -11945,6 +11976,42 @@ const expectedSchemaMetadataAbc = {
   },
 };
 
+const expectedSchemaQuickReplyAbc = {
+  $schema: 'http://json-schema.org/draft-07/schema',
+  $ref: '#/definitions/root',
+  definitions: {
+    root: {
+      title: 'abcQuickReplyRoot',
+      $schema: 'http://json-schema.org/draft-07/schema#',
+      required: ['type', 'itemsPerRow', 'replies'],
+      properties: {
+        type: { type: 'string', enum: ['quickReplies'], default: 'quickReplies', readonly: true },
+        itemsPerRow: { type: 'integer', min: 1, max: 8 },
+        replies: {
+          oneOf: [
+            {
+              minItems: 1,
+              maxItems: 13,
+              items: {
+                type: 'object',
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                title: 'abcButtonQuickReply',
+                required: ['type', 'title'],
+                additionalProperties: false,
+                properties: {
+                  type: { type: 'string', enum: ['button'], default: 'button', readonly: true },
+                  title: { type: 'string', maxLength: 25 },
+                },
+              },
+            },
+          ],
+        },
+      },
+      additionalProperties: false,
+    },
+  },
+};
+
 export {
   bdyDatePickerAbc,
   bdyVerticalCardAbc,
@@ -11996,6 +12063,8 @@ export {
   mdAuthenticationWithResponseEncryptionKeyAbc,
   bdyApplePayAbc,
   mdApplePayAbc,
+  bdyQuickReplyAbc,
   expectedSchemaBodyAbc,
   expectedSchemaMetadataAbc,
+  expectedSchemaQuickReplyAbc,
 };
