@@ -85,6 +85,7 @@ import abcFuturePatternIso8601 from './appleBusinessChat/bodies/basics/clickOper
 import abcButtonDatePicker from './appleBusinessChat/bodies/basics/abcButtonDatePicker.json';
 import abcButtonListPicker from './appleBusinessChat/bodies/basics/abcButtonListPicker.json';
 import abcButtonRichLink from './appleBusinessChat/bodies/basics/abcButtonRichLink.json';
+import abcButtonQuickReply from './appleBusinessChat/bodies/basics/abcButtonQuickReply.json';
 import abcImage from './appleBusinessChat/bodies/basics/abcImage.json';
 import abcStyle from './appleBusinessChat/bodies/basics/abcStyle.json';
 import abcSubtitle from './appleBusinessChat/bodies/basics/abcSubtitle.json';
@@ -115,6 +116,7 @@ import abcConnectorPaymentRequestMd from './appleBusinessChat/metadata/abcConnec
 import abcCustomMessageMd from './appleBusinessChat/metadata/abcCustomMessageMd.json';
 import abcDatePickerMd from './appleBusinessChat/metadata/abcDatePickerMd.json';
 import abcMetadataRoot from './appleBusinessChat/metadata/abcMetadataRoot.json';
+import abcQuickReplyRoot from './appleBusinessChat/quickReply/abcQuickReplyRoot.json';
 
 import viberBodyRoot from './viber/bodies/viberBodyRoot.json';
 import viberClickMetadata from './viber/bodies/basics/clickOperations/viberClickMetadata.json';
@@ -341,6 +343,10 @@ const abcSchemas: IChannelSchemas = {
     abcCustomMessageMd,
     abcChatMessageMd,
     abcDatePickerMd,
+  },
+  [Types.QUR]: {
+    QuickReplyRoot: abcQuickReplyRoot,
+    abcButtonQuickReply,
   },
 };
 

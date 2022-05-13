@@ -1,0 +1,30 @@
+{
+  "title": "abcQuickReplyRoot",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": ["type", "itemsPerRow", "replies"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["quickReplies"],
+      "default": "quickReplies",
+      "readonly": true
+    },
+    "itemsPerRow": {
+      "type": "integer",
+      "min": 1,
+      "max": 8
+    },
+    "replies": {
+      "oneOf": [
+        {
+          "minItems": 1,
+          "maxItems": 13,
+          "items": {
+            "$ref": "abcButtonQuickReply.json"
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

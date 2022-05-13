@@ -49,8 +49,10 @@ import {
   bdyListPickerMissingEntryDefTitleAbc,
   bdyListPickerMissingEntryDefButtonAbc,
   bdyListPickerMissingEntryDefSubtitleAbc,
+  bdyQuickReplyAbc,
   expectedSchemaBodyAbc,
   expectedSchemaMetadataAbc,
+  expectedSchemaQuickReplyAbc,
 } from './abcHelper';
 
 import {
@@ -136,7 +138,7 @@ import {
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
 import { Channels } from '../../src';
-import { Types } from '../../src/types';
+import { Type, Types } from '../../src/types';
 
 export const testJsonContainers = [
   ...fbJsonContainers,
@@ -245,6 +247,7 @@ export const testJsonContainers = [
   mdAuthenticationWithResponseEncryptionKeyAbc,
   bdyApplePayAbc,
   mdApplePayAbc,
+  bdyQuickReplyAbc,
 
   bdyVerticalCardViber,
   bdyVerticalCardViberOver7Elements,
@@ -258,6 +261,7 @@ export const expectedSchemas = {
   [Channels.ABC]: {
     [Types.BDY]: expectedSchemaBodyAbc,
     [Types.MTD]: expectedSchemaMetadataAbc,
+    [Types.QUR]: expectedSchemaQuickReplyAbc,
   },
   [Channels.FB]: {
     [Types.BDY]: expectedSchemaBodyFb,
