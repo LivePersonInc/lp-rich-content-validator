@@ -6,7 +6,7 @@
     "required": ["tag"],
     "properties": {
       "tag": {
-        "enum": ["richLink", "list", "datePicker"]
+        "enum": ["richLink", "list", "datePicker", "form"]
       }
     }
   },
@@ -20,6 +20,9 @@
       },
       {
         "$ref": "abcDatePicker.json"
+      },
+      {
+        "$ref": "abcForm.json"
       }
     ]
   },

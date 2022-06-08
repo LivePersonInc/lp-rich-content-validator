@@ -19,6 +19,15 @@
       },
       {
         "$ref": "abcDatePickerMd.json"
+      },
+      {
+        "$ref": "abcCBBotResponseMd.json"
+      },
+      {
+        "$ref": "abcBotResponse.json"
+      },
+      {
+        "$ref": "abcFormMd.json"
       }
     ]
   }

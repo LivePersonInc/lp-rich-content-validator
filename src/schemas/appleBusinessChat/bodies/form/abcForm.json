@@ -1,0 +1,36 @@
+{
+  "title": "abcForm",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "required": ["type", "tag", "elements"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["vertical"],
+      "default": "vertical",
+      "readonly": true
+    },
+    "tag": {
+      "type": "string",
+      "enum": ["form"],
+      "default": "form",
+      "readonly": true
+    },
+    "elements": {
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array",
+      "items": [
+        {
+          "$ref": "abcTitle.json"
+        },
+        {
+          "$ref": "abcSubtitle.json"
+        },
+        {
+          "$ref": "abcButtonForm.json"
+        }
+      ]
+    }
+  }
+}

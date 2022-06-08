@@ -1,0 +1,154 @@
+{
+  "title": "Apple Business Form Interactive Message",
+  "description": "Apple Business Form Interactive Message",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["BusinessFormEvent"],
+      "default": "BusinessFormEvent",
+      "type": "string"
+    },
+    "title": {
+      "description": "event's title",
+      "type": "string",
+      "maxLength": 256
+    },
+    "showSummary": {
+      "description": "Show form summary after submit",
+      "default": true,
+      "type": "boolean"
+    },
+    "startPageIdentifier": {
+      "description": "Start page identifier default 0",
+      "default": "0",
+      "type": "string",
+      "maxLength": 256
+    },
+    "pages": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pageIdentifier": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "type": {
+            "type": "string",
+            "enum": ["select", "picker", "datePicker", "input"],
+            "maxLength": 2048
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "subtitle": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "multipleSelection": {
+            "type": "boolean"
+          },
+          "nextPageIdentifier": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "submitForm":{
+            "type": "boolean"
+          },
+          "pickerTitle": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "pageItems": {
+            "type": "array",
+            "maxItems": 256,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                "identifier":{
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                "nextPageIdentifier": {
+                  "type": "string",
+                  "maxLength": 2048
+                }
+              }
+            }
+          },
+          "options": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "startdate": {
+                "type": "string",
+                "maxLength": 2048
+              },
+              "maximumdate": {
+                "type": "string",
+                "maxLength": 2048
+              },
+              "minimumdate": {
+                "type": "string",
+                "maxLength": 2048
+              },
+              "dateFormat": {
+                "type": "string",
+                "default": "MM/dd/yyyy",
+                "maxLength": 2048
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "inputType": {
+                "type": "string",
+                "enum": ["multiline", "singleline"],
+                "maxLength": 2048
+              },
+              "maximumCharacterCount": {
+                "type": "number"
+              },
+              "keyboardType": {
+                "type": "string",
+                "maxLength": 2048
+              }
+            }
+          }
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 2048
+          }
+        },
+        "required": ["identifier", "data"]
+      }
+    }
+  },
+  "required": ["type"]
+}

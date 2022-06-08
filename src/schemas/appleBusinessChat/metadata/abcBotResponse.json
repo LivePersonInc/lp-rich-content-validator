@@ -1,0 +1,126 @@
+{
+  "title": "Bot Response",
+  "description": "Information coming back from the bot provider",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["BotResponse"],
+      "default": "BotResponse",
+      "type": "string"
+    },
+    "bot": {
+      "type": "object",
+      "description": "Information about the bot instance providing the response",
+      "additionalProperties": false,
+      "properties" : {
+        "botId": {
+          "maxLength": 64,
+          "type": "string",
+          "description": "Unique value per bot instance, preferably hashed"
+        },
+        "botProvider": {
+          "description": "Name of the AI vendor (IBM Watson, Google Dialogflow, Amazon Lex)",
+          "maxLength": 64,
+          "type": "string"
+        },
+        "botProviderType": {
+          "description": "Survey bot, normal bot, etc.",
+          "maxLength": 64,
+          "type": "string",
+          "enum": ["1P", "3P_LP_CONNECTOR", "3P_EXTERNAL_CONNECTOR"]
+        },
+        "botType": {
+          "description": "normal / survey / manager",
+          "maxLength": 64,
+          "type": "string"
+        },
+        "botLanguage": {
+          "description": "Language of the bot, preferably in ISO 639 format ",
+          "maxLength": 64,
+          "type": "string"
+        },
+        "botLastUpdateTimestamp": {
+          "description": "Timestamp of the last update of the Bot instance",
+          "type" : "number"
+        }
+      },
+      "required": ["botId"]
+    },
+    "consumerUtteranceSequenceNumbers": {
+      "description": "Sequence number(s) of the consumer utterance(s) this bot response is the answer to.",
+      "type" : "array",
+      "maxItems": 16,
+      "items": {
+        "type": "number"
+      }
+    },
+    "consumerId": {
+      "description": "Consumer ID of the consumer this bot response is an answer to",
+      "maxLength": 64,
+      "type" : "string"
+    },
+    "kBSourceId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "botInteractionId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "externalConversationId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "businessCases": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "maxLength": 256,
+        "type": "string"
+      }
+    },
+    "intentMatched": {
+      "type": "boolean"
+    },
+    "intents": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "maxLength": 256,
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 256,
+            "type": "string"
+          },
+          "confidence": {
+            "maxLength": 64,
+            "type": "string"
+          },
+          "confidenceScore": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "intentMatchType": {
+            "description": "How was the intent matched? Regex or free text",
+            "maxLength": 20,
+            "type" : "string"
+          },
+          "intentMatchEventType": {
+            "description": "Intent vs pattern",
+            "maxLength": 20,
+            "type" : "string"
+          }
+        },
+        "required": ["id","confidenceScore"]
+      }
+    }
+  },
+  "required": ["type"]
+}

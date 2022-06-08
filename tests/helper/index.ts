@@ -53,6 +53,10 @@ import {
   expectedSchemaBodyAbc,
   expectedSchemaMetadataAbc,
   expectedSchemaQuickReplyAbc,
+  mdFormAbc,
+  mdCBBotResponseAbc,
+  mdBotResponseAbc,
+  bdyFormAbc,
 } from './abcHelper';
 
 import {
@@ -138,7 +142,7 @@ import {
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
 import { Channels } from '../../src';
-import { Type, Types } from '../../src/types';
+import { Types } from '../../src/types';
 
 export const testJsonContainers = [
   ...fbJsonContainers,
@@ -197,6 +201,10 @@ export const testJsonContainers = [
   bdyCarousel10CardsRbm,
   bdyCarousel11CardsRbm,
 
+  mdFormAbc,
+  mdCBBotResponseAbc,
+  mdBotResponseAbc,
+  bdyFormAbc,
   bdyDatePickerAbc,
   bdyVerticalCardAbc,
   bdyVerticalCardOnlyImageAbc,

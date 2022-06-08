@@ -520,6 +520,220 @@ const mdListPickerOneOptionAbc = (): ITestJson => ({
   ],
 });
 
+const mdFormAbc = (): ITestJson => ({
+  richContentType: Types.MTD,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: true,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+  },
+  json: [
+    {
+      type: 'BusinessFormEvent',
+      startPageIdentifier: '0',
+      showSummary: true,
+      title: 'abcForm Title',
+      pages: [
+        {
+          pageIdentifier: '0',
+          type: 'select',
+          title: 'Type of Product',
+          subtitle: 'Was the merchandise you received defective?',
+          multipleSelection: true,
+          nextPageIdentifier: '1',
+          pageItems: [
+            {
+              title: 'Option 1',
+              value: 'option1',
+              identifier: '001',
+            },
+            {
+              title: 'Option 2',
+              value: 'option2',
+              identifier: '002',
+            },
+          ],
+        },
+        {
+          pageIdentifier: '1',
+          type: 'select',
+          title: 'Item Condition',
+          subtitle: 'Was the merchandise you received defective?',
+          multipleSelection: false,
+          pageItems: [
+            {
+              title: 'Defective',
+              value: 'defective',
+              identifier: '101',
+              nextPageIdentifier: '2',
+            },
+            {
+              title: 'Not as described',
+              value: 'notAsDescribed',
+              identifier: '102',
+              nextPageIdentifier: '3',
+            },
+          ],
+        },
+        {
+          pageIdentifier: '2',
+          type: 'select',
+          title: 'Supporting Documents',
+          subtitle: 'Do you have any supporting documents t?',
+          multipleSelection: false,
+          pageItems: [
+            {
+              title: 'Yes',
+              value: 'yes',
+              identifier: '201',
+              nextPageIdentifier: '3',
+            },
+            {
+              title: 'No',
+              value: 'no',
+              identifier: '202',
+              nextPageIdentifier: '3',
+            },
+          ],
+        },
+        {
+          pageIdentifier: '3',
+          type: 'picker',
+          pickerTitle: 'Select Your Region',
+          nextPageIdentifier: '4',
+          pageItems: [
+            {
+              title: 'APAC',
+              value: 'apac',
+              identifier: '301',
+            },
+            {
+              title: 'EMEA',
+              value: 'emea',
+              identifier: '302',
+            },
+          ],
+        },
+        {
+          pageIdentifier: '4',
+          type: 'datePicker',
+          title: 'Retrieval Date',
+          subtitle: 'What date did you receive, or expect to receive the product?',
+          nextPageIdentifier: '5',
+          options: {
+            startdate: '2020-02-12',
+            maximumdate: '2020-02-13',
+            minimumdate: '2020-01-01',
+            dateFormat: 'MM/dd/yyyy',
+          },
+        },
+        {
+          pageIdentifier: '5',
+          type: 'input',
+          title: 'Remaining Issues',
+          subtitle: 'Please provide details about remaining issue',
+          nextPageIdentifier: '6',
+          options: {
+            required: true,
+            inputType: 'multiline',
+            maximumCharacterCount: 300,
+            keyboardType: 'UIKeyboardTypeEmailAddress',
+          },
+        },
+        {
+          pageIdentifier: '6',
+          type: 'input',
+          title: 'Product name',
+          subtitle: 'Please provide name of the product',
+          options: {
+            required: false,
+            inputType: 'singleline',
+            maximumCharacterCount: 25,
+            keyboardType: 'UIKeyboardTypePhonePad',
+          },
+          submitForm: true,
+        },
+      ],
+      images: [
+        {
+          data: 'base64encoded-image-file',
+          identifier: '1',
+        },
+        {
+          data: 'base64encoded-image-file',
+          identifier: '2',
+        },
+      ],
+    },
+  ],
+});
+
+const mdCBBotResponseAbc = (): ITestJson => ({
+  richContentType: Types.MTD,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: true,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+  },
+  json: [
+    {
+      botMsgId: '0f0d47ba-92a6-477f-9b00-92ab261fcb90',
+      type: 'CbBotResponseMetaData',
+    },
+  ],
+});
+
+const mdBotResponseAbc = (): ITestJson => ({
+  richContentType: Types.MTD,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: true,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+  },
+  json: [
+    {
+      type: 'BotResponse',
+      bot: {
+        botId: '123-123-123-123',
+        botProvider: 'test',
+        botProviderType: '1P',
+        botType: 'normal',
+        botLanguage: 'eng',
+        botLastUpdateTimestamp: 1234567890,
+      },
+      consumerUtteranceSequenceNumbers: [11, 22],
+      consumerId: '1234567890',
+      kBSourceId: '12345678990',
+      botInteractionId: '1234567890',
+      externalConversationId: 'EgTalaEmaAvlngznUHycP-us',
+      businessCases: ['test', 'test'],
+      intentMatched: true,
+      intents: [
+        {
+          name: 'test',
+          id: '1234567890',
+          confidence: 'test',
+          confidenceScore: 0,
+          intentMatchType: 'test',
+          intentMatchEventType: 'test',
+        },
+      ],
+    },
+  ],
+});
+
 const bdyListPickerMultipleOptionsAbc = (): ITestJson => ({
   richContentType: Types.BDY,
   channel: Channels.ABC,
@@ -2462,6 +2676,28 @@ const bdyQuickReplyAbc = (): ITestJson => ({
   },
 });
 
+const bdyFormAbc = (): ITestJson => ({
+  richContentType: Types.BDY,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: true,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+  },
+  json: {
+    type: 'vertical',
+    tag: 'form',
+    elements: [
+      { type: 'text', tag: 'title', text: 'This is Title', tooltip: 'Title', style: { bold: true, size: 'large' } },
+      { type: 'text', tag: 'subtitle', text: 'This is Sub-Title', tooltip: '' },
+      { type: 'button', title: 'Continue' },
+    ],
+  },
+});
+
 const expectedSchemaBodyAbc = {
   $schema: 'http://json-schema.org/draft-07/schema',
   $ref: '#/definitions/root',
@@ -2475,7 +2711,7 @@ const expectedSchemaBodyAbc = {
         required: ['tag'],
         properties: {
           tag: {
-            enum: ['richLink', 'list', 'datePicker'],
+            enum: ['richLink', 'list', 'datePicker', 'form'],
           },
         },
       },
@@ -7163,6 +7399,175 @@ const expectedSchemaBodyAbc = {
                     },
                   ],
                 },
+              },
+            },
+          },
+          {
+            title: 'abcForm',
+            $schema: 'http://json-schema.org/draft-07/schema#',
+            additionalProperties: false,
+            required: ['type', 'tag', 'elements'],
+            properties: {
+              type: {
+                type: 'string',
+                enum: ['vertical'],
+                default: 'vertical',
+                readonly: true,
+              },
+              tag: {
+                type: 'string',
+                enum: ['form'],
+                default: 'form',
+                readonly: true,
+              },
+              elements: {
+                maxItems: 3,
+                minItems: 3,
+                type: 'array',
+                items: [
+                  {
+                    title: 'abcTitle',
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    required: ['type', 'text', 'tag'],
+                    properties: {
+                      type: {
+                        type: 'string',
+                        enum: ['text'],
+                        default: 'text',
+                        readonly: true,
+                      },
+                      tag: {
+                        type: 'string',
+                        enum: ['title'],
+                        default: 'title',
+                        readonly: true,
+                      },
+                      text: {
+                        type: 'string',
+                        maxLength: 5000,
+                      },
+                      style: {
+                        title: 'abcStyle',
+                        $schema: 'http://json-schema.org/draft-07/schema#',
+                        type: 'object',
+                        additionalProperties: false,
+                        properties: {
+                          'background-color': {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          'border-color': {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          'border-radius': {
+                            type: 'number',
+                          },
+                          bold: {
+                            type: 'boolean',
+                          },
+                          italic: {
+                            type: 'boolean',
+                          },
+                          color: {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          size: {
+                            type: 'string',
+                            enum: ['small', 'medium', 'large'],
+                          },
+                        },
+                      },
+                      tooltip: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                  {
+                    title: 'abcSubtitle',
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    required: ['type', 'text', 'tag'],
+                    properties: {
+                      type: {
+                        type: 'string',
+                        enum: ['text'],
+                        default: 'text',
+                        readonly: true,
+                      },
+                      tag: {
+                        type: 'string',
+                        enum: ['subtitle'],
+                        default: 'subtitle',
+                        readonly: true,
+                      },
+                      text: {
+                        type: 'string',
+                        maxLength: 5000,
+                      },
+                      style: {
+                        title: 'abcStyle',
+                        $schema: 'http://json-schema.org/draft-07/schema#',
+                        type: 'object',
+                        additionalProperties: false,
+                        properties: {
+                          'background-color': {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          'border-color': {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          'border-radius': {
+                            type: 'number',
+                          },
+                          bold: {
+                            type: 'boolean',
+                          },
+                          italic: {
+                            type: 'boolean',
+                          },
+                          color: {
+                            type: 'string',
+                            format: 'color',
+                            maxLength: 256,
+                          },
+                          size: {
+                            type: 'string',
+                            enum: ['small', 'medium', 'large'],
+                          },
+                        },
+                      },
+                      tooltip: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                  {
+                    title: 'abcButtonForm',
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    type: 'object',
+                    required: ['title', 'type'],
+                    properties: {
+                      type: {
+                        type: 'string',
+                        enum: ['button'],
+                        default: 'button',
+                        readonly: true,
+                      },
+                      title: {
+                        type: 'string',
+                        maxLength: 128,
+                      },
+                    },
+                  },
+                ],
               },
             },
           },
@@ -11861,6 +12266,10 @@ const expectedSchemaMetadataAbc = {
                     maxLength: 1000,
                     type: 'string',
                   },
+                  imageIdentifier: {
+                    maxLength: 64,
+                    type: 'string',
+                  },
                 },
                 required: ['title'],
               },
@@ -11898,6 +12307,10 @@ const expectedSchemaMetadataAbc = {
                   },
                   tertiarySubtitle: {
                     maxLength: 1000,
+                    type: 'string',
+                  },
+                  imageIdentifier: {
+                    maxLength: 64,
                     type: 'string',
                   },
                 },
@@ -11965,6 +12378,304 @@ const expectedSchemaMetadataAbc = {
                     description: 'in meters from center',
                     minimum: 0,
                   },
+                },
+              },
+            },
+            required: ['type'],
+          },
+          {
+            title: 'CB Bot Response Metadata',
+            description: 'Conversation Builder Bot Response Metadata to propagate additional info to analytics',
+            additionalProperties: false,
+            type: 'object',
+            properties: {
+              type: {
+                enum: ['CbBotResponseMetaData'],
+                default: 'CbBotResponseMetaData',
+                type: 'string',
+              },
+              botMsgId: {
+                maxLength: 64,
+                type: 'string',
+              },
+            },
+            required: ['botMsgId'],
+          },
+          {
+            title: 'Bot Response',
+            description: 'Information coming back from the bot provider',
+            additionalProperties: false,
+            type: 'object',
+            properties: {
+              type: {
+                enum: ['BotResponse'],
+                default: 'BotResponse',
+                type: 'string',
+              },
+              bot: {
+                type: 'object',
+                description: 'Information about the bot instance providing the response',
+                additionalProperties: false,
+                properties: {
+                  botId: {
+                    maxLength: 64,
+                    type: 'string',
+                    description: 'Unique value per bot instance, preferably hashed',
+                  },
+                  botProvider: {
+                    description: 'Name of the AI vendor (IBM Watson, Google Dialogflow, Amazon Lex)',
+                    maxLength: 64,
+                    type: 'string',
+                  },
+                  botProviderType: {
+                    description: 'Survey bot, normal bot, etc.',
+                    maxLength: 64,
+                    type: 'string',
+                    enum: ['1P', '3P_LP_CONNECTOR', '3P_EXTERNAL_CONNECTOR'],
+                  },
+                  botType: {
+                    description: 'normal / survey / manager',
+                    maxLength: 64,
+                    type: 'string',
+                  },
+                  botLanguage: {
+                    description: 'Language of the bot, preferably in ISO 639 format ',
+                    maxLength: 64,
+                    type: 'string',
+                  },
+                  botLastUpdateTimestamp: {
+                    description: 'Timestamp of the last update of the Bot instance',
+                    type: 'number',
+                  },
+                },
+                required: ['botId'],
+              },
+              consumerUtteranceSequenceNumbers: {
+                description: 'Sequence number(s) of the consumer utterance(s) this bot response is the answer to.',
+                type: 'array',
+                maxItems: 16,
+                items: {
+                  type: 'number',
+                },
+              },
+              consumerId: {
+                description: 'Consumer ID of the consumer this bot response is an answer to',
+                maxLength: 64,
+                type: 'string',
+              },
+              kBSourceId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              botInteractionId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              externalConversationId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              businessCases: {
+                type: 'array',
+                maxItems: 16,
+                items: {
+                  maxLength: 256,
+                  type: 'string',
+                },
+              },
+              intentMatched: {
+                type: 'boolean',
+              },
+              intents: {
+                type: 'array',
+                maxItems: 16,
+                items: {
+                  type: 'object',
+                  additionalProperties: false,
+                  properties: {
+                    name: {
+                      maxLength: 256,
+                      type: 'string',
+                    },
+                    id: {
+                      maxLength: 256,
+                      type: 'string',
+                    },
+                    confidence: {
+                      maxLength: 64,
+                      type: 'string',
+                    },
+                    confidenceScore: {
+                      type: 'number',
+                      minimum: 0,
+                      maximum: 1,
+                    },
+                    intentMatchType: {
+                      description: 'How was the intent matched? Regex or free text',
+                      maxLength: 20,
+                      type: 'string',
+                    },
+                    intentMatchEventType: {
+                      description: 'Intent vs pattern',
+                      maxLength: 20,
+                      type: 'string',
+                    },
+                  },
+                  required: ['id', 'confidenceScore'],
+                },
+              },
+            },
+            required: ['type'],
+          },
+          {
+            title: 'Apple Business Form Interactive Message',
+            description: 'Apple Business Form Interactive Message',
+            additionalProperties: false,
+            type: 'object',
+            properties: {
+              type: {
+                enum: ['BusinessFormEvent'],
+                default: 'BusinessFormEvent',
+                type: 'string',
+              },
+              title: {
+                description: "event's title",
+                type: 'string',
+                maxLength: 256,
+              },
+              showSummary: {
+                description: 'Show form summary after submit',
+                default: true,
+                type: 'boolean',
+              },
+              startPageIdentifier: {
+                description: 'Start page identifier default 0',
+                default: '0',
+                type: 'string',
+                maxLength: 256,
+              },
+              pages: {
+                type: 'array',
+                maxItems: 256,
+                items: {
+                  type: 'object',
+                  additionalProperties: false,
+                  properties: {
+                    pageIdentifier: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    type: {
+                      type: 'string',
+                      enum: ['select', 'picker', 'datePicker', 'input'],
+                      maxLength: 2048,
+                    },
+                    title: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    subtitle: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    multipleSelection: {
+                      type: 'boolean',
+                    },
+                    nextPageIdentifier: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    submitForm: {
+                      type: 'boolean',
+                    },
+                    pickerTitle: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    pageItems: {
+                      type: 'array',
+                      maxItems: 256,
+                      items: {
+                        type: 'object',
+                        additionalProperties: false,
+                        properties: {
+                          title: {
+                            type: 'string',
+                            maxLength: 2048,
+                          },
+                          value: {
+                            type: 'string',
+                            maxLength: 2048,
+                          },
+                          identifier: {
+                            type: 'string',
+                            maxLength: 2048,
+                          },
+                          nextPageIdentifier: {
+                            type: 'string',
+                            maxLength: 2048,
+                          },
+                        },
+                      },
+                    },
+                    options: {
+                      type: 'object',
+                      additionalProperties: false,
+                      properties: {
+                        startdate: {
+                          type: 'string',
+                          maxLength: 2048,
+                        },
+                        maximumdate: {
+                          type: 'string',
+                          maxLength: 2048,
+                        },
+                        minimumdate: {
+                          type: 'string',
+                          maxLength: 2048,
+                        },
+                        dateFormat: {
+                          type: 'string',
+                          default: 'MM/dd/yyyy',
+                          maxLength: 2048,
+                        },
+                        required: {
+                          type: 'boolean',
+                        },
+                        inputType: {
+                          type: 'string',
+                          enum: ['multiline', 'singleline'],
+                          maxLength: 2048,
+                        },
+                        maximumCharacterCount: {
+                          type: 'number',
+                        },
+                        keyboardType: {
+                          type: 'string',
+                          maxLength: 2048,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+              images: {
+                type: 'array',
+                maxItems: 256,
+                items: {
+                  type: 'object',
+                  additionalProperties: false,
+                  properties: {
+                    identifier: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                    data: {
+                      type: 'string',
+                      maxLength: 2048,
+                    },
+                  },
+                  required: ['identifier', 'data'],
                 },
               },
             },
@@ -12067,4 +12778,8 @@ export {
   expectedSchemaBodyAbc,
   expectedSchemaMetadataAbc,
   expectedSchemaQuickReplyAbc,
+  mdFormAbc,
+  mdCBBotResponseAbc,
+  mdBotResponseAbc,
+  bdyFormAbc,
 };
