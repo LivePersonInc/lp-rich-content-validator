@@ -1,0 +1,19 @@
+{
+  "title": "CB Bot Response Metadata",
+  "description": "Conversation Builder Bot Response Metadata to propagate additional info to analytics",
+  "additionalProperties": false,
+  "type": "object",
+  "properties":
+  {
+    "type": {
+      "enum": ["CbBotResponseMetaData"],
+      "default": "CbBotResponseMetaData",
+      "type": "string"
+    },
+    "botMsgId": {
+      "maxLength": 64,
+      "type": "string"
+    }
+  },
+  "required" : ["botMsgId"]
+}

@@ -84,6 +84,7 @@ import abcClickOperationsRichLink from './appleBusinessChat/bodies/basics/clickO
 import abcFuturePatternIso8601 from './appleBusinessChat/bodies/basics/clickOperations/abcFuturePatternIso8601.json';
 import abcButtonDatePicker from './appleBusinessChat/bodies/basics/abcButtonDatePicker.json';
 import abcButtonListPicker from './appleBusinessChat/bodies/basics/abcButtonListPicker.json';
+import abcButtonForm from './appleBusinessChat/bodies/basics/abcButtonForm.json';
 import abcButtonRichLink from './appleBusinessChat/bodies/basics/abcButtonRichLink.json';
 import abcButtonQuickReply from './appleBusinessChat/bodies/basics/abcButtonQuickReply.json';
 import abcImage from './appleBusinessChat/bodies/basics/abcImage.json';
@@ -110,6 +111,7 @@ import abcRichLinkCard from './appleBusinessChat/bodies/richLinkCard/abcRichLink
 import abcRichLinkCardElementOrder1 from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCardElementOrder1.json';
 import abcRichLinkCardElementOrder2 from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCardElementOrder2.json';
 import abcBodyRoot from './appleBusinessChat/bodies/abcBodyRoot.json';
+import abcForm from './appleBusinessChat/bodies/form/abcForm.json';
 import abcChatMessageMd from './appleBusinessChat/metadata/abcChatMessageMd.json';
 import abcConnectorAuthenticationRequestMd from './appleBusinessChat/metadata/abcConnectorAuthenticationRequestMd.json';
 import abcConnectorPaymentRequestMd from './appleBusinessChat/metadata/abcConnectorPaymentRequestMd.json';
@@ -117,6 +119,9 @@ import abcCustomMessageMd from './appleBusinessChat/metadata/abcCustomMessageMd.
 import abcDatePickerMd from './appleBusinessChat/metadata/abcDatePickerMd.json';
 import abcMetadataRoot from './appleBusinessChat/metadata/abcMetadataRoot.json';
 import abcQuickReplyRoot from './appleBusinessChat/quickReply/abcQuickReplyRoot.json';
+import abcFormMd from './appleBusinessChat/metadata/abcFormMd.json';
+import abcCBBotResponseMd from './appleBusinessChat/metadata/abcCBBotResponseMd.json';
+import abcBotResponse from './appleBusinessChat/metadata/abcBotResponse.json';
 
 import viberBodyRoot from './viber/bodies/viberBodyRoot.json';
 import viberClickMetadata from './viber/bodies/basics/clickOperations/viberClickMetadata.json';
@@ -286,6 +291,7 @@ const abcSchemas: IChannelSchemas = {
     abcClickOperationsListPicker,
     abcClickOperationsRichLink,
     abcButtonListPicker,
+    abcButtonForm,
     abcButtonRichLink,
     abcImage,
     abcStyle,
@@ -308,6 +314,7 @@ const abcSchemas: IChannelSchemas = {
     abcRichLinkCard,
     abcRichLinkCardElementOrder1,
     abcRichLinkCardElementOrder2,
+    abcForm,
 
     /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as
     a web-body. (Because then the body is only used to display something to the agent in the
@@ -343,6 +350,9 @@ const abcSchemas: IChannelSchemas = {
     abcCustomMessageMd,
     abcChatMessageMd,
     abcDatePickerMd,
+    abcFormMd,
+    abcCBBotResponseMd,
+    abcBotResponse,
   },
   [Types.QUR]: {
     QuickReplyRoot: abcQuickReplyRoot,
