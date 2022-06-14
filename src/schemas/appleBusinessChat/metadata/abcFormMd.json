@@ -137,16 +137,16 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "identifier": {
+          "id": {
             "type": "string",
             "maxLength": 2048
           },
-          "data": {
+          "imageUrl": {
             "type": "string",
             "maxLength": 2048
           }
         },
-        "required": ["identifier", "data"]
+        "required": ["imageUrl", "id"]
       }
     }
   },
