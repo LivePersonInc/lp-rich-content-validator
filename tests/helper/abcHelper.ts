@@ -660,12 +660,12 @@ const mdFormAbc = (): ITestJson => ({
       ],
       images: [
         {
-          data: 'base64encoded-image-file',
-          identifier: '1',
+          imageUrl: 'https://cdn.macrumors.com/article-new/2017/09/iphonexfrontback-800x573.jpg',
+          id: '1',
         },
         {
-          data: 'base64encoded-image-file',
-          identifier: '2',
+          imageUrl: 'https://cdn.macrumors.com/article-new/2017/09/iphonexfrontback-800x573.jpg',
+          id: '2',
         },
       ],
     },
@@ -12666,16 +12666,16 @@ const expectedSchemaMetadataAbc = {
                   type: 'object',
                   additionalProperties: false,
                   properties: {
-                    identifier: {
+                    imageUrl: {
                       type: 'string',
                       maxLength: 2048,
                     },
-                    data: {
+                    id: {
                       type: 'string',
                       maxLength: 2048,
                     },
                   },
-                  required: ['identifier', 'data'],
+                  required: ['imageUrl', 'id'],
                 },
               },
             },
