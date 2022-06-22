@@ -63,6 +63,11 @@
             "type": "string",
             "maxLength": 2048
           },
+          "hintText": {
+            "type": "string",
+            "description": "A string representing optional text to give the user more input context that displays below the Date field.",
+            "maxLength": 2048
+          },
           "pageItems": {
             "type": "array",
             "maxItems": 256,
@@ -83,6 +88,10 @@
                   "maxLength": 2048
                 },
                 "nextPageIdentifier": {
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                "imageIdentifier": {
                   "type": "string",
                   "maxLength": 2048
                 }
@@ -121,8 +130,30 @@
               "maximumCharacterCount": {
                 "type": "number"
               },
+              "labelText": {
+                "type": "string",
+                "description": "A string value representing a text label shown to identify the input field",
+                "maxLength": 2048
+              },
+              "regex": {
+                "type": "string",
+                "description": "JSON encode all regex strings",
+                "maxLength": 2048
+              },
+              "placeholder": {
+                "type": "string",
+                "maxLength": 2048
+              },
+              "prefixText": {
+                "type": "string",
+                "description": "A string value representing optional text shown next to the text field",
+                "maxLength": 2048
+              },
               "keyboardType": {
                 "type": "string",
+                "description": "Type of keyboard",
+                "enum": ["default", "asciiCapable", "numbersAndPunctuation", "URL", "numberPad","phonePad","namePhonePad", "emailAddress","decimalPad", "UIKeyboardTypeTwitter","webSearch","textContentType"],
+                "default": "default",
                 "maxLength": 2048
               }
             }
