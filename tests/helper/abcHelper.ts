@@ -314,7 +314,7 @@ const bdyDatePickerAbc = (): ITestJson => ({
                 {
                   type: 'BusinessEvent',
                   timing: {
-                    startTime: '2022-07-06T12:00:00Z',
+                    startTime: '2023-07-06T12:00:00Z',
                     duration: 60,
                   },
                 },
@@ -339,7 +339,7 @@ const bdyDatePickerAbc = (): ITestJson => ({
                 {
                   type: 'BusinessEvent',
                   timing: {
-                    startTime: '2022-07-06T12:00:00Z',
+                    startTime: '2023-07-06T12:00:00Z',
                     duration: 60,
                   },
                 },
