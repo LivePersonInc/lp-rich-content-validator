@@ -152,8 +152,14 @@
               "keyboardType": {
                 "type": "string",
                 "description": "Type of keyboard",
-                "enum": ["default", "asciiCapable", "numbersAndPunctuation", "URL", "numberPad","phonePad","namePhonePad", "emailAddress","decimalPad", "UIKeyboardTypeTwitter","webSearch","textContentType"],
+                "enum": ["default", "asciiCapable", "numbersAndPunctuation", "URL", "numberPad","phonePad","namePhonePad", "emailAddress","decimalPad", "UIKeyboardTypeTwitter","webSearch"],
                 "default": "default",
+                "maxLength": 2048
+              },
+              "textContentType": {
+                "type": "string",
+                "description": "A string value representing the keyboard and system information",
+                "enum": ["name", "namePrefix", "givenName", "middleName", "familyName", "nameSuffix", "nickname", "jobTitle", "organizationName", "location", "fullStreetAddress", "streetAddressLine1", "streetAddressLine2", "addressCity", "addressState", "addressCityAndState", "sublocality", "countryName", "postalCode", "telephoneNumber", "emailAddress", "URL", "creditCardNumber", "username", "password", "newPassword", "oneTimeCode"],
                 "maxLength": 2048
               }
             }
