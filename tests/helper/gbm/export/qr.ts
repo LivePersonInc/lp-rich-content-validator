@@ -29,7 +29,7 @@ export const expectedSchemaQuickrepliesGbm = {
                     $schema: 'http://json-schema.org/draft-07/schema#',
                     title: 'gbmQuickReplyActions',
                     required: ['actions'],
-                    additionalProperties: false,
+                    additionalProperties: true,
                     properties: {
                       actions: {
                         type: 'array',

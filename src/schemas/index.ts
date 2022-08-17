@@ -110,6 +110,7 @@ import abcListPicker from './appleBusinessChat/bodies/listPicker/abcListPicker.j
 import abcRichLinkCard from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCard.json';
 import abcRichLinkCardElementOrder1 from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCardElementOrder1.json';
 import abcRichLinkCardElementOrder2 from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCardElementOrder2.json';
+import abcRichLinkCardElementOrder3 from './appleBusinessChat/bodies/richLinkCard/abcRichLinkCardElementOrder3.json';
 import abcBodyRoot from './appleBusinessChat/bodies/abcBodyRoot.json';
 import abcForm from './appleBusinessChat/bodies/form/abcForm.json';
 import abcChatMessageMd from './appleBusinessChat/metadata/abcChatMessageMd.json';
@@ -314,6 +315,7 @@ const abcSchemas: IChannelSchemas = {
     abcRichLinkCard,
     abcRichLinkCardElementOrder1,
     abcRichLinkCardElementOrder2,
+    abcRichLinkCardElementOrder3,
     abcForm,
 
     /*  If a body in ABC is neither 'listPicker', 'datePicker' nor a 'richLink'-Card it gets validated as

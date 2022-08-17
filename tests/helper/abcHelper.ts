@@ -2918,6 +2918,145 @@ const expectedSchemaBodyAbc = {
                     ],
                     additionalItems: false,
                   },
+                  {
+                    title: 'abcRichLinkCardElementOrder3',
+                    $schema: 'http://json-schema.org/draft-07/schema#',
+                    minItems: 1,
+                    maxItems: 2,
+                    type: 'array',
+                    items: [
+                      {
+                        title: 'abcText',
+                        $schema: 'http://json-schema.org/draft-07/schema#',
+                        required: ['type', 'text'],
+                        properties: {
+                          type: {
+                            type: 'string',
+                            enum: ['text'],
+                            default: 'text',
+                            readonly: true,
+                          },
+                          tag: {
+                            type: 'string',
+                            readonly: true,
+                          },
+                          text: {
+                            type: 'string',
+                            maxLength: 5000,
+                          },
+                          style: {
+                            title: 'abcStyle',
+                            $schema: 'http://json-schema.org/draft-07/schema#',
+                            type: 'object',
+                            additionalProperties: false,
+                            properties: {
+                              'background-color': {
+                                type: 'string',
+                                format: 'color',
+                                maxLength: 256,
+                              },
+                              'border-color': {
+                                type: 'string',
+                                format: 'color',
+                                maxLength: 256,
+                              },
+                              'border-radius': {
+                                type: 'number',
+                              },
+                              bold: {
+                                type: 'boolean',
+                              },
+                              italic: {
+                                type: 'boolean',
+                              },
+                              color: {
+                                type: 'string',
+                                format: 'color',
+                                maxLength: 256,
+                              },
+                              size: {
+                                type: 'string',
+                                enum: ['small', 'medium', 'large'],
+                              },
+                            },
+                          },
+                          tooltip: {
+                            type: 'string',
+                          },
+                        },
+                      },
+                      {
+                        title: 'abcButtonRichLink',
+                        $schema: 'http://json-schema.org/draft-07/schema#',
+                        type: 'object',
+                        required: ['click', 'title', 'type'],
+                        properties: {
+                          type: {
+                            type: 'string',
+                            enum: ['button'],
+                            default: 'button',
+                            readonly: true,
+                          },
+                          tooltip: {
+                            type: 'string',
+                            maxLength: 256,
+                          },
+                          title: {
+                            type: 'string',
+                            maxLength: 128,
+                          },
+                          click: {
+                            title: 'abcClickOperationsRichLink',
+                            $schema: 'http://json-schema.org/draft-07/schema#',
+                            type: 'object',
+                            additionalProperties: false,
+                            properties: {
+                              metadata: {
+                                title: 'abcClickMetadata',
+                                $schema: 'http://json-schema.org/draft-07/schema#',
+                                type: 'array',
+                                maxItems: 32,
+                                items: {},
+                              },
+                              actions: {
+                                maxItems: 4,
+                                type: 'array',
+                                items: {
+                                  title: 'abcClickActionLink',
+                                  $schema: 'http://json-schema.org/draft-07/schema#',
+                                  type: 'object',
+                                  required: ['type', 'uri'],
+                                  properties: {
+                                    type: {
+                                      type: 'string',
+                                      enum: ['link'],
+                                      default: 'link',
+                                      readonly: true,
+                                    },
+                                    uri: {
+                                      type: 'string',
+                                      format: 'uri',
+                                      maxLength: 1024,
+                                    },
+                                    name: {
+                                      type: 'string',
+                                      maxLength: 256,
+                                    },
+                                    target: {
+                                      type: 'string',
+                                      enum: ['self', 'blank', 'slideout'],
+                                      default: 'self',
+                                    },
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    ],
+                    additionalItems: true,
+                  },
                 ],
               },
             },
@@ -2971,6 +3110,10 @@ const expectedSchemaBodyAbc = {
                                   type: 'string',
                                   enum: ['text'],
                                   default: 'text',
+                                  readonly: true,
+                                },
+                                tag: {
+                                  type: 'string',
                                   readonly: true,
                                 },
                                 text: {
@@ -3527,135 +3670,197 @@ const expectedSchemaBodyAbc = {
                                             {
                                               title: 'abcListPickerEntryDefinitionElementOrder3',
                                               $schema: 'http://json-schema.org/draft-07/schema#',
-                                              minItems: 2,
+                                              minItems: 1,
                                               maxItems: 2,
                                               type: 'array',
-                                              items: [
-                                                {
-                                                  title: 'abcTitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['title'],
-                                                      default: 'title',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
+                                              items: {
+                                                anyOf: [
+                                                  {
+                                                    title: 'abcTitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['title'],
+                                                        default: 'title',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
                                                         },
                                                       },
-                                                    },
-                                                    tooltip: {
-                                                      type: 'string',
-                                                    },
-                                                  },
-                                                },
-                                                {
-                                                  title: 'abcSubtitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['subtitle'],
-                                                      default: 'subtitle',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
-                                                        },
+                                                      tooltip: {
+                                                        type: 'string',
                                                       },
                                                     },
-                                                    tooltip: {
-                                                      type: 'string',
+                                                  },
+                                                  {
+                                                    title: 'abcSubtitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['subtitle'],
+                                                        default: 'subtitle',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
                                                     },
                                                   },
-                                                },
-                                              ],
+                                                  {
+                                                    title: 'abcText',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                               additionalItems: false,
                                             },
                                             {
@@ -4463,135 +4668,197 @@ const expectedSchemaBodyAbc = {
                                             {
                                               title: 'abcListPickerEntryDefinitionElementOrder3',
                                               $schema: 'http://json-schema.org/draft-07/schema#',
-                                              minItems: 2,
+                                              minItems: 1,
                                               maxItems: 2,
                                               type: 'array',
-                                              items: [
-                                                {
-                                                  title: 'abcTitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['title'],
-                                                      default: 'title',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
+                                              items: {
+                                                anyOf: [
+                                                  {
+                                                    title: 'abcTitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['title'],
+                                                        default: 'title',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
                                                         },
                                                       },
-                                                    },
-                                                    tooltip: {
-                                                      type: 'string',
-                                                    },
-                                                  },
-                                                },
-                                                {
-                                                  title: 'abcSubtitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['subtitle'],
-                                                      default: 'subtitle',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
-                                                        },
+                                                      tooltip: {
+                                                        type: 'string',
                                                       },
                                                     },
-                                                    tooltip: {
-                                                      type: 'string',
+                                                  },
+                                                  {
+                                                    title: 'abcSubtitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['subtitle'],
+                                                        default: 'subtitle',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
                                                     },
                                                   },
-                                                },
-                                              ],
+                                                  {
+                                                    title: 'abcText',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                               additionalItems: false,
                                             },
                                             {
@@ -5443,135 +5710,197 @@ const expectedSchemaBodyAbc = {
                                             {
                                               title: 'abcListPickerEntryDefinitionElementOrder3',
                                               $schema: 'http://json-schema.org/draft-07/schema#',
-                                              minItems: 2,
+                                              minItems: 1,
                                               maxItems: 2,
                                               type: 'array',
-                                              items: [
-                                                {
-                                                  title: 'abcTitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['title'],
-                                                      default: 'title',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
+                                              items: {
+                                                anyOf: [
+                                                  {
+                                                    title: 'abcTitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['title'],
+                                                        default: 'title',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
                                                         },
                                                       },
-                                                    },
-                                                    tooltip: {
-                                                      type: 'string',
-                                                    },
-                                                  },
-                                                },
-                                                {
-                                                  title: 'abcSubtitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['subtitle'],
-                                                      default: 'subtitle',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
-                                                        },
+                                                      tooltip: {
+                                                        type: 'string',
                                                       },
                                                     },
-                                                    tooltip: {
-                                                      type: 'string',
+                                                  },
+                                                  {
+                                                    title: 'abcSubtitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['subtitle'],
+                                                        default: 'subtitle',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
                                                     },
                                                   },
-                                                },
-                                              ],
+                                                  {
+                                                    title: 'abcText',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                               additionalItems: false,
                                             },
                                             {
@@ -6379,135 +6708,197 @@ const expectedSchemaBodyAbc = {
                                             {
                                               title: 'abcListPickerEntryDefinitionElementOrder3',
                                               $schema: 'http://json-schema.org/draft-07/schema#',
-                                              minItems: 2,
+                                              minItems: 1,
                                               maxItems: 2,
                                               type: 'array',
-                                              items: [
-                                                {
-                                                  title: 'abcTitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['title'],
-                                                      default: 'title',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
+                                              items: {
+                                                anyOf: [
+                                                  {
+                                                    title: 'abcTitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['title'],
+                                                        default: 'title',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
                                                         },
                                                       },
-                                                    },
-                                                    tooltip: {
-                                                      type: 'string',
-                                                    },
-                                                  },
-                                                },
-                                                {
-                                                  title: 'abcSubtitle',
-                                                  $schema: 'http://json-schema.org/draft-07/schema#',
-                                                  required: ['type', 'text', 'tag'],
-                                                  properties: {
-                                                    type: {
-                                                      type: 'string',
-                                                      enum: ['text'],
-                                                      default: 'text',
-                                                      readonly: true,
-                                                    },
-                                                    tag: {
-                                                      type: 'string',
-                                                      enum: ['subtitle'],
-                                                      default: 'subtitle',
-                                                      readonly: true,
-                                                    },
-                                                    text: {
-                                                      type: 'string',
-                                                      maxLength: 5000,
-                                                    },
-                                                    style: {
-                                                      title: 'abcStyle',
-                                                      $schema: 'http://json-schema.org/draft-07/schema#',
-                                                      type: 'object',
-                                                      additionalProperties: false,
-                                                      properties: {
-                                                        'background-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-color': {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        'border-radius': {
-                                                          type: 'number',
-                                                        },
-                                                        bold: {
-                                                          type: 'boolean',
-                                                        },
-                                                        italic: {
-                                                          type: 'boolean',
-                                                        },
-                                                        color: {
-                                                          type: 'string',
-                                                          format: 'color',
-                                                          maxLength: 256,
-                                                        },
-                                                        size: {
-                                                          type: 'string',
-                                                          enum: ['small', 'medium', 'large'],
-                                                        },
+                                                      tooltip: {
+                                                        type: 'string',
                                                       },
                                                     },
-                                                    tooltip: {
-                                                      type: 'string',
+                                                  },
+                                                  {
+                                                    title: 'abcSubtitle',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text', 'tag'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        enum: ['subtitle'],
+                                                        default: 'subtitle',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
                                                     },
                                                   },
-                                                },
-                                              ],
+                                                  {
+                                                    title: 'abcText',
+                                                    $schema: 'http://json-schema.org/draft-07/schema#',
+                                                    required: ['type', 'text'],
+                                                    properties: {
+                                                      type: {
+                                                        type: 'string',
+                                                        enum: ['text'],
+                                                        default: 'text',
+                                                        readonly: true,
+                                                      },
+                                                      tag: {
+                                                        type: 'string',
+                                                        readonly: true,
+                                                      },
+                                                      text: {
+                                                        type: 'string',
+                                                        maxLength: 5000,
+                                                      },
+                                                      style: {
+                                                        title: 'abcStyle',
+                                                        $schema: 'http://json-schema.org/draft-07/schema#',
+                                                        type: 'object',
+                                                        additionalProperties: false,
+                                                        properties: {
+                                                          'background-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-color': {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          'border-radius': {
+                                                            type: 'number',
+                                                          },
+                                                          bold: {
+                                                            type: 'boolean',
+                                                          },
+                                                          italic: {
+                                                            type: 'boolean',
+                                                          },
+                                                          color: {
+                                                            type: 'string',
+                                                            format: 'color',
+                                                            maxLength: 256,
+                                                          },
+                                                          size: {
+                                                            type: 'string',
+                                                            enum: ['small', 'medium', 'large'],
+                                                          },
+                                                        },
+                                                      },
+                                                      tooltip: {
+                                                        type: 'string',
+                                                      },
+                                                    },
+                                                  },
+                                                ],
+                                              },
                                               additionalItems: false,
                                             },
                                             {
@@ -7293,6 +7684,10 @@ const expectedSchemaBodyAbc = {
                           type: 'string',
                           enum: ['text'],
                           default: 'text',
+                          readonly: true,
+                        },
+                        tag: {
+                          type: 'string',
                           readonly: true,
                         },
                         text: {

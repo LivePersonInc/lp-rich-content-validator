@@ -7,6 +7,9 @@
     },
     {
       "$ref": "gbmCarousel.json"
+    },
+    {
+      "$ref": "gbmStandaloneCardNested.json"
     }
   ]
 }
