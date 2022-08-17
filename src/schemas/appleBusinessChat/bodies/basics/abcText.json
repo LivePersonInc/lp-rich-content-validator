@@ -9,6 +9,10 @@
       "default": "text",
       "readonly": true
     },
+    "tag": {
+      "type": "string",
+      "readonly": true
+    },
     "text": {
       "type": "string",
       "maxLength": 5000

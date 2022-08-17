@@ -12,6 +12,7 @@ import gbmTitle from './basicElements/gbmTitle.json';
 import gbmDescription from './basicElements/gbmDescription.json';
 
 import gbmStandaloneCard from './bodies/card/gbmStandaloneCard.json';
+import gbmStandaloneCardNested from './bodies/card/gbmStandaloneCardNested.json';
 import gbmCardElementOrder1 from './bodies/card/gbmCardElementOrder1.json';
 import gbmCardElementOrder2 from './bodies/card/gbmCardElementOrder2.json';
 import gbmCardElementOrder3 from './bodies/card/gbmCardElementOrder3.json';
@@ -36,6 +37,7 @@ export const gbmSchemasBody = {
   gbmNavigate,
   gbmLink,
   gbmStandaloneCard,
+  gbmStandaloneCardNested,
   gbmCardElementOrder1,
   gbmCardElementOrder2,
   gbmCardElementOrder3,

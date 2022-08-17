@@ -1,16 +1,21 @@
 {
   "title": "abcListPickerEntryDefinitionElementOrder3",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "minItems": 2,
+  "minItems": 1,
   "maxItems": 2,
   "type": "array",
-  "items": [
-    {
-      "$ref": "abcTitle.json"
-    },
-    {
-      "$ref": "abcSubtitle.json"
-    }
-  ],
+  "items": {
+    "anyOf": [
+      {
+        "$ref": "abcTitle.json"
+      },
+      {
+        "$ref": "abcSubtitle.json"
+      },
+      {
+        "$ref": "abcText.json"
+      }
+    ]
+  },
   "additionalItems": false
 }

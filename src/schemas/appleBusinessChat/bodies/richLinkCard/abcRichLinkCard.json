@@ -23,6 +23,9 @@
         },
         {
           "$ref": "abcRichLinkCardElementOrder2.json"
+        },
+        {
+          "$ref": "abcRichLinkCardElementOrder3.json"
         }
       ]
     }
