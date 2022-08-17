@@ -2592,7 +2592,7 @@ export const expectedSchemaBodyGbm = {
           $schema: 'http://json-schema.org/draft-07/schema#',
           type: 'object',
           additionalProperties: false,
-          required: ['type', 'elements', 'tag'],
+          required: ['type', 'elements'],
           properties: {
             type: {
               type: 'string',
@@ -2607,8 +2607,6 @@ export const expectedSchemaBodyGbm = {
             },
             tag: {
               type: 'string',
-              enum: ['generic'],
-              default: 'generic',
               readonly: true,
             },
             display: {
