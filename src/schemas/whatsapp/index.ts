@@ -23,8 +23,7 @@ import whatsappCardElementOrder6 from './bodies/card/whatsappCardElementOrder6.j
 import whatsappCardElementOrder7 from './bodies/card/whatsappCardElementOrder7.json';
 import whatsappCardElementOrder8 from './bodies/card/whatsappCardElementOrder8.json';
 import whatsappCardElementOrder9 from './bodies/card/whatsappCardElementOrder9.json';
-import whatsAppSingleProductMsgElementOrder1 from './bodies/card/whatsappSingleProductElements1.json';
-import whatsAppSingleProductMsgElementOrder2 from './bodies/card/whatsappSingleProductElements2.json';
+import whatsAppSingleProductMsgElements from './bodies/card/whatsappSingleProductElements.json';
 import whatsAppMultiProductMsgElementOrder1 from './bodies/card/whatsappMultiProductElements1.json';
 import whatsAppMultiProductMsgElementOrder2 from './bodies/card/whatsappMultiProductElements2.json';
 
@@ -47,8 +46,7 @@ export const whatsappSchemasBody = {
   whatsappCardElementOrder7,
   whatsappCardElementOrder8,
   whatsappCardElementOrder9,
-  whatsAppSingleProductMsgElementOrder1,
-  whatsAppSingleProductMsgElementOrder2,
+  whatsAppSingleProductMsgElements,
   whatsAppMultiProductMsgElementOrder1,
   whatsAppMultiProductMsgElementOrder2,
   whatsappImage,
@@ -62,7 +60,7 @@ export const whatsappSchemasBody = {
 export const whatsappSchemasMetadata = {
   MetadataRoot,
   whatsAppSingleProdMetadata,
-  whatsAppMultiProdMetadata
+  whatsAppMultiProdMetadata,
 };
 
 export const whatsappSchemasQuickReply = {
