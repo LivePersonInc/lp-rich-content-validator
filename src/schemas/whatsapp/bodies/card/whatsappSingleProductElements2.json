@@ -1,0 +1,18 @@
+{
+  "title": "whatsappSingleProductElements2",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "minItems": 2,
+  "maxItems": 2,
+  "items": [
+    {
+      "$ref": "whatsappHeader.json"
+    },
+    {
+      "$ref": "whatsappBody.json"
+    },
+    {
+      "$ref": "whatsappFooter.json"
+    }
+  ]
+}

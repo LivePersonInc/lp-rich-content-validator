@@ -32,9 +32,12 @@
           { "$ref": "whatsappCardElementOrder6.json" },
           { "$ref": "whatsappCardElementOrder7.json" },
           { "$ref": "whatsappCardElementOrder8.json" },
-          { "$ref": "whatsappCardElementOrder9.json" }
+          { "$ref": "whatsappCardElementOrder9.json" },
+          { "$ref": "whatsappSingleProductElements1.json" },
+          { "$ref": "whatsappSingleProductElements2.json" },
+          { "$ref": "whatsappMultiProductElements1.json" },
+          { "$ref": "whatsappMultiProductElements2.json" }
         ]
       }
     }
   }
-  
