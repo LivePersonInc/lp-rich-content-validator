@@ -1,0 +1,22 @@
+{
+  "title": "whatsappSingleProductMetadata",
+  "description": "WhatsApp Single Product Message Metadata",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["WhatsAppSingleProduct"],
+      "default": "WhatsAppSingleProduct",
+      "type": "string"
+    },
+    "catalogId": {
+      "type": "string",
+      "maxLength": 25
+    },
+    "productRetailerId": {
+      "type": "string",
+      "maxLength": 50
+    }
+  },
+  "required": ["type", "catalogId", "productRetailerId"]
+}

@@ -1,0 +1,35 @@
+{
+  "title": "whatsappMultiProductMetadata",
+  "description": "WhatsApp Single Product Message Metadata",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["WhatsAppMultipleProduct"],
+      "default": "WhatsAppMultipleProduct",
+      "type": "string"
+    },
+    "catalogId": {
+      "type": "string",
+      "maxLength": 25
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "productIds": {
+          "minItems": 1,
+          "maxItems": 30,
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": ["title", "productIds"]
+    }
+  },
+  "required": ["type", "catalogId", "productRetailerId"]
+}
