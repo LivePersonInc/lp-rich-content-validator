@@ -1,9 +1,9 @@
-export const expectedSchemaMetadataFb = {
+export const expectedSchemaMetadataTwitter = {
   $schema: 'http://json-schema.org/draft-07/schema',
   $ref: '#/definitions/root',
   definitions: {
     root: {
-      title: 'fbMetadataRoot',
+      title: 'twitterMetadataRoot',
       $schema: 'http://json-schema.org/draft-07/schema#',
       oneOf: [
         {

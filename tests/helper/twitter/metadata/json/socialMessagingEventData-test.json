@@ -1,0 +1,20 @@
+[
+  {
+    "type": "SocialMessagingEventData",
+    "event": {
+      "source": "Instagram"
+    },
+    "replyToId": "1284136043630014464",
+    "actions": [
+      {
+        "name": "attachmentUrl",
+        "payload": "https://socialconnect.staging.conversable.com/media/EdIq61iWkAMWPqs.jpg?social_media_account_id=8aa368eb-14ca-4ef4-a8ca-cbb991cb8496&url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FEdIq61iWkAMWPqs.jpg&sig=Is6zI90dTTbikhAWYjCxRzRNbyJ_zHeHrYpaGvsKRUY="
+      }
+    ],
+    "conversationState": {
+      "dmChatId": "4898_7014_31",
+      "currentChannel": "Private"
+    },
+    "channel": "Public"
+  }
+]

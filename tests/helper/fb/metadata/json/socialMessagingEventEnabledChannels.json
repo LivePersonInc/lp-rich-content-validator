@@ -1,0 +1,17 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Facebook",
+    "type": "DirectMessage"
+  },
+  "channel": "Private",
+  "replyToId": "AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
+  "conversationState": {
+    "dmChatId": "107202510969932",
+    "currentChannel": "Private",
+    "enabledChannels": {
+      "private": true,
+      "public": false
+    }
+  }
+}

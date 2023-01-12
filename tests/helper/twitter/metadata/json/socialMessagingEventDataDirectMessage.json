@@ -1,0 +1,13 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Twitter",
+    "type": "DirectMessage"
+  },
+  "channel": "Private",
+  "replyToId": "AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
+  "conversationState": {
+    "dmChatId": "4898_7014_31",
+    "currentChannel": "Private"
+  }
+}
