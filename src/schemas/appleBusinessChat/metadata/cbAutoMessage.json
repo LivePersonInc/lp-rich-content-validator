@@ -1,0 +1,29 @@
+{
+  "title": "Auto Message",
+  "description": "Indicates an auto message sent by controller bot",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "AutoMessage"
+      ],
+      "default": "AutoMessage",
+      "type": "string"
+    },
+    "messageType": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "faasInvoked": {
+      "type": "boolean"
+    },
+    "iteration": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "messageType"
+  ]
+}

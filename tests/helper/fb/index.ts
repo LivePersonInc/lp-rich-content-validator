@@ -1,6 +1,7 @@
 import * as qr from './quickreplies';
 import * as c from './carousels';
 import * as rc from './richCards';
+import * as metaData from './metadata';
 
 export * from './export';
 export const fbJsonContainers = [
@@ -10,4 +11,6 @@ export const fbJsonContainers = [
   ...c.notCompatible,
   ...rc.compatible,
   ...rc.notCompatible,
+  ...metaData.compatible,
+  ...metaData.notCompatible,
 ];

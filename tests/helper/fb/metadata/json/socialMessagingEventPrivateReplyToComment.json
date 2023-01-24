@@ -1,0 +1,12 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Facebook",
+    "type": "PrivateReplyToComment"
+  },
+  "channel": "Public",
+  "replyToId": "107202510969932_151025713254278",
+  "conversationState": {
+    "currentChannel": "Public"
+  }
+}

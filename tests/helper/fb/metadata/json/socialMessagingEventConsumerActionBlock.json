@@ -1,0 +1,17 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Facebook",
+    "type": "ConsumerAction"
+  },
+  "channel": "Public",
+  "replyToId": "107202510969932",
+  "actions": [
+    {
+      "name": "Block"
+    }
+  ],
+  "conversationState": {
+    "currentChannel": "Public"
+  }
+}

@@ -20,10 +20,21 @@ import fbCardGenericElementOrder4 from './facebook/bodies/cards/fbCardGeneric/fb
 import fbCardGenericStandalone from './facebook/bodies/cards/fbCardGeneric/fbCardGenericStandalone.json';
 import fbBodyRoot from './facebook/bodies/fbBodyRoot.json';
 import fbCarousel from './facebook/bodies/fbCarousel.json';
+import socialMessagingEventData from './facebook/metadata/socialMessagingEventData.json';
+import socialMessagingConversationData from './facebook/metadata/socialMessagingConversationData.json';
+import twitterBodyRoot from './twitter/bodies/twitterBodyRoot.json';
+import twitterSocialMessagingEventData from './twitter/metadata/twitterSocialMessagingEventData.json';
+import twitterSocialMessagingConversationData from './twitter/metadata/twitterSocialMessagingConversationData.json';
+import twitterMetadataRoot from './twitter/metadata/twitterMetadataRoot.json';
 import fbMetadataRoot from './facebook/metadata/fbMetadataRoot.json';
+import twitterQuickReplyRoot from './twitter/quickReply/twitterQuickReplyRoot.json';
 import fbQuickReplyRoot from './facebook/quickReply/fbQuickReplyRoot.json';
 import fbQuickReplyActions from './facebook/quickReply/fbQuickReplyActions.json';
 import fbQuickReplyButton from './facebook/quickReply/fbQuickReplyButton.json';
+import instagramBodyRoot from './instagram/bodies/instagramBodyRoot.json';
+import instagramSocialMessagingEventData from './instagram/metadata/instagramSocialMessagingEventData.json';
+import instagramMetadataRoot from './instagram/metadata/instagramMetadataRoot.json';
+import instagramQuickReplyRoot from './instagram/quickReply/instagramQuickReplyRoot.json';
 
 import lineClickActionLink from './line/bodies/basics/clickOperations/lineClickActionLink.json';
 import lineClickActionPublishText from './line/bodies/basics/clickOperations/lineClickActionPublishText.json';
@@ -123,6 +134,7 @@ import abcQuickReplyRoot from './appleBusinessChat/quickReply/abcQuickReplyRoot.
 import abcFormMd from './appleBusinessChat/metadata/abcFormMd.json';
 import abcCBBotResponseMd from './appleBusinessChat/metadata/abcCBBotResponseMd.json';
 import abcBotResponse from './appleBusinessChat/metadata/abcBotResponse.json';
+import cbAutoMessage from './appleBusinessChat/metadata/cbAutoMessage.json';
 
 import viberBodyRoot from './viber/bodies/viberBodyRoot.json';
 import viberClickMetadata from './viber/bodies/basics/clickOperations/viberClickMetadata.json';
@@ -183,7 +195,29 @@ interface IAllSchemas {
   [Channels.GBM]: IChannelSchemas;
   [Channels.WA]: IChannelSchemas;
   [Channels.VIBER]: IChannelSchemas;
+  [Channels.TWITTER]: IChannelSchemas;
+  [Channels.INSTAGRAM]: IChannelSchemas;
 }
+
+const twitterSchemas: IChannelSchemas = {
+  [Types.BDY]: {
+    BodyRoot: twitterBodyRoot,
+  },
+  [Types.MTD]: { MetadataRoot: twitterMetadataRoot, twitterSocialMessagingEventData, twitterSocialMessagingConversationData },
+  [Types.QUR]: {
+    QuickReplyRoot: twitterQuickReplyRoot,
+  },
+};
+
+const instagramSchemas: IChannelSchemas = {
+  [Types.BDY]: {
+    BodyRoot: instagramBodyRoot,
+  },
+  [Types.MTD]: { MetadataRoot: instagramMetadataRoot, instagramSocialMessagingEventData },
+  [Types.QUR]: {
+    QuickReplyRoot: instagramQuickReplyRoot,
+  },
+};
 
 const fbSchemas: IChannelSchemas = {
   [Types.BDY]: {
@@ -208,7 +242,7 @@ const fbSchemas: IChannelSchemas = {
     fbCardGenericElementOrder4,
     fbCardGenericStandalone,
   },
-  [Types.MTD]: { MetadataRoot: fbMetadataRoot },
+  [Types.MTD]: { MetadataRoot: fbMetadataRoot, socialMessagingConversationData, socialMessagingEventData },
   [Types.QUR]: {
     QuickReplyRoot: fbQuickReplyRoot,
     fbQuickReplyActions,
@@ -355,6 +389,7 @@ const abcSchemas: IChannelSchemas = {
     abcFormMd,
     abcCBBotResponseMd,
     abcBotResponse,
+    cbAutoMessage,
   },
   [Types.QUR]: {
     QuickReplyRoot: abcQuickReplyRoot,
@@ -445,6 +480,8 @@ const allSchemas: IAllSchemas = {
   [Channels.GBM]: gbmSchemas,
   [Channels.WA]: whatsappSchemas,
   [Channels.VIBER]: viberSchemas,
+  [Channels.TWITTER]: twitterSchemas,
+  [Channels.INSTAGRAM]: instagramSchemas,
 };
 
 export default allSchemas;

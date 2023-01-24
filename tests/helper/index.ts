@@ -57,6 +57,7 @@ import {
   mdCBBotResponseAbc,
   mdBotResponseAbc,
   bdyFormAbc,
+  mdCbAutoMessage,
 } from './abcHelper';
 
 import {
@@ -140,12 +141,26 @@ import {
 } from './viberHelper';
 
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
+import {
+  twitterJsonContainers,
+  expectedSchemaMetadataTwitter,
+  expectedSchemaBodyTwitter,
+  expectedSchemaQuickrepliesTwitter,
+} from './twitter';
+import {
+  instagramJsonContainers,
+  expectedSchemaMetadataInstagram,
+  expectedSchemaBodyInstagram,
+  expectedSchemaQuickrepliesInstagram,
+} from './instagram';
 import { gbmJsonContainers, expectedSchemaBodyGbm, expectedSchemaMetadataGbm, expectedSchemaQuickrepliesGbm } from './gbm';
 import { Channels } from '../../src';
 import { Types } from '../../src/types';
 
 export const testJsonContainers = [
   ...fbJsonContainers,
+  ...twitterJsonContainers,
+  ...instagramJsonContainers,
   ...gbmJsonContainers,
 
   qrQuickReplyStyledWeb,
@@ -204,6 +219,7 @@ export const testJsonContainers = [
   mdFormAbc,
   mdCBBotResponseAbc,
   mdBotResponseAbc,
+  mdCbAutoMessage,
   bdyFormAbc,
   bdyDatePickerAbc,
   bdyVerticalCardAbc,
@@ -275,6 +291,16 @@ export const expectedSchemas = {
     [Types.BDY]: expectedSchemaBodyFb,
     [Types.MTD]: expectedSchemaMetadataFb,
     [Types.QUR]: expectedSchemaQuickrepliesFb,
+  },
+  [Channels.TWITTER]: {
+    [Types.BDY]: expectedSchemaBodyTwitter,
+    [Types.MTD]: expectedSchemaMetadataTwitter,
+    [Types.QUR]: expectedSchemaQuickrepliesTwitter,
+  },
+  [Channels.INSTAGRAM]: {
+    [Types.BDY]: expectedSchemaBodyInstagram,
+    [Types.MTD]: expectedSchemaMetadataInstagram,
+    [Types.QUR]: expectedSchemaQuickrepliesInstagram,
   },
   [Channels.LINE]: {
     [Types.BDY]: expectedSchemaBodyLine,
