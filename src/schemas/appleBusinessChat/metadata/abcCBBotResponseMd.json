@@ -13,6 +13,50 @@
     "botMsgId": {
       "maxLength": 64,
       "type": "string"
+    },
+    "botInteractionId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "botInteractionName": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "botProviderType": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "botId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "botType": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "botProvider": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "intentId": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "intentName": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "matchType": {
+      "maxLength": 128,
+      "type": "string"
+    },
+    "domainName": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "domainType": {
+      "maxLength": 1024,
+      "type": "string"
     }
   },
   "required" : ["botMsgId"]

@@ -1,0 +1,19 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Facebook",
+    "type": "DirectMessage"
+  },
+  "channel": "Public",
+  "replyToId": "107202510969932_151025713254278",
+  "actions": [
+    {
+      "name": "ConsumerMention",
+      "payload": "{\"consumerId\":\"107202510969932\",\"mentionStartIndex\":10,\"mentionLength\":20}"
+    }
+  ],
+  "conversationState": {
+    "dmChatId": "107202510969932",
+    "currentChannel": "Public"
+  }
+}

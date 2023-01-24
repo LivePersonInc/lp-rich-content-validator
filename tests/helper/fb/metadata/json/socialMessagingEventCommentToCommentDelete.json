@@ -1,0 +1,17 @@
+{
+  "type": "SocialMessagingEventData",
+  "event": {
+    "source": "Facebook",
+    "type": "CommentToComment"
+  },
+  "channel": "Public",
+  "replyToId": "107202510969932_151025713254278",
+  "actions": [
+    {
+      "name": "Delete"
+    }
+  ],
+  "conversationState": {
+    "currentChannel": "Public"
+  }
+}

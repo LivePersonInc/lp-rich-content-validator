@@ -28,6 +28,9 @@
       },
       {
         "$ref": "abcFormMd.json"
+      },
+      {
+        "$ref": "cbAutoMessage.json"
       }
     ]
   }

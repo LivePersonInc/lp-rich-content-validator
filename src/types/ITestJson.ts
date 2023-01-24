@@ -71,6 +71,18 @@ export interface ITestJson {
      * undefined = behavior on channel is not known
      */
     viber?: boolean;
+    /**
+     * true = should work on channel,
+     * false = should not work on channel,
+     * undefined = behavior on channel is not known
+     */
+    twitter?: boolean;
+    /**
+     * true = should work on channel,
+     * false = should not work on channel,
+     * undefined = behavior on channel is not known
+     */
+    instagram?: boolean;
   };
   json: object;
 }

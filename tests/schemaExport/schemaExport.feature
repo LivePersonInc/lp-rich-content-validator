@@ -15,6 +15,16 @@ Feature: Exporting the Schemas as one file
     When I try to export the schemas for rich content-bodies, -metadata and -quickreplies
     Then I receive one correct schema file for each of the rich content-types I requested
 
+  Scenario: Exporting All Twitter schemas
+    Given I have a Rich Content validator for Twitter
+    When I try to export the schemas for rich content-bodies, -metadata and -quickreplies
+    Then I receive one correct schema file for each of the rich content-types I requested
+
+  Scenario: Exporting All Instagram schemas
+    Given I have a Rich Content validator for Instagram
+    When I try to export the schemas for rich content-bodies, -metadata and -quickreplies
+    Then I receive one correct schema file for each of the rich content-types I requested
+
   Scenario: Exporting All Line schemas
     Given I have a Rich Content validator for ABC
     When I try to export the schemas for rich content-bodies, -metadata and -quickreplies

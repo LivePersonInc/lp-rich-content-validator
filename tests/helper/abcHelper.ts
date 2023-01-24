@@ -690,8 +690,19 @@ const mdCBBotResponseAbc = (): ITestJson => ({
   },
   json: [
     {
-      botMsgId: '0f0d47ba-92a6-477f-9b00-92ab261fcb90',
       type: 'CbBotResponseMetaData',
+      botMsgId: '0f0d47ba-92a6-477f-9b00-92ab261fcb90',
+      botInteractionId: '2e74c239-92c8-4a84-a631-076153a4ff08',
+      botInteractionName: 'Test Interaction',
+      botProviderType: '3P_LP_CONNECTOR',
+      botId: '2e74c239-92c8-4a84-a631-076153a4ff08',
+      botType: 'CUSTOM',
+      botProvider: 'DialogFlowCX',
+      intentId: '2e74c239-92c8-4a84-a631-076153a4ff08',
+      intentName: 'intentName',
+      matchType: 'INTENT_MATCH',
+      domainName: 'DOMAIN_NAME',
+      domainType: 'DOMAIN_TYPE',
     },
   ],
 });
@@ -735,6 +746,27 @@ const mdBotResponseAbc = (): ITestJson => ({
           intentMatchEventType: 'test',
         },
       ],
+    },
+  ],
+});
+
+const mdCbAutoMessage = (): ITestJson => ({
+  richContentType: Types.MTD,
+  channel: Channels.ABC,
+  channelCompatibility: {
+    [Channels.FB]: undefined,
+    [Channels.ABC]: true,
+    [Channels.LINE]: undefined,
+    [Channels.RBM]: undefined,
+    [Channels.WEB]: undefined,
+    [Channels.GBM]: undefined,
+  },
+  json: [
+    {
+      type: 'AutoMessage',
+      messageType: 'CONV_AWAITING_IN_QUEUE',
+      faasInvoked: false,
+      iteration: 2,
     },
   ],
 });
@@ -12798,6 +12830,50 @@ const expectedSchemaMetadataAbc = {
                 maxLength: 64,
                 type: 'string',
               },
+              botInteractionId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              botInteractionName: {
+                maxLength: 1024,
+                type: 'string',
+              },
+              botProviderType: {
+                maxLength: 1024,
+                type: 'string',
+              },
+              botId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              botType: {
+                maxLength: 128,
+                type: 'string',
+              },
+              botProvider: {
+                maxLength: 1024,
+                type: 'string',
+              },
+              intentId: {
+                maxLength: 64,
+                type: 'string',
+              },
+              intentName: {
+                maxLength: 1024,
+                type: 'string',
+              },
+              matchType: {
+                maxLength: 128,
+                type: 'string',
+              },
+              domainName: {
+                maxLength: 1024,
+                type: 'string',
+              },
+              domainType: {
+                maxLength: 1024,
+                type: 'string',
+              },
             },
             required: ['botMsgId'],
           },
@@ -13159,6 +13235,30 @@ const expectedSchemaMetadataAbc = {
             },
             required: ['type'],
           },
+          {
+            title: 'Auto Message',
+            description: 'Indicates an auto message sent by controller bot',
+            additionalProperties: false,
+            type: 'object',
+            properties: {
+              type: {
+                enum: ['AutoMessage'],
+                default: 'AutoMessage',
+                type: 'string',
+              },
+              messageType: {
+                maxLength: 64,
+                type: 'string',
+              },
+              faasInvoked: {
+                type: 'boolean',
+              },
+              iteration: {
+                type: 'integer',
+              },
+            },
+            required: ['type', 'messageType'],
+          },
         ],
       },
     },
@@ -13259,5 +13359,6 @@ export {
   mdFormAbc,
   mdCBBotResponseAbc,
   mdBotResponseAbc,
+  mdCbAutoMessage,
   bdyFormAbc,
 };

@@ -75,6 +75,58 @@ defineFeature(feature, (test) => {
     });
   });
 
+  test('Exporting All Twitter schemas', ({ given, when, then }) => {
+    let validator: RichContentValidator;
+    let bodySchema: object;
+    let metadataSchema: object;
+    let quickrepliesSchema: object;
+    given('I have a Rich Content validator for Twitter', () => {
+      validator = new RichContentValidator({ channel: Channels.TWITTER });
+    });
+
+    when('I try to export the schemas for rich content-bodies, -metadata and -quickreplies', () => {
+      bodySchema = validator.exportSchema({ type: Types.BDY, channel: Channels.TWITTER });
+      metadataSchema = validator.exportSchema({ type: Types.MTD, channel: Channels.TWITTER });
+      quickrepliesSchema = validator.exportSchema({ type: Types.QUR, channel: Channels.TWITTER });
+    });
+
+    then('I receive one correct schema file for each of the rich content-types I requested', () => {
+      const expectedBodySchema = expectedSchemas[Channels.TWITTER][Types.BDY];
+      const expectedMetadataSchema = expectedSchemas[Channels.TWITTER][Types.MTD];
+      const expectedQuickrepliesSchema = expectedSchemas[Channels.TWITTER][Types.QUR];
+
+      expect(bodySchema).toEqual(expectedBodySchema);
+      expect(metadataSchema).toEqual(expectedMetadataSchema);
+      expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
+    });
+  });
+
+  test('Exporting All Instagram schemas', ({ given, when, then }) => {
+    let validator: RichContentValidator;
+    let bodySchema: object;
+    let metadataSchema: object;
+    let quickrepliesSchema: object;
+    given('I have a Rich Content validator for Instagram', () => {
+      validator = new RichContentValidator({ channel: Channels.INSTAGRAM });
+    });
+
+    when('I try to export the schemas for rich content-bodies, -metadata and -quickreplies', () => {
+      bodySchema = validator.exportSchema({ type: Types.BDY, channel: Channels.INSTAGRAM });
+      metadataSchema = validator.exportSchema({ type: Types.MTD, channel: Channels.INSTAGRAM });
+      quickrepliesSchema = validator.exportSchema({ type: Types.QUR, channel: Channels.INSTAGRAM });
+    });
+
+    then('I receive one correct schema file for each of the rich content-types I requested', () => {
+      const expectedBodySchema = expectedSchemas[Channels.INSTAGRAM][Types.BDY];
+      const expectedMetadataSchema = expectedSchemas[Channels.INSTAGRAM][Types.MTD];
+      const expectedQuickrepliesSchema = expectedSchemas[Channels.INSTAGRAM][Types.QUR];
+
+      expect(bodySchema).toEqual(expectedBodySchema);
+      expect(metadataSchema).toEqual(expectedMetadataSchema);
+      expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
+    });
+  });
+
   test('Exporting All Line schemas', ({ given, when, then }) => {
     let validator: RichContentValidator;
     let bodySchema: object;
