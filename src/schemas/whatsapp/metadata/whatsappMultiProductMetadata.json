@@ -1,6 +1,6 @@
 {
   "title": "whatsappMultiProductMetadata",
-  "description": "WhatsApp Single Product Message Metadata",
+  "description": "WhatsApp Multi Product Message Metadata",
   "additionalProperties": false,
   "type": "object",
   "properties": {
@@ -31,5 +31,5 @@
       "required": ["title", "productIds"]
     }
   },
-  "required": ["type", "catalogId", "productRetailerId"]
+  "required": ["type", "catalogId"]
 }
