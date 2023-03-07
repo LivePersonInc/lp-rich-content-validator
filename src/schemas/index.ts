@@ -176,9 +176,39 @@ import template from './web/template.json';
 import text from './web/text.json';
 import quickReplies from './web/quickReplies.json';
 
-import { gbmSchemasBody, gbmSchemasQuickReply, gbmSchemasMetadata } from './gbm';
+import whatsappBodyRoot from './whatsapp/bodies/whatsappBodyRoot.json';
+import whatsappMetadataRoot from './whatsapp/metadata/whatsappMetadataRoot.json';
+import whatsappQuickReplyRoot from './whatsapp/quickReply/whatsappQuickReplyRoot.json';
 
-import { whatsappSchemasBody, whatsappSchemasQuickReply, whatsappSchemasMetadata } from './whatsapp';
+import whatsappClickActions from './whatsapp/basicElements/whatsappClickActions.json';
+import whatsappButton from './whatsapp/basicElements/whatsappButton.json';
+import whatsappPublishText from './whatsapp/basicElements/actions/whatsappPublishText.json';
+import whatsappImage from './whatsapp/basicElements/whatsappImage.json';
+import whatsappTitle from './whatsapp/basicElements/whatsappTitle.json';
+import whatsappSubtitle from './whatsapp/basicElements/whatsappSubtitle.json';
+
+import whatsappHeader from './whatsapp/basicElements/whatsappHeader.json';
+import whatsappBody from './whatsapp/basicElements/whatsappBody.json';
+import whatsappFooter from './whatsapp/basicElements/whatsappFooter.json';
+
+import whatsappCard from './whatsapp/bodies/card/whatsappCard.json';
+import whatsappCardElementOrder1 from './whatsapp/bodies/card/whatsappCardElementOrder1.json';
+import whatsappCardElementOrder2 from './whatsapp/bodies/card/whatsappCardElementOrder2.json';
+import whatsappCardElementOrder3 from './whatsapp/bodies/card/whatsappCardElementOrder3.json';
+import whatsappCardElementOrder4 from './whatsapp/bodies/card/whatsappCardElementOrder4.json';
+import whatsappCardElementOrder5 from './whatsapp/bodies/card/whatsappCardElementOrder5.json';
+import whatsappCardElementOrder6 from './whatsapp/bodies/card/whatsappCardElementOrder6.json';
+import whatsappCardElementOrder7 from './whatsapp/bodies/card/whatsappCardElementOrder7.json';
+import whatsappCardElementOrder8 from './whatsapp/bodies/card/whatsappCardElementOrder8.json';
+import whatsappCardElementOrder9 from './whatsapp/bodies/card/whatsappCardElementOrder9.json';
+import whatsappSingleProductElementOrder from './whatsapp/bodies/card/whatsappSingleProductElementOrder.json';
+import whatsappMultiProductElementOrder1 from './whatsapp/bodies/card/whatsappMultiProductElementOrder1.json';
+import whatsappMultiProductElementOrder2 from './whatsapp/bodies/card/whatsappMultiProductElementOrder2.json';
+
+import whatsappSingleProduct from './whatsapp/metadata/whatsappSingleProduct.json';
+import whatsappMultiProduct from './whatsapp/metadata/whatsappMultiProduct.json';
+
+import { gbmSchemasBody, gbmSchemasQuickReply, gbmSchemasMetadata } from './gbm';
 
 interface IChannelSchemas {
   [Types.BDY]: { BodyRoot: object; [additionalKeys: string]: object };
@@ -441,9 +471,42 @@ const gbmSchemas: IChannelSchemas = {
 };
 
 const whatsappSchemas: IChannelSchemas = {
-  [Types.BDY]: whatsappSchemasBody,
-  [Types.MTD]: whatsappSchemasMetadata,
-  [Types.QUR]: whatsappSchemasQuickReply,
+  [Types.BDY]: {
+    BodyRoot: whatsappBodyRoot,
+    whatsappButton,
+    whatsappClickActions,
+    whatsappPublishText,
+    whatsappCard,
+    whatsappCardElementOrder1,
+    whatsappCardElementOrder2,
+    whatsappCardElementOrder3,
+    whatsappCardElementOrder4,
+    whatsappCardElementOrder5,
+    whatsappCardElementOrder6,
+    whatsappCardElementOrder7,
+    whatsappCardElementOrder8,
+    whatsappCardElementOrder9,
+    whatsappSingleProductElementOrder,
+    whatsappMultiProductElementOrder1,
+    whatsappMultiProductElementOrder2,
+    whatsappImage,
+    whatsappTitle,
+    whatsappSubtitle,
+    whatsappHeader,
+    whatsappBody,
+    whatsappFooter,
+  },
+  [Types.MTD]: {
+    MetadataRoot: whatsappMetadataRoot,
+    whatsappSingleProduct,
+    whatsappMultiProduct,
+  },
+  [Types.QUR]: {
+    QuickReplyRoot: whatsappQuickReplyRoot,
+    whatsappButton,
+    whatsappClickActions,
+    whatsappPublishText,
+  },
 };
 
 const viberSchemas: IChannelSchemas = {

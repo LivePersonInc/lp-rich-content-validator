@@ -2,14 +2,14 @@
   "title": "whatsappMetadataRoot",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": ["array", "null"],
-  "maxItems": 32,
+  "maxItems": 1,
   "items": {
     "oneOf": [
       {
-        "$ref": "whatsappSingleProductMetadata.json"
+        "$ref": "whatsappSingleProduct.json"
       },
       {
-        "$ref": "whatsappMultiProductMetadata.json"
+        "$ref": "whatsappMultiProduct.json"
       }
     ]
   }

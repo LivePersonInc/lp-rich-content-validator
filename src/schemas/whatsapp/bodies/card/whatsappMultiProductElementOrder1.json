@@ -1,5 +1,5 @@
 {
-  "title": "whatsappMultiProductElements1",
+  "title": "whatsappMultiProductElementOrder1",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "array",
   "minItems": 2,

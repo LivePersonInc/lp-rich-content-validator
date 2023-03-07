@@ -1,5 +1,5 @@
 {
-  "title": "whatsappMultiProductMetadata",
+  "title": "whatsappMultiProduct",
   "description": "WhatsApp Single Product Message Metadata",
   "additionalProperties": false,
   "type": "object",
