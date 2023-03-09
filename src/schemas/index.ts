@@ -201,9 +201,7 @@ import whatsappCardElementOrder6 from './whatsapp/bodies/card/whatsappCardElemen
 import whatsappCardElementOrder7 from './whatsapp/bodies/card/whatsappCardElementOrder7.json';
 import whatsappCardElementOrder8 from './whatsapp/bodies/card/whatsappCardElementOrder8.json';
 import whatsappCardElementOrder9 from './whatsapp/bodies/card/whatsappCardElementOrder9.json';
-import whatsappSingleProductElementOrder from './whatsapp/bodies/card/whatsappSingleProductElementOrder.json';
-import whatsappMultiProductElementOrder1 from './whatsapp/bodies/card/whatsappMultiProductElementOrder1.json';
-import whatsappMultiProductElementOrder2 from './whatsapp/bodies/card/whatsappMultiProductElementOrder2.json';
+import whatsappProductElementOrder from './whatsapp/bodies/card/whatsappProductElementOrder.json';
 
 import whatsappSingleProduct from './whatsapp/metadata/whatsappSingleProduct.json';
 import whatsappMultiProduct from './whatsapp/metadata/whatsappMultiProduct.json';
@@ -486,9 +484,7 @@ const whatsappSchemas: IChannelSchemas = {
     whatsappCardElementOrder7,
     whatsappCardElementOrder8,
     whatsappCardElementOrder9,
-    whatsappSingleProductElementOrder,
-    whatsappMultiProductElementOrder1,
-    whatsappMultiProductElementOrder2,
+    whatsappProductElementOrder,
     whatsappImage,
     whatsappTitle,
     whatsappSubtitle,

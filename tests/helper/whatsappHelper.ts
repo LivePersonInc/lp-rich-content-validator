@@ -1214,7 +1214,7 @@ const expectedSchemaBodyWhatsApp = {
                   },
                 },
                 {
-                  title: 'whatsappSingleProductElementOrder',
+                  title: 'whatsappProductElementOrder',
                   $schema: 'http://json-schema.org/draft-07/schema#',
                   type: 'array',
                   minItems: 0,
@@ -1241,7 +1241,7 @@ const expectedSchemaBodyWhatsApp = {
                           },
                           text: {
                             type: 'string',
-                            maxLength: 150,
+                            maxLength: 60,
                           },
                         },
                       },
@@ -1294,145 +1294,8 @@ const expectedSchemaBodyWhatsApp = {
                         },
                       },
                     ],
+                    additionalItems: false,
                   },
-                },
-                {
-                  title: 'whatsappMultiProductElementOrder1',
-                  $schema: 'http://json-schema.org/draft-07/schema#',
-                  type: 'array',
-                  minItems: 2,
-                  maxItems: 2,
-                  items: [
-                    {
-                      title: 'whatsappHeader',
-                      $schema: 'http://json-schema.org/draft-07/schema#',
-                      type: 'object',
-                      required: ['type', 'tag', 'text'],
-                      properties: {
-                        type: {
-                          type: 'string',
-                          enum: ['text'],
-                          default: 'text',
-                          readonly: true,
-                        },
-                        tag: {
-                          type: 'string',
-                          enum: ['header'],
-                          default: 'header',
-                          readonly: true,
-                        },
-                        text: {
-                          type: 'string',
-                          maxLength: 150,
-                        },
-                      },
-                    },
-                    {
-                      title: 'whatsappBody',
-                      $schema: 'http://json-schema.org/draft-07/schema#',
-                      type: 'object',
-                      required: ['type', 'tag', 'text'],
-                      properties: {
-                        type: {
-                          type: 'string',
-                          enum: ['text'],
-                          default: 'text',
-                          readonly: true,
-                        },
-                        tag: {
-                          type: 'string',
-                          enum: ['body'],
-                          default: 'body',
-                          readonly: true,
-                        },
-                        text: {
-                          type: 'string',
-                          maxLength: 500,
-                        },
-                      },
-                    },
-                  ],
-                },
-                {
-                  title: 'whatsappMultiProductElementOrder2',
-                  $schema: 'http://json-schema.org/draft-07/schema#',
-                  type: 'array',
-                  minItems: 3,
-                  maxItems: 3,
-                  items: [
-                    {
-                      title: 'whatsappHeader',
-                      $schema: 'http://json-schema.org/draft-07/schema#',
-                      type: 'object',
-                      required: ['type', 'tag', 'text'],
-                      properties: {
-                        type: {
-                          type: 'string',
-                          enum: ['text'],
-                          default: 'text',
-                          readonly: true,
-                        },
-                        tag: {
-                          type: 'string',
-                          enum: ['header'],
-                          default: 'header',
-                          readonly: true,
-                        },
-                        text: {
-                          type: 'string',
-                          maxLength: 150,
-                        },
-                      },
-                    },
-                    {
-                      title: 'whatsappBody',
-                      $schema: 'http://json-schema.org/draft-07/schema#',
-                      type: 'object',
-                      required: ['type', 'tag', 'text'],
-                      properties: {
-                        type: {
-                          type: 'string',
-                          enum: ['text'],
-                          default: 'text',
-                          readonly: true,
-                        },
-                        tag: {
-                          type: 'string',
-                          enum: ['body'],
-                          default: 'body',
-                          readonly: true,
-                        },
-                        text: {
-                          type: 'string',
-                          maxLength: 500,
-                        },
-                      },
-                    },
-                    {
-                      title: 'whatsappFooter',
-                      $schema: 'http://json-schema.org/draft-07/schema#',
-                      type: 'object',
-                      required: ['type', 'tag', 'text'],
-                      properties: {
-                        type: {
-                          type: 'string',
-                          enum: ['text'],
-                          default: 'text',
-                          readonly: true,
-                        },
-                        tag: {
-                          type: 'string',
-                          enum: ['footer'],
-                          default: 'footer',
-                          readonly: true,
-                        },
-                        text: {
-                          type: 'string',
-                          maxLength: 60,
-                        },
-                      },
-                    },
-                  ],
                 },
               ],
             },
