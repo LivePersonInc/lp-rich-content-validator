@@ -1478,7 +1478,7 @@ const expectedSchemaMetadataWhatsApp = {
           },
           {
             title: 'whatsappMultiProduct',
-            description: 'WhatsApp Single Product Message Metadata',
+            description: 'WhatsApp Multiple Product Message Metadata',
             additionalProperties: false,
             type: 'object',
             properties: {
@@ -1492,24 +1492,30 @@ const expectedSchemaMetadataWhatsApp = {
                 maxLength: 25,
               },
               sections: {
-                type: 'object',
-                additionalProperties: false,
-                properties: {
-                  title: {
-                    type: 'string',
-                    maxLength: 2048,
+                type: 'array',
+                minItems: 1,
+                maxItems: 10,
+                items: {
+                  type: 'object',
+                  properties: {
+                    title: {
+                      type: 'string',
+                      maxLength: 24,
+                    },
+                    productIds: {
+                      minItems: 1,
+                      maxItems: 30,
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
                   },
-                  productIds: {
-                    minItems: 1,
-                    maxItems: 30,
-                    type: 'array',
-                    items: {},
-                  },
+                  required: ['title', 'productIds'],
                 },
-                required: ['title', 'productIds'],
               },
             },
-            required: ['type', 'catalogId', 'productRetailerId'],
+            required: ['type', 'catalogId', 'sections'],
           },
         ],
       },
