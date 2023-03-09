@@ -140,6 +140,16 @@ import {
   expectedSchemaQuickrepliesViber,
 } from './viberHelper';
 
+import {
+  expectedSchemaBodyWhatsApp,
+  expectedSchemaMetadataWhatsApp,
+  expectedSchemaQuickrepliesWhatsApp,
+  bdyWhatsAppSingleProductJson,
+  mdWhatsAppSingleProductMetadata,
+  bdyWhatsAppMultiProductJson,
+  mdWhatsAppMultiProductMetadata,
+} from './whatsappHelper';
+
 import { fbJsonContainers, expectedSchemaBodyFb, expectedSchemaMetadataFb, expectedSchemaQuickrepliesFb } from './fb';
 import {
   twitterJsonContainers,
@@ -279,6 +289,11 @@ export const testJsonContainers = [
   bdyVerticalCarouselViberNoCards,
   bdyVerticalCarouselViber11Cards,
   bdyVerticalCardViberWithButtonStyling,
+
+  bdyWhatsAppSingleProductJson,
+  mdWhatsAppSingleProductMetadata,
+  bdyWhatsAppMultiProductJson,
+  mdWhatsAppMultiProductMetadata,
 ];
 
 export const expectedSchemas = {
@@ -326,5 +341,10 @@ export const expectedSchemas = {
     [Types.BDY]: expectedSchemaBodyViber,
     [Types.MTD]: expectedSchemaMetadataViber,
     [Types.QUR]: expectedSchemaQuickrepliesViber,
+  },
+  [Channels.WA]: {
+    [Types.BDY]: expectedSchemaBodyWhatsApp,
+    [Types.MTD]: expectedSchemaMetadataWhatsApp,
+    [Types.QUR]: expectedSchemaQuickrepliesWhatsApp,
   },
 };
