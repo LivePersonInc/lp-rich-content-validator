@@ -258,4 +258,31 @@ defineFeature(feature, (test) => {
       expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
     });
   });
+
+  test('Exporting All WhatsApp schemas', ({ given, when, then }) => {
+    let validator: RichContentValidator;
+    let bodySchema: object;
+    let metadataSchema: object;
+    let quickrepliesSchema: object;
+
+    given('I have a Rich Content validator for WhatsApp', () => {
+      validator = new RichContentValidator({ channel: Channels.WA });
+    });
+
+    when('I try to export the schemas for rich content-bodies, -metadata and -quickreplies', () => {
+      bodySchema = validator.exportSchema({ type: Types.BDY, channel: Channels.WA });
+      metadataSchema = validator.exportSchema({ type: Types.MTD, channel: Channels.WA });
+      quickrepliesSchema = validator.exportSchema({ type: Types.QUR, channel: Channels.WA });
+    });
+
+    then('I receive one correct schema file for each of the rich content-types I requested', () => {
+      const expectedBodySchema = expectedSchemas[Channels.WA][Types.BDY];
+      const expectedMetadataSchema = expectedSchemas[Channels.WA][Types.MTD];
+      const expectedQuickrepliesSchema = expectedSchemas[Channels.WA][Types.QUR];
+
+      expect(bodySchema).toEqual(expectedBodySchema);
+      expect(metadataSchema).toEqual(expectedMetadataSchema);
+      expect(quickrepliesSchema).toEqual(expectedQuickrepliesSchema);
+    });
+  });
 });

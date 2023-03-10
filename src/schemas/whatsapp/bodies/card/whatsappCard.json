@@ -23,7 +23,7 @@
         "readonly": true
       },
       "elements": {
-        "anyOf": [
+        "oneOf": [
           { "$ref": "whatsappCardElementOrder1.json" },
           { "$ref": "whatsappCardElementOrder2.json" },
           { "$ref": "whatsappCardElementOrder3.json" },
@@ -33,9 +33,7 @@
           { "$ref": "whatsappCardElementOrder7.json" },
           { "$ref": "whatsappCardElementOrder8.json" },
           { "$ref": "whatsappCardElementOrder9.json" },
-          { "$ref": "whatsappSingleProductElements.json" },
-          { "$ref": "whatsappMultiProductElements1.json" },
-          { "$ref": "whatsappMultiProductElements2.json" }
+          { "$ref": "whatsappProductElementOrder.json" }
         ]
       }
     }
