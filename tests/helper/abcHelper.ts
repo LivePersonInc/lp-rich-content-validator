@@ -629,9 +629,9 @@ const mdFormAbc = (): ITestJson => ({
           subtitle: 'What date did you receive, or expect to receive the product?',
           nextPageIdentifier: '5',
           options: {
-            startdate: '2020-02-12',
-            maximumdate: '2020-02-13',
-            minimumdate: '2020-01-01',
+            startDate: '2020-02-12',
+            maximumDate: '2020-02-13',
+            minimumDate: '2020-01-01',
             dateFormat: 'MM/dd/yyyy',
           },
         },
@@ -13108,15 +13108,15 @@ const expectedSchemaMetadataAbc = {
                       type: 'object',
                       additionalProperties: false,
                       properties: {
-                        startdate: {
+                        startDate: {
                           type: 'string',
                           maxLength: 2048,
                         },
-                        maximumdate: {
+                        maximumDate: {
                           type: 'string',
                           maxLength: 2048,
                         },
-                        minimumdate: {
+                        minimumDate: {
                           type: 'string',
                           maxLength: 2048,
                         },

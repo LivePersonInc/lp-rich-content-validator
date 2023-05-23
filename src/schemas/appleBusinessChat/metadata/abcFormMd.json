@@ -102,15 +102,15 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "startdate": {
+              "startDate": {
                 "type": "string",
                 "maxLength": 2048
               },
-              "maximumdate": {
+              "maximumDate": {
                 "type": "string",
                 "maxLength": 2048
               },
-              "minimumdate": {
+              "minimumDate": {
                 "type": "string",
                 "maxLength": 2048
               },
